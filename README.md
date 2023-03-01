@@ -27,4 +27,5 @@ Concept art:
 - If you have any questions, open up a new issue with the tag 'question'
 - Don't by shy, we all made mistakes and are scared sometimes, we accept any help from beginner programmers (we're beginners too)
 
-To contribute, fork our project, edit a new branch in your fork (based from branch 'dev'), then make a pull request to our project's branch 'dev'
+To contribute, fork our project, edit a new branch in your fork (based from branch 'dev'), then make a pull request to our project's branch 'dev'.
+Don't forget to follow our naming conventions section above.
