@@ -1,13 +1,19 @@
-import Navbar from "./components/navbar/Navbar.js"
+import ThreadView from "pages/home/ThreadView.js";
+import Navbar from "./components/navbar/Navbar.js";
+
+// imports for temporary mockup
+import userData from "data/userdata.js";
+import UserContext from "contexts/UserContext.js";
 
 export default function App() {
-  const user = {
-    id: 'ketsu_no_ana117',
-    subscription: 'Milky Way Astronout',
-    profilePicture: 'https://i.pximg.net/img-master/img/2023/02/24/09/23/10/105661350_p0_master1200.jpg'
-  }
-
-  return (
-    <Navbar User={user} isLogin={true}/>
-  );
+	return (
+		<div>
+			<UserContext.Provider
+				value={{ isLoggedIn: true, userID: userData[0].ID }}
+			>
+				<Navbar />
+				<ThreadView />
+			</UserContext.Provider>
+		</div>
+	);
 }

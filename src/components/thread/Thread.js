@@ -1,7 +1,6 @@
-import { FaCrown } from "react-icons/fa";
 import { getMomentFrom } from "utils/date.js";
-import userData from "data/userdata";
-import spaceData from "data/spacedata";
+import { findUser, findSpace } from "utils/find";
+import { FaCrown } from "react-icons/fa";
 
 export default function Thread(props) {
 	const moment = getMomentFrom(new Date(props.postDate));
@@ -13,8 +12,8 @@ export default function Thread(props) {
 			alt="thread content image"
 		/>
 	));
-	const space = spaceData.find((space) => space.ID === props.spaceID);
-	const user = userData.find((user) => user.ID === props.userID);
+	const space = findSpace(props.spaceID);
+	const user = findUser(props.userID);
 
 	return (
 		<div>
