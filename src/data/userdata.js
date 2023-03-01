@@ -1,18 +1,21 @@
 const userData = [
 	{
 		ID: "USR001",
-		name: "ast/ketsu_no_ana117",
+		name: "ketsu_no_ana117",
 		profilePicture: "assets/profile-pic-1.jpg",
+		subscription: "Lieutenant",
 	},
 	{
 		ID: "USR002",
-		name: "ast/pewpewnor",
+		name: "pewpewnor",
 		profilePicture: "assets/profile-pic-1.jpg",
+		subscription: "Lieutenant",
 	},
 	{
 		ID: "USR003",
-		name: "ast/steven123",
+		name: "steven123",
 		profilePicture: "assets/profile-pic-1.jpg",
+		subscription: "Lieutenant",
 	},
 ];
 
