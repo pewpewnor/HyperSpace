@@ -5,7 +5,8 @@ A website to experience the best online community based forum.
 ##
 Concept art:
 
-![image](https://user-images.githubusercontent.com/125549982/221390832-65ac5d89-87a7-43ff-b28d-20d78ac9c65f.png)
+![image](https://user-images.githubusercontent.com/125549982/222207402-16844276-aa5b-443f-8133-85358a4f67cf.png)
+![image](https://user-images.githubusercontent.com/125549982/222207541-2b003870-4246-43a4-90e9-6c30ffc06cbc.png)
 ##
 
 ## Git Documentation:
@@ -21,6 +22,7 @@ Concept art:
 ## Code Documentation: 
 
 ## Contribute:
-- Feel free to comment on any issues you find interesting or open up your own issues
+- Feel free to comment on any issues you find interesting
+- You can also open up your own issues, whether for coding up new features based of the concept art, code refactoring, design improvement, etc
 - If you have any questions, open up a new issue with the tag 'question'
-- Don't by shy, we all made mistakes and are scared sometimes, we accept any help from beginner programmers
+- Don't by shy, we all made mistakes and are scared sometimes, we accept any help from beginner programmers (we're beginners too)
