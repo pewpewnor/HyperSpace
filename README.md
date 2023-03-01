@@ -6,7 +6,7 @@ A website to experience the best online community based forum.
 Concept art:
 
 ![image](https://user-images.githubusercontent.com/125549982/222207402-16844276-aa5b-443f-8133-85358a4f67cf.png)
-![image](https://user-images.githubusercontent.com/125549982/222207541-2b003870-4246-43a4-90e9-6c30ffc06cbc.png)
+![image](https://user-images.githubusercontent.com/125549982/222208674-18c2941b-7ba8-410b-8035-cf5b45fc83b8.png)
 ##
 
 ## Git Documentation:
