@@ -19,3 +19,8 @@ Concept art:
 - Commit naming convention: undefined
 
 ## Code Documentation: 
+
+## Contribute:
+- Feel free to comment on any issues you find interesting or open up your own issues
+- If you have any questions, open up a new issue with the tag 'question'
+- Don't by shy, we all made mistakes and are scared sometimes, we accept any help from beginner programmers
