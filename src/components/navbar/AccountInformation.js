@@ -12,7 +12,6 @@ export default function AccountInformation() {
 
 	const user = findUser(userInfo.userID);
 
-
 	return (
 		<div className="account-information-container">
 			<div className="user-information-data-container">
@@ -29,8 +28,6 @@ export default function AccountInformation() {
 			<div className="border"></div>
 
 			<img src={user.profilePicture} alt={user.name} className="user-profile-picture"></img>
-			
-			{/* <img src="" alt="photo"></img> */}
 		</div>
 	);
 }
