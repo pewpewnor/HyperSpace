@@ -5,22 +5,22 @@ const RelativeTimeFormat = new Intl.RelativeTimeFormat("en", {
 function getMomentFrom(date) {
 	const now = new Date(Date.now());
 
-	const diffYears = Math.abs(now.getFullYear() - date.getFullYear());
-	const diffMonths = Math.abs(now.getMonth() - date.getMonth());
-	const diffDays = Math.abs(now.getDay() - date.getDay());
-	const diffHours = Math.abs(now.getHours() - date.getHours());
-	const diffMinutes = Math.abs(now.getMinutes() - date.getMinutes());
+	const diffYears = Math.abs(date.getFullYear() - now.getFullYear());
+	const diffMonths = Math.abs(date.getMonth() - now.getMonth());
+	const diffDays = Math.abs(date.getDay() - now.getDay());
+	const diffHours = Math.abs(date.getHours() - now.getHours());
+	const diffMinutes = Math.abs(date.getMinutes() - now.getMinutes());
 
 	if (diffYears > 0) {
-		return RelativeTimeFormat.format(diffYears, "year");
+		return RelativeTimeFormat.format(0 - diffYears, "year");
 	} else if (diffMonths > 0) {
-		return RelativeTimeFormat.format(diffMonths, "month");
+		return RelativeTimeFormat.format(0 - diffMonths, "month");
 	} else if (diffDays > 0) {
-		return RelativeTimeFormat.format(diffDays, "day");
+		return RelativeTimeFormat.format(0 - diffDays, "day");
 	} else if (diffHours > 0) {
-		return RelativeTimeFormat.format(diffHours, "hour");
+		return RelativeTimeFormat.format(0 - diffHours, "hour");
 	} else {
-		return RelativeTimeFormat.format(diffMinutes, "minute");
+		return RelativeTimeFormat.format(0 - diffMinutes, "minute");
 	}
 }
 
