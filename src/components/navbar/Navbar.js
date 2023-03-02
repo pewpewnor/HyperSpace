@@ -9,6 +9,12 @@ export default function Navbar() {
 	function handleSearchQuery(event) {
 		setSearchQuery(event.target.value);
 	}
+	
+	function handleSearchQueryEnter(event) {
+		if (event.key === "Enter") {
+			console.log(searchQuery);
+		}
+	} 
 
 	function handleCreatePost() {
 		alert("User wants to create a new thread");
@@ -36,6 +42,7 @@ export default function Navbar() {
 							placeholder="Search anything here..."
 							value={searchQuery}
 							onChange={handleSearchQuery}
+							onKeyDown={handleSearchQueryEnter}
 						></input>
 					</div>
 				</div>
