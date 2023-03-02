@@ -1,17 +1,16 @@
-// import { useContext } from "react";
-// import UserContext from "contexts/UserContext";
 import AccountInformation from "./AccountInformation";
 import "./navbar.css";
 import {FaSearch} from "react-icons/fa";
+import { useState } from "react";
 
 export default function Navbar() {
-	function handleSearch(event) {
-		if (event.key === "Enter") {
-			alert("User clicked enter");
-		}
+	const [searchQuery, setSearchQuery] = useState("");
+
+	function handleSearchQuery(event) {
+		setSearchQuery(event.target.value);
 	}
 
-	function handleCreatePost(e) {
+	function handleCreatePost() {
 		alert("User wants to create a new thread");
 	}
 
@@ -33,8 +32,10 @@ export default function Navbar() {
 						</span>
 						<input
 							className="search-input"
+							name="searchQuery"
 							placeholder="Search anything here..."
-							onKeyDown={handleSearch}
+							value={searchQuery}
+							onChange={handleSearchQuery}
 						></input>
 					</div>
 				</div>
