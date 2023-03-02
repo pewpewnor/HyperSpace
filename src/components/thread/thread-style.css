@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.thread__container{
+    width: 48.625rem;
+    background: #28292E;
+    border-radius: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+.thread__container__top{
+    width: 100%;
+    height: 2.813rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.thread__container__top > .thread__profile__container{
+    display: flex;
+    margin-left: 2rem;
+    
+}
+
+.thread__container__top > .thread__profile__container > img{
+    width: 2.438rem;
+    height: 2.438rem;
+}
+
+.thread__container__top > .thread__profile__container > .thread__profile{
+    margin-left: 1rem;
+}
+
+.thread__container__top > .thread__profile__container > .thread__profile > .thread__profile__username__container{
+    display: flex;
+    align-items: center;
+    /* margin-top: -0.25rem; */
+    
+}
+
+.thread__container__top > .thread__profile__container > .thread__profile > p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.938rem;
+
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+}
+
+.thread__container__top > .thread__profile__container > .thread__profile > .thread__profile__username__container > .thread__profile__subscription{
+    color: #FFBD59;
+    margin-right: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+.thread__container__top > .thread__profile__container > .thread__profile > .thread__profile__username__container > .thread__profile__username{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.75rem;
+
+    display: flex;
+    align-items: center;
+
+    color: #D4F88A;
+}
+
+.thread__container__top > .thread__info{
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.thread__container__top > .thread__info > .thread__info__date__container{
+    display: flex;
+    align-items: center;
+}
+
+.thread__container__top > .thread__info > .thread__info__date__container > .thread__info__date{
+    margin-left: 0.75rem;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.75rem;
+
+    color: #FFFFFF;
+}
+
+.thread__container__top > .thread__info > .thread__info__date__container > .thread__info__date__icon{
+    width: 1rem;
+    height: 1rem;
+    color: #FFFFFF;
+}
+
+.thread__container__top > .thread__info > .thread__info__views{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.75rem;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.thread__content{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.thread__content > .thread__content__title__container{
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.thread__content > .thread__content__title__container > .border{
+    width: 0.313rem;
+    height: 2.188rem;
+    margin-right: 1rem;
+
+    background: #5766FF;
+}
+
+.thread__content > .thread__content__title__container .thread__content__title{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+}
+
+.thread__content > .thread__content__text{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.875rem;
+    color: #BFBFBF;
+
+}
+
+.thread__content > .thread__content__pictures > img{
+    margin-top: 1rem;
+    max-width: 43rem;
+    max-height: 37.5rem;
+}

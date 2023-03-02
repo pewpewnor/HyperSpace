@@ -20,6 +20,10 @@ export default function Navbar() {
 		alert("User wants to create a new thread");
 	}
 
+	function handleSearchIcon(event){
+		console.log(searchQuery);
+	}
+
 	return (
 		<div className="navbar">
 			<div className="navbar-container">
@@ -33,9 +37,6 @@ export default function Navbar() {
 
 				<div className="search-bar-container">
 					<div className="search-bar">
-						<span>
-							<FaSearch className="search-icon" />
-						</span>
 						<input
 							className="search-input"
 							name="searchQuery"
@@ -44,6 +45,9 @@ export default function Navbar() {
 							onChange={handleSearchQuery}
 							onKeyDown={handleSearchQueryEnter}
 						></input>
+						<span onClick={handleSearchIcon}>
+							<FaSearch className="search-icon" />
+						</span>
 					</div>
 				</div>
 

@@ -8,45 +8,45 @@
 
 .navbar{
     width: 100%;
-    height: 4.306vw;
-    position: fixed;
+    height: 3.875rem;
+    position: sticky;
     background: #28292E;
     display: flex;
     justify-content: center;
-
+    top: 0;
+    z-index: 1000;
+    border-bottom: solid #161616 1rem;
 }
 
 .navbar > .navbar-container{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 91.181vw;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .navbar > .navbar-container > .logo-container{
     display: flex;
-    width: 14.444vw;
-    height: 100%;
     align-items: center;
-    margin-left: -2vw;
+    margin-left: 4rem;
     
 }
 
 .navbar-container > .logo-container > img{
-    width: 3.194vw;
-    height: 3.194vw;
+    width: 2.875rem;
+    height: 2.875rem;
 }
 
 .navbar-container > .logo-container > .logo-name-container{
     display: flex;
-    margin-left: 1vw;
+    margin-left: 1rem;
 }
 
 .navbar-container > .logo-container > .logo-name-container > #logo-first{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.667vw;
+    font-size: 1.5rem;
     color: #D4F88A;
 }
 
@@ -54,7 +54,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.667vw;
+    font-size: 1.5rem;
     color: #FFFFFF;
 }
 
@@ -64,31 +64,51 @@
 }
 
 .navbar-container > .search-bar-container > .search-bar{
-    width: 35.208vw;
-    height: 2.569vw;
+    width: 25rem;
+    height: 2rem;
     background: #F9F9F9;
-    border-radius: 0.347vw;
+    border-radius: 0.313rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .navbar-container > .search-bar-container > .search-bar > span{
+    width: 2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.navbar-container > .search-bar-container > .search-bar > span > .search-icon{
-    width: 1.458vw;
-    height: 1.458vw;
-    margin-left: 1.5vw;
+.navbar-container > .search-bar-container > .search-bar > span:hover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5766FF;
+    border: none;
 }
+
+
+.navbar-container > .search-bar-container > .search-bar > span > .search-icon{
+    width: 1rem;
+    height: 1rem;
+    color: #7D7D7D;
+}
+
+.navbar-container > .search-bar-container > .search-bar > span:hover > .search-icon{
+    width: 1rem;
+    height: 1rem;
+    color: #F9F9F9;
+}
+
+
 
 .navbar-container > .search-bar-container > .search-bar > .search-input{
     border: 0;
-    padding-left: 1vw;
-    width: 30vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 20rem;
     height: 100%;
     outline: none;
 }
@@ -97,7 +117,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
-    font-size: 1vw;
+    font-size: 0.75rem;
     color: rgba(0, 0, 0, 0.6);
 }
 
@@ -105,14 +125,14 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
-    font-size: 1vw;
+    font-size: 0.75rem;
     color: rgba(0, 0, 0, 0.6);
 }
 
 .navbar-container > .add-post-container{
-    width: 2.569vw;
-    height: 2.569vw;
-    border-radius: 0.694vw;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.625rem;
     background: #1E1E1E;
     display: flex;
     justify-content: center;
@@ -128,7 +148,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 0.833vw;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
     text-align: center;
@@ -138,6 +158,8 @@
 
 .account-information-container{
     display: flex;
+    align-items: center;
+    margin-right: 4rem;
 
 }
 
@@ -151,7 +173,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
-    font-size: 1vw;
+    font-size: 0.75rem;
     color: #FFFFFF;
 }
 
@@ -159,7 +181,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 800;
-    font-size: 1vw;
+    font-size: 0.75rem;
     color: #FFFFFF;
 }
 
@@ -170,33 +192,32 @@
 
 .account-information-container > .user-information-data-container > .user-subscription-container > .icon-membership-yellow{
     color: #FFBD59;
-    width: 1.458vw;
-    height: 1.458vw;
+    width: 1rem;
+    height: 1rem;
 }
 
 .account-information-container > .user-information-data-container > .user-subscription-container > .user-subscription{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 1vw;
+    font-size: 0.75rem;
     color: #5766FF;
-    margin-right: 0.5vw;
+    margin-right: 0.5rem;
 }
 
 .account-information-container > .border{
-    width: 0.347vw;
-    height: 2.917vw;
+    width: 0.313rem;
+    height: 2.625rem;
     background: #5766FF;
-    margin-left: 1vw;
+    margin-left: 0.5rem;
 }
 
 .sign-in-button{
-    margin-left: 15vw;
     border: none;
     background: #1E1E1E;
-    border-radius: 0.694vw;
-    width: 7.083vw;
-    height: 2.5vw;
+    border-radius: 0.625rem;
+    width: 6.375rem;
+    height: 1.875rem;
 
     display: flex;
     align-items: center;
@@ -205,7 +226,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 1vw;
+    font-size: 0.75rem;
     color: #FFFFFF;
 }
 
@@ -215,11 +236,12 @@
 
 
 .user-profile-picture{
-    width: 3vw;
-    height: 3vw;
-    margin-left: 1vw;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-left: 0.75rem;
 }
 
+/* need fix */
 .background > .account-more-container{
     position: absolute;
     width: 145px;
