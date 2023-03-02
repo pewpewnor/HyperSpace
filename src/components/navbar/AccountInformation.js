@@ -7,7 +7,11 @@ export default function AccountInformation() {
 	const userInfo = useContext(UserContext);
 
 	if (!userInfo.isLoggedIn) {
-		return <button className="sign-in-button">Login</button>;
+		return (
+			<div className="account-information-container">
+			 	<button className="sign-in-button">Login</button>
+			</div>
+		);
 	}
 
 	const user = findUser(userInfo.userID);
@@ -16,6 +20,7 @@ export default function AccountInformation() {
 		<div className="account-information-container">
 			<div className="user-information-data-container">
 				<div className="user-username-container">
+					<p className="user-ast">Ast/</p>
 					<p className="user-username">{user.name}</p>
 				</div>
 
