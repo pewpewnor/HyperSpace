@@ -1,6 +1,6 @@
 import AccountInformation from "./AccountInformation";
 import "./navbar.css";
-import {FaSearch} from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -9,18 +9,18 @@ export default function Navbar() {
 	function handleSearchQuery(event) {
 		setSearchQuery(event.target.value);
 	}
-	
+
 	function handleSearchQueryEnter(event) {
 		if (event.key === "Enter") {
 			console.log(searchQuery);
 		}
-	} 
+	}
 
 	function handleCreatePost() {
 		alert("User wants to create a new thread");
 	}
 
-	function handleSearchIcon(event){
+	function handleSearchIcon(event) {
 		console.log(searchQuery);
 	}
 
@@ -51,7 +51,10 @@ export default function Navbar() {
 					</div>
 				</div>
 
-				<button className="add-post-container" onClick={handleCreatePost}>
+				<button
+					className="add-post-container"
+					onClick={handleCreatePost}
+				>
 					<p>+</p>
 				</button>
 
