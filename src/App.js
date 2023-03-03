@@ -6,7 +6,7 @@ import userData from "data/userdata.js";
 import UserContext from "contexts/UserContext.js";
 
 //import css
-import "./style.css"
+import "./style.css";
 
 export default function App() {
 	return (
@@ -15,7 +15,7 @@ export default function App() {
 				value={{ isLoggedIn: true, userID: userData[0].ID }}
 			>
 				<Navbar />
-				<ThreadView/>
+				<ThreadView />
 			</UserContext.Provider>
 		</div>
 	);

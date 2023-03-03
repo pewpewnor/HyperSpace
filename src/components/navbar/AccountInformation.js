@@ -9,7 +9,7 @@ export default function AccountInformation() {
 	if (!userInfo.isLoggedIn) {
 		return (
 			<div className="account-information-container">
-			 	<button className="sign-in-button">Login</button>
+				<button className="sign-in-button">Login</button>
 			</div>
 		);
 	}
@@ -32,7 +32,11 @@ export default function AccountInformation() {
 
 			<div className="border"></div>
 
-			<img src={user.profilePicture} alt={user.name} className="user-profile-picture"></img>
+			<img
+				src={user.profilePicture}
+				alt={user.name}
+				className="user-profile-picture"
+			></img>
 		</div>
 	);
 }
