@@ -17,7 +17,6 @@ const threadData = [
 		downvote: 5000,
 		comments: 10,
 		userID: "USR001",
-		spaceID: "SPA001",
 	},
 	{
 		ID: "THR002",
@@ -30,7 +29,6 @@ const threadData = [
 		downvote: 2,
 		comments: 12,
 		userID: "USR002",
-		spaceID: "SPA001",
 	},
 	{
 		ID: "THR003",
@@ -43,7 +41,6 @@ const threadData = [
 		downvote: 3,
 		comments: 4,
 		userID: "USR003",
-		spaceID: "SPA001",
 	},
 ];
 
