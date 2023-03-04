@@ -1,16 +1,19 @@
-const threadData = [
+const spaceData = [
 	{
 		ID: "SPA001",
-		name: "Psychology / # Memes",
+		name: "Psychology",
+		channelsID: ["CHA001", "CHA002", "CHA003"],
 	},
 	{
-		ID: "SPA001",
-		name: "Psychology / # General",
+		ID: "SPA002",
+		name: "Gaming",
+		channelsID: [],
 	},
 	{
-		ID: "SPA001",
-		name: "Psychology / # General",
+		ID: "SPA003",
+		name: "Cooking",
+		channelsID: [],
 	},
 ];
 
-export default threadData;
+export default spaceData;
