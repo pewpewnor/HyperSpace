@@ -1,26 +1,33 @@
-import ThreadView from "../../components/thread/ThreadView";
+import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
-import SpaceContext from "contexts/SpaceContext";
+import ThreadView from "../../components/thread/ThreadView";
+import LocationContext from "contexts/LocationContext";
 import { findChannel, findSpace } from "utils/find";
 import "./home.css";
 
 function Home() {
-	const currentSpaceID = "SPA001";
-	const currentChannelID = "CHA001";
-	const space = findSpace(currentSpaceID);
-	const channel = findChannel(currentChannelID);
+	const [currentLocation, setCurrentLocation] = useState({
+		space: findSpace("SPA001"),
+		channel: findChannel("CHA001"),
+	});
+
+	function handleChangeLocation(spaceID, channelID) {
+		const space = findSpace(spaceID);
+		const channel = findChannel(channelID);
+		setCurrentLocation({ space: space, channel: channel });
+	}
 
 	return (
 		<div className="body">
-			<SpaceContext.Provider
+			<Navbar />
+			<LocationContext.Provider
 				value={{
-					space: space,
-					channel: channel,
+					currentLocation: currentLocation,
+					changeLocation: handleChangeLocation,
 				}}
 			>
-				<Navbar />
-				<ThreadView threadsID={channel.threadsID} />
-			</SpaceContext.Provider>
+				<ThreadView threadsID={currentLocation.channel.threadsID} />
+			</LocationContext.Provider>
 		</div>
 	);
 }
