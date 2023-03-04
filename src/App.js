@@ -7,9 +7,7 @@ import userData from "data/userdata";
 
 export default function App() {
 	return (
-		<UserContext.Provider
-			value={{ isLoggedIn: true, userID: userData[0].ID }}
-		>
+		<UserContext.Provider value={{ isLoggedIn: true, user: userData[0] }}>
 			<Home />
 		</UserContext.Provider>
 	);
