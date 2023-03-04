@@ -157,14 +157,6 @@
 	color: #ffffff;
 }
 
-.thread__content > .thread__content__text {
-	font-family: "Poppins";
-	font-style: normal;
-	font-weight: 300;
-	font-size: 0.875rem;
-	color: #bfbfbf;
-}
-
 .thread__content > .thread__content__pictures > img {
 	margin-top: 1rem;
 	max-width: 43rem;
