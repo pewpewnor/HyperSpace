@@ -1,22 +1,16 @@
-import ThreadView from "pages/home/ThreadView.js";
-import Navbar from "./components/navbar/Navbar.js";
+import Home from "./pages/home/Home";
+import UserContext from "contexts/UserContext";
+import "./style.css";
 
 // imports for temporary mockup
-import userData from "data/userdata.js";
-import UserContext from "contexts/UserContext.js";
-
-//import css
-import "./style.css";
+import userData from "data/userdata";
 
 export default function App() {
 	return (
-		<div className="body__container">
-			<UserContext.Provider
-				value={{ isLoggedIn: true, userID: userData[0].ID }}
-			>
-				<Navbar />
-				<ThreadView />
-			</UserContext.Provider>
-		</div>
+		<UserContext.Provider
+			value={{ isLoggedIn: true, userID: userData[0].ID }}
+		>
+			<Home />
+		</UserContext.Provider>
 	);
 }

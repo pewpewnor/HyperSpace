@@ -1,15 +1,15 @@
 const threadData = [
 	{
 		ID: "SPA001",
-		name: "Space/General",
+		name: "Psychology / # Memes",
 	},
 	{
 		ID: "SPA001",
-		name: "Space/General",
+		name: "Psychology / # General",
 	},
 	{
 		ID: "SPA001",
-		name: "Space/General",
+		name: "Psychology / # General",
 	},
 ];
 
