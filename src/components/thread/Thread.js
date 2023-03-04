@@ -1,17 +1,19 @@
-import { useState } from "react";
-import { getMomentFrom } from "utils/date.js";
-import { findUser, findSpace } from "utils/find";
-import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
-import { TbClock } from "react-icons/tb";
-import { RiRocket2Line } from "react-icons/ri";
-import "./thread.css";
+import { useContext } from "react";
 import ThreadText from "./ThreadText";
+import SpaceContext from "contexts/SpaceContext";
+import { findUser } from "utils/find";
+import { getMomentFrom } from "utils/date";
 import shortenNumber from "utils/number";
+import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
+import { RiRocket2Line } from "react-icons/ri";
+import { TbClock } from "react-icons/tb";
+import "./thread.css";
 
 export default function Thread(props) {
-	const moment = getMomentFrom(new Date(props.postDate));
-	const space = findSpace(props.spaceID);
+	const { space, channel } = useContext(SpaceContext);
+
 	const user = findUser(props.userID);
+	const moment = getMomentFrom(new Date(props.postDate));
 	const views = shortenNumber(props.views);
 	const pictures = props.pictures.map((url) => (
 		<img
@@ -41,7 +43,7 @@ export default function Thread(props) {
 					/>
 					<div className="thread__profile">
 						<p className="thread__profile__spacename">
-							{space.name}
+							{space.name + " / #" + channel.name}
 						</p>
 						<div className="thread__profile__username__container">
 							<FaCrown className="thread__profile__subscription" />
