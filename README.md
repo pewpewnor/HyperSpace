@@ -3,11 +3,8 @@
 A website to experience the best online community based forum.
 
 ##
-
 Concept art:
-
 Contact me at our server for concept art: https://discord.gg/TTsnMUeH
-
 ##
 
 ## Git Documentation:
