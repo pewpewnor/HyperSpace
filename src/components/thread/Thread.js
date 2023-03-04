@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ThreadText from "./ThreadText";
-import SpaceContext from "contexts/SpaceContext";
+import LocationContext from "contexts/LocationContext";
 import { findUser } from "utils/find";
 import { getMomentFrom } from "utils/date";
 import shortenNumber from "utils/number";
@@ -10,7 +10,9 @@ import { TbClock } from "react-icons/tb";
 import "./thread.css";
 
 export default function Thread(props) {
-	const { space, channel } = useContext(SpaceContext);
+	const {
+		currentLocation: { space, channel },
+	} = useContext(LocationContext);
 
 	const user = findUser(props.userID);
 	const moment = getMomentFrom(new Date(props.postDate));
