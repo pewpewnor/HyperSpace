@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./threadtext.css";
 
-const MAX_SHORTTEXT_CHARACTER = 500;
+const MAX_SHORTTEXT_CHARACTER = 400;
 
 export default function ThreadText(props) {
 	const [showShortText, setShowShortText] = useState(true);
