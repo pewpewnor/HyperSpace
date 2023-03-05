@@ -1,0 +1,36 @@
+.space__joined__info__container{
+    margin-top: 1rem;
+    display: flex;
+}
+
+.space__joined__info__container > .space__joined__data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1vw;
+}
+
+.space__joined__info__container > .space__joined__data > .space__joined__title{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+
+    color: #FFFFFF;
+}
+
+.space__joined__info__container > .space__joined__data > .space__joined__member{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 0.625rem;
+
+    color: #FFFFFF;
+
+}
+
+.space__joined__info__container > .space__joined__pp{
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+}
