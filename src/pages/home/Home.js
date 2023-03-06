@@ -4,7 +4,6 @@ import ThreadView from "../../components/thread/ThreadView";
 import LocationContext from "contexts/LocationContext";
 import { findChannel, findSpace } from "utils/find";
 import SpaceView from "components/space/MySpace";
-import ChannelView from "components/channel/ChannelView";
 import "./home.css";
 
 function Home() {
