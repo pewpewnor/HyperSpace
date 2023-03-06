@@ -14,10 +14,10 @@
 }
 
 .thread__content__text > button {
-    all: unset;
+	all: unset;
 	font-size: 0.875rem;
-    cursor: pointer;
-    color: #5766ff;
+	cursor: pointer;
+	color: #5766ff;
 }
 
 .thread__content__text > button:hover {

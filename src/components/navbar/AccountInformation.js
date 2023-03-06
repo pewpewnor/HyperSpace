@@ -14,7 +14,7 @@ export default function AccountInformation() {
 		);
 	}
 
-	const user = findUser(userInfo.userID);
+	const user = userInfo.user;
 
 	return (
 		<div className="account-information-container">
