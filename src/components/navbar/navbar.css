@@ -3,13 +3,12 @@
 * {
 	padding: 0;
 	margin: 0;
-	font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .navbar {
 	width: 100%;
 	height: 3.875rem;
-	position: fixed;
+	position: sticky;
 	background: #28292e;
 	display: flex;
 	justify-content: center;
@@ -57,7 +56,6 @@
 	color: #ffffff;
 }
 
-
 .navbar-container > .search-bar-container > .search-bar {
 	display: flex;
 	align-items: center;
@@ -66,10 +64,9 @@
 	background: #f9f9f9;
 	border-radius: 0.313rem;
 	justify-content: space-between;
-
 }
 
-.navbar-container > .search-bar-container > .search-bar > .search-input{
+.navbar-container > .search-bar-container > .search-bar > .search-input {
 	margin-left: 1vw;
 	width: 26vw;
 }
@@ -114,6 +111,7 @@
 	padding-left: 1vw;
 	height: 100%;
 	outline: none;
+  color: black;
 }
 
 .navbar-container
@@ -274,12 +272,7 @@
 
 /* Responsive */
 @media only screen and (max-width: 995px) {
-	.navbar 
-	> .navbar-container 
-	> .logo-container 
-	> .logo-name-container{
+	.navbar > .navbar-container > .logo-container > .logo-name-container {
 		display: none;
 	}
-
-	
 }
