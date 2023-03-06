@@ -9,16 +9,14 @@ import spaceData from "data/spacedata";
 import channelData from "data/channeldata";
 
 function Home() {
-	const threads = threadData.map((thread) => {
-		return (
-			<Thread
-				key={thread.ID}
-				space={spaceData[0]}
-				channel={channelData[0]}
-				{...thread}
-			/>
-		);
-	});
+	const threads = threadData.map((thread) => (
+		<Thread
+			key={thread.ID}
+			space={spaceData[0]}
+			channel={channelData[0]}
+			{...thread}
+		/>
+	));
 
 	return (
 		<div className="all">
@@ -29,7 +27,7 @@ function Home() {
 				</div>
 				<div className="middle-container">
 					<div className="middle-container__thread-section">
-						{threads}
+						{threads.length ? threads : <h1>No threads yet!</h1>}
 					</div>
 				</div>
 			</div>
