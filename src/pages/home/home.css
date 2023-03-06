@@ -1,21 +1,15 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-
-body {
+.all {
 	background: #161616;
 }
 
-.navbar__body{
-	margin-left: 5vw;
-	margin-right: 10vw;
-
+.body {
 	display: flex;
-	justify-content: space-between;
-	margin-top: 3.875rem;
+  justify-content: space-around;
+  margin-top: 1rem;
+  padding: 1rem 6.25rem;
 }
 
-.thread__body__container{
-	margin-top: 4rem;
+.left-container, .middle-container {
+  display: flex;
+  flex-direction: column;
 }

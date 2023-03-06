@@ -12,7 +12,7 @@ export default function Navbar() {
 
 	function handleSearchQueryEnter(event) {
 		if (event.key === "Enter") {
-			console.log(searchQuery);
+		  alert("User wants to search: " + searchQuery);
 		}
 	}
 
