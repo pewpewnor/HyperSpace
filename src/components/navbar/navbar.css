@@ -9,13 +9,12 @@
 .navbar {
 	width: 100%;
 	height: 3.875rem;
-	position: sticky;
+	position: fixed;
 	background: #28292e;
 	display: flex;
 	justify-content: center;
 	top: 0;
 	z-index: 1000;
-	border-bottom: solid #161616 1rem;
 }
 
 .navbar > .navbar-container {
@@ -23,22 +22,23 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	background: #28292e;
 }
 
 .navbar > .navbar-container > .logo-container {
 	display: flex;
 	align-items: center;
-	margin-left: 4rem;
+	margin-left: 4.4444444444vw;
 }
 
 .navbar-container > .logo-container > img {
-	width: 2.875rem;
-	height: 2.875rem;
+	width: 2rem;
+	height: 2rem;
 }
 
 .navbar-container > .logo-container > .logo-name-container {
 	display: flex;
-	margin-left: 1rem;
+	margin-left: 1.1111111111112vw;
 }
 
 .navbar-container > .logo-container > .logo-name-container > #logo-first {
@@ -57,27 +57,32 @@
 	color: #ffffff;
 }
 
-.navbar-container > .search-bar-container {
-	display: flex;
-	align-items: center;
-}
 
 .navbar-container > .search-bar-container > .search-bar {
-	width: 25rem;
+	display: flex;
+	align-items: center;
+	width: 32vw;
 	height: 2rem;
 	background: #f9f9f9;
 	border-radius: 0.313rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
+
+}
+
+.navbar-container > .search-bar-container > .search-bar > .search-input{
+	margin-left: 1vw;
+	width: 26vw;
 }
 
 .navbar-container > .search-bar-container > .search-bar > span {
-	width: 2rem;
+	width: 2.222vw;
 	height: 2rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+	outline: none;
 }
 
 .navbar-container > .search-bar-container > .search-bar > span:hover {
@@ -85,7 +90,7 @@
 	align-items: center;
 	justify-content: center;
 	background-color: #5766ff;
-	border: none;
+	border-radius: 0 0.313rem 0.313rem 0;
 }
 
 .navbar-container > .search-bar-container > .search-bar > span > .search-icon {
@@ -106,9 +111,7 @@
 
 .navbar-container > .search-bar-container > .search-bar > .search-input {
 	border: 0;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	width: 20rem;
+	padding-left: 1vw;
 	height: 100%;
 	outline: none;
 }
@@ -136,8 +139,8 @@
 }
 
 .navbar-container > .add-post-container {
-	width: 2.25rem;
-	height: 2.25rem;
+	width: 3vw;
+	height: 3vw;
 	border-radius: 0.625rem;
 	background: #1e1e1e;
 	display: flex;
@@ -164,7 +167,7 @@
 .account-information-container {
 	display: flex;
 	align-items: center;
-	margin-right: 4rem;
+	margin-right: 4.4444444444vw;
 }
 
 .account-information-container
@@ -221,14 +224,14 @@
 	font-weight: 400;
 	font-size: 0.75rem;
 	color: #5766ff;
-	margin-right: 0.5rem;
+	margin-right: 0.5vw;
 }
 
 .account-information-container > .border {
 	width: 0.313rem;
 	height: 2.625rem;
 	background: #5766ff;
-	margin-left: 0.5rem;
+	margin-left: 0.7vw;
 }
 
 .sign-in-button {
@@ -256,7 +259,7 @@
 .user-profile-picture {
 	width: 2.4rem;
 	height: 2.4rem;
-	margin-left: 0.75rem;
+	margin-left: 1vw;
 }
 
 /* need fix */
@@ -267,4 +270,16 @@
 	background: #363636;
 	z-index: 1000;
 	right: 0;
+}
+
+/* Responsive */
+@media only screen and (max-width: 995px) {
+	.navbar 
+	> .navbar-container 
+	> .logo-container 
+	> .logo-name-container{
+		display: none;
+	}
+
+	
 }

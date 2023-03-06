@@ -3,6 +3,19 @@
 	padding: 0;
 }
 
-.body {
+body {
 	background: #161616;
+}
+
+.navbar__body{
+	margin-left: 5vw;
+	margin-right: 10vw;
+
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3.875rem;
+}
+
+.thread__body__container{
+	margin-top: 4rem;
 }

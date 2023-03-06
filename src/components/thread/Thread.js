@@ -7,6 +7,7 @@ import shortenNumber from "utils/number";
 import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
 import { RiRocket2Line } from "react-icons/ri";
 import { TbClock } from "react-icons/tb";
+import {AiOutlineShareAlt} from "react-icons/ai"
 import "./thread.css";
 
 export default function Thread(props) {
@@ -34,6 +35,8 @@ export default function Thread(props) {
 	function handleDownvote() {}
 
 	function handleComment() {}
+
+	function handleShare(){}
 
 	return (
 		<div className="thread__container">
@@ -78,28 +81,44 @@ export default function Thread(props) {
 				<div className="thread__content__pictures">{pictures}</div>
 			</div>
 
-			<div className="thread__buttons">
-				<button
-					className="thread__buttons__upvote"
-					onClick={handleUpvote}
-				>
-					<RiRocket2Line className="thread__buttons__upvote__icon" />
-					{upvotes}
-				</button>
-				<button
-					className="thread__buttons__downvote"
-					onClick={handleDownvote}
-				>
-					<RiRocket2Line className="thread__buttons__downvote__icon" />
-					{downvotes}
-				</button>
-				<button
-					className="thread__buttons__comment"
-					onClick={handleComment}
-				>
-					<FaRegCommentAlt className="thread__buttons__comment__icon" />
-					{comments}
-				</button>
+			<div className="thread__buttons__container">
+				<div className="thread__buttons">
+					<button
+						className="thread__buttons__upvote"
+						onClick={handleUpvote}
+					>
+						<RiRocket2Line className="thread__buttons__upvote__icon thread__buttons__icons" />
+						<p className="thread__buttons__value">
+							{upvotes}
+						</p>
+					</button>
+					<button
+						className="thread__buttons__downvote"
+						onClick={handleDownvote}
+					>
+						<RiRocket2Line className="thread__buttons__downvote__icon thread__buttons__icons" />
+						<p className="thread__buttons__value">{downvotes}</p>
+						
+					</button>
+					<button
+						className="thread__buttons__comment"
+						onClick={handleComment}
+					>
+						<FaRegCommentAlt className="thread__buttons__comment__icon thread__buttons__icons" />
+						<p className="thread__buttons__value">{comments}</p>
+						
+					</button>
+
+					<button
+						className="thread__buttons__share"
+						onClick={handleShare}
+					>
+						<AiOutlineShareAlt className="thread__buttons__share__icon thread__buttons__icons" />
+						<p className="thread__buttons__value">Share</p>
+						
+					</button>
+
+				</div>
 			</div>
 		</div>
 	);

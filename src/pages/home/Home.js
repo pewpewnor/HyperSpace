@@ -4,6 +4,8 @@ import ThreadView from "../../components/thread/ThreadView";
 import LocationContext from "contexts/LocationContext";
 import { findChannel, findSpace } from "utils/find";
 import "./home.css";
+import SpaceView from "components/ui/SpaceView";
+import ChannelView from "components/ui/ChannelView";
 
 function Home() {
 	const [currentLocation, setCurrentLocation] = useState({
@@ -18,15 +20,31 @@ function Home() {
 	}
 
 	return (
-		<div className="body">
-			<Navbar />
+		<div className="body__container">
+			<div className="navbar__container">
+				<Navbar />
+			</div>
+
 			<LocationContext.Provider
 				value={{
 					currentLocation: currentLocation,
 					changeLocation: handleChangeLocation,
 				}}
 			>
-				<ThreadView threadsID={currentLocation.channel.threadsID} />
+				
+			<div className="navbar__body">
+				<div className="left__container">
+					<SpaceView />
+				</div>
+				<div className="right__container">
+					<ChannelView />
+					<div className="thread__body__container">	
+						<ThreadView threadsID={currentLocation.channel.threadsID} />
+					</div>
+				</div>
+			</div>
+			
+
 			</LocationContext.Provider>
 		</div>
 	);
