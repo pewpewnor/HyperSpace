@@ -163,18 +163,18 @@
 	max-height: 37.5rem;
 }
 
-.thread__buttons__container{
+.thread__buttons__container {
 	width: 100%;
 	margin-top: 1rem;
 }
 
-.thread__container > .thread__buttons__container > .thread__buttons{
+.thread__container > .thread__buttons__container > .thread__buttons {
 	display: flex;
 	align-items: center;
 	margin-left: 2.6vw;
 }
 
-.thread__container > .thread__buttons__container > .thread__buttons > button{
+.thread__container > .thread__buttons__container > .thread__buttons > button {
 	display: flex;
 	align-items: center;
 
@@ -187,27 +187,41 @@
 	padding-bottom: 0.5rem;
 	padding-left: 1vw;
 	padding-right: 1vw;
-
 }
 
-.thread__container > .thread__buttons__container > .thread__buttons > button:hover{
+.thread__container
+	> .thread__buttons__container
+	> .thread__buttons
+	> button:hover {
 	display: flex;
 	align-items: center;
 	background: #5766ff;
 }
 
-.thread__container > .thread__buttons__container > .thread__buttons > button > .thread__buttons__icons{
+.thread__container
+	> .thread__buttons__container
+	> .thread__buttons
+	> button
+	> .thread__buttons__icons {
 	width: 1.25rem;
 	height: 1.25rem;
 	color: white;
 }
 
-.thread__container > .thread__buttons__container > .thread__buttons > button > .thread__buttons__downvote__icon{
+.thread__container
+	> .thread__buttons__container
+	> .thread__buttons
+	> button
+	> .thread__buttons__downvote__icon {
 	rotate: 180deg;
 }
 
-.thread__container > .thread__buttons__container > .thread__buttons > button > .thread__buttons__value{
-	font-family: 'Poppins';
+.thread__container
+	> .thread__buttons__container
+	> .thread__buttons
+	> button
+	> .thread__buttons__value {
+	font-family: "Poppins";
 	font-style: normal;
 	font-weight: 500;
 	font-size: 0.8rem;
@@ -218,12 +232,20 @@
 	margin-left: 1vw;
 }
 
-.thread__container > .thread__buttons__container > .thread__buttons > .thread__buttons__share > .thread__buttons__value{
+.thread__container
+	> .thread__buttons__container
+	> .thread__buttons
+	> .thread__buttons__share
+	> .thread__buttons__value {
 	display: none;
 }
 
-.thread__container > .thread__buttons__container > .thread__buttons > .thread__buttons__share:hover > .thread__buttons__value{
-	font-family: 'Poppins';
+.thread__container
+	> .thread__buttons__container
+	> .thread__buttons
+	> .thread__buttons__share:hover
+	> .thread__buttons__value {
+	font-family: "Poppins";
 	font-style: normal;
 	font-weight: 500;
 	font-size: 0.8rem;
@@ -233,4 +255,3 @@
 	color: #ffffff;
 	margin-left: 1vw;
 }
-
