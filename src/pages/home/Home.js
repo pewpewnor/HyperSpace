@@ -1,48 +1,35 @@
-import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
-import ThreadView from "../../components/thread/ThreadView";
-import LocationContext from "contexts/LocationContext";
-import { findChannel, findSpace } from "utils/find";
-import SpaceView from "components/space/MySpace";
-import ChannelView from "components/channel/ChannelView";
+import MySpace from "components/space/MySpace";
+import Thread from "components/thread/Thread";
+import threadData from "data/threaddata";
 import "./home.css";
 
-function Home() {
-	const [currentLocation, setCurrentLocation] = useState({
-		space: findSpace("SPA001"),
-		channel: findChannel("CHA001"),
-	});
+// for mockup data only
+import spaceData from "data/spacedata";
+import channelData from "data/channeldata";
 
-	function handleChangeLocation(spaceID, channelID) {
-		const space = findSpace(spaceID);
-		const channel = findChannel(channelID);
-		setCurrentLocation({ space: space, channel: channel });
-	}
+function Home() {
+	const threads = threadData.map((thread) => (
+		<Thread
+			key={thread.ID}
+			space={spaceData[0]}
+			channel={channelData[0]}
+			{...thread}
+		/>
+	));
 
 	return (
 		<div className="all">
 			<Navbar />
 			<div className="body">
-				<LocationContext.Provider
-					value={{
-						currentLocation: currentLocation,
-						changeLocation: handleChangeLocation,
-					}}
-				>
-					<div className="left-container">
-						<SpaceView />
+				<div className="left-container">
+					<MySpace />
+				</div>
+				<div className="middle-container">
+					<div className="middle-container__thread-section">
+						{threads.length ? threads : <h1>No threads yet!</h1>}
 					</div>
-					<div className="middle-container">
-						{/* <div className="middle-container__filter-bar">
-							<ChannelView />
-						</div> */}
-						<div className="middle-container__thread-section">
-							<ThreadView
-								threadsID={currentLocation.channel.threadsID}
-							/>
-						</div>
-					</div>
-				</LocationContext.Provider>
+				</div>
 			</div>
 		</div>
 	);
