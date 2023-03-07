@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import UserContext from "contexts/UserContext";
-import SpaceView from "./SpaceView";
 import Space from "./Space";
 import { findSpace } from "utils/find";
 import "./myspace.css";

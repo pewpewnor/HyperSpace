@@ -1,12 +1,12 @@
 .myspace {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 
 .myspace__top-section {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .myspace__top-section__border {
@@ -23,9 +23,9 @@
 }
 
 .myspace__space-view-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 .myspace__button-section__discover-button {

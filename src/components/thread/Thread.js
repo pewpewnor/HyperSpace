@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import ThreadText from "./ThreadText";
-import LocationContext from "contexts/LocationContext";
 import { findUser } from "utils/find";
 import { getMomentFrom } from "utils/date";
 import shortenNumber from "utils/number";
@@ -11,10 +9,6 @@ import { AiOutlineShareAlt } from "react-icons/ai";
 import "./thread.css";
 
 export default function Thread(props) {
-	const {
-		currentLocation: { space, channel },
-	} = useContext(LocationContext);
-
 	const user = findUser(props.userID);
 	const moment = getMomentFrom(new Date(props.postDate));
 	const views = shortenNumber(props.views);
@@ -48,7 +42,7 @@ export default function Thread(props) {
 					/>
 					<div className="thread__profile">
 						<p className="thread__profile__spacename">
-							{space.name + " / #" + channel.name}
+							{props.space.name + " / #" + props.channel.name}
 						</p>
 						<div className="thread__profile__username__container">
 							<FaCrown className="thread__profile__subscription" />
