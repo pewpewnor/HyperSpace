@@ -6,7 +6,7 @@ A website to experience the best online community based forum.
 
 ### How can I contribute?
 
--   Feel free to comment on any issues you find interesting
+-   Feel free to comment on any issues you find interesting, you can also help on issues that has already been assigned (we will let you take over)
 -   You can also open up your own issues, whether for coding up new features based of the concept art, code refactoring, design improvement, etc
 -   If you have any questions, open up a new issue with the tag 'question'
 -   Don't by shy, we accept any help from beginner programmers (we're beginners too)
