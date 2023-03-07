@@ -2,27 +2,6 @@
 
 A website to experience the best online community based forum.
 
-##
-
-Concept art:
-Contact me at our server for concept art: https://discord.gg/TTsnMUeH
-
-##
-
-## Git Documentation:
-
-### Branch description
-
--   'main' branch for the latest app release ready to be used
--   'dev' branch for the latest development version, usually ahead of 'main' branch
-
-### Naming conventions
-
--   New branch naming convention: [author name]\_[branch-short-description]
--   Commit naming convention: undefined
-
-## Code Documentation:
-
 ## Contribute:
 
 ### How can I contribute?
@@ -44,4 +23,25 @@ npm start
 ```
 4. Begin coding by adding / modifying things
 5. Run the project to see the results (make sure there are no errors)
-6. Make a pull request from your fork's new branch to our project's branch 'dev'. Don't forget to follow our naming conventions section above.
+6. Make a pull request from your fork's new branch to our project's branch 'dev'. Don't forget to follow our naming conventions section below
+
+## Git Documentation:
+
+### Branch description
+
+-   'main' branch for the latest app release ready to be used
+-   'dev' branch for the latest development version, usually ahead of 'main' branch
+
+### Naming conventions
+
+-   New branch naming convention: [author name]\_[branch-short-description]
+-   Commit naming convention: undefined
+
+## Code Documentation:
+
+##
+
+Concept art:
+Contact me at our server for concept art: https://discord.gg/TTsnMUeH
+
+##
