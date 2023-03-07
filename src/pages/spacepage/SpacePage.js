@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import MySpace from "components/space/MySpace";
+import SpaceBanner from "components/space/spaceBanner";
 import ChannelView from "components/channel/ChannelView";
 import Thread from "components/thread/Thread";
 import LocationContext from "contexts/LocationContext";
 import { findChannel, findThread } from "utils/find";
 import "./spacepage.css";
+import Space from "components/space/Space";
 
 function SpacePage(props) {
 	const [currentChannel, setCurrentChannel] = useState(
@@ -51,12 +53,20 @@ function SpacePage(props) {
 						<div className="middle-container__filter-bar">
 							<ChannelView channelsArray={channelsArray} />
 						</div>
+
 						<div className="middle-container__thread-section">
-							{threads.length ? (
-								threads
-							) : (
-								<h1>No threads yet!</h1>
-							)}
+							<SpaceBanner isJoined={false} />
+
+							<div className="middle-container__thread-section__text">
+								{threads.length ? (
+									threads
+								) : (
+									<div className="text__alt">
+										<h1>There's nothing here!</h1>
+										<p>Maybe navigate to another channel?</p>	
+									</div>
+								)}
+							</div>
 						</div>
 					</LocationContext.Provider>
 				</div>

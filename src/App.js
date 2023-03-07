@@ -1,4 +1,4 @@
-import Home from "./pages/home/Home";
+// import Home from "./pages/home/Home";
 import SpacePage from "./pages/spacepage/SpacePage";
 import UserContext from "contexts/UserContext";
 import "./style.css";
