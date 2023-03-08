@@ -67,6 +67,7 @@
 	> .thread__profile
 	> .thread__profile__username__container
 	> .thread__profile__subscription {
+		fill:#ffbd59 ;
 	color: #ffbd59;
 	margin-right: 0.5vw;
 	width: 1rem;
