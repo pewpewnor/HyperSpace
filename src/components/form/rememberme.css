@@ -12,10 +12,12 @@
 
 .rememberme input:checked {
 	accent-color: #5766ff;
+	border: none;
 }
 
 .rememberme span {
 	color: white;
 	padding-left: 5px;
-	font-size: 16px;
+	font-size: 14px;
+	padding-bottom: 1px;
 }

@@ -7,13 +7,14 @@
 }
 
 .submit__box input{
-    width: 216px;
+    width: 260px;
     height: 40px;
-    background-color:grey;
+    background-color:#28292E;
     border-radius: 7px;
     font-size: 16px;
     font-weight: 750;
     transition: 0.3s;
+    border: none;
 }
 
 .submit__box input:hover{
