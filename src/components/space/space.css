@@ -1,0 +1,33 @@
+.space__info__container {
+	display: flex;
+}
+
+.space__info__container > .space__data {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 1vw;
+}
+
+.space__info__container > .space__data > .space__title {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1rem;
+	color: #ffffff;
+}
+
+.space__info__container > .space__data > .space__member {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 200;
+	font-size: 0.75rem;
+	color: #ffffff;
+}
+
+.space__profile-picture {
+	width: 3rem;
+	height: 3rem;
+	background-color: white;
+	border-radius: 50%;
+}

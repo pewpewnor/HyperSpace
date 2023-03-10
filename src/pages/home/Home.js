@@ -1,51 +1,36 @@
-import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
-import ThreadView from "../../components/thread/ThreadView";
-import LocationContext from "contexts/LocationContext";
-import { findChannel, findSpace } from "utils/find";
+import MySpace from "components/space/MySpace";
+import Thread from "components/thread/Thread";
+import threadData from "data/threaddata";
 import "./home.css";
-import SpaceView from "components/ui/SpaceView";
-import ChannelView from "components/ui/ChannelView";
+
+// for mockup data only
+import spaceData from "data/spacedata";
+import channelData from "data/channeldata";
 
 function Home() {
-	const [currentLocation, setCurrentLocation] = useState({
-		space: findSpace("SPA001"),
-		channel: findChannel("CHA001"),
-	});
-
-	function handleChangeLocation(spaceID, channelID) {
-		const space = findSpace(spaceID);
-		const channel = findChannel(channelID);
-		setCurrentLocation({ space: space, channel: channel });
-	}
+	const threads = threadData.map((thread) => (
+		<Thread
+			key={thread.ID}
+			space={spaceData[0]}
+			channel={channelData[0]}
+			{...thread}
+		/>
+	));
 
 	return (
-		<div className="body__container">
-			<div className="navbar__container">
-				<Navbar />
-			</div>
-
-			<LocationContext.Provider
-				value={{
-					currentLocation: currentLocation,
-					changeLocation: handleChangeLocation,
-				}}
-			>
-				
-			<div className="navbar__body">
-				<div className="left__container">
-					<SpaceView />
+		<div className="all">
+			<Navbar />
+			<div className="body">
+				<div className="left-container">
+					<MySpace />
 				</div>
-				<div className="right__container">
-					<ChannelView />
-					<div className="thread__body__container">	
-						<ThreadView threadsID={currentLocation.channel.threadsID} />
+				<div className="middle-container">
+					<div className="middle-container__thread-section">
+						{threads.length ? threads : <h1>No threads yet!</h1>}
 					</div>
 				</div>
 			</div>
-			
-
-			</LocationContext.Provider>
 		</div>
 	);
 }

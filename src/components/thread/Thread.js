@@ -1,20 +1,14 @@
-import { useContext } from "react";
 import ThreadText from "./ThreadText";
-import LocationContext from "contexts/LocationContext";
 import { findUser } from "utils/find";
 import { getMomentFrom } from "utils/date";
 import shortenNumber from "utils/number";
 import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
 import { RiRocket2Line } from "react-icons/ri";
 import { TbClock } from "react-icons/tb";
-import {AiOutlineShareAlt} from "react-icons/ai"
+import { AiOutlineShareAlt } from "react-icons/ai";
 import "./thread.css";
 
 export default function Thread(props) {
-	const {
-		currentLocation: { space, channel },
-	} = useContext(LocationContext);
-
 	const user = findUser(props.userID);
 	const moment = getMomentFrom(new Date(props.postDate));
 	const views = shortenNumber(props.views);
@@ -36,7 +30,7 @@ export default function Thread(props) {
 
 	function handleComment() {}
 
-	function handleShare(){}
+	function handleShare() {}
 
 	return (
 		<div className="thread__container">
@@ -48,10 +42,10 @@ export default function Thread(props) {
 					/>
 					<div className="thread__profile">
 						<p className="thread__profile__spacename">
-							{space.name + " / #" + channel.name}
+							{props.space.name + " / #" + props.channel.name}
 						</p>
 						<div className="thread__profile__username__container">
-							<FaCrown className="thread__profile__subscription" />
+							<FaCrown className="thread__profile__subscription"  />
 							<p className="thread__profile__username">
 								{user.name}
 							</p>
@@ -88,9 +82,7 @@ export default function Thread(props) {
 						onClick={handleUpvote}
 					>
 						<RiRocket2Line className="thread__buttons__upvote__icon thread__buttons__icons" />
-						<p className="thread__buttons__value">
-							{upvotes}
-						</p>
+						<p className="thread__buttons__value">{upvotes}</p>
 					</button>
 					<button
 						className="thread__buttons__downvote"
@@ -98,7 +90,6 @@ export default function Thread(props) {
 					>
 						<RiRocket2Line className="thread__buttons__downvote__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">{downvotes}</p>
-						
 					</button>
 					<button
 						className="thread__buttons__comment"
@@ -106,7 +97,6 @@ export default function Thread(props) {
 					>
 						<FaRegCommentAlt className="thread__buttons__comment__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">{comments}</p>
-						
 					</button>
 
 					<button
@@ -115,9 +105,7 @@ export default function Thread(props) {
 					>
 						<AiOutlineShareAlt className="thread__buttons__share__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">Share</p>
-						
 					</button>
-
 				</div>
 			</div>
 		</div>
