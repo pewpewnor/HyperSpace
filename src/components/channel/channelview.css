@@ -1,0 +1,29 @@
+.channelView__container {
+	position: fixed;
+	background: #161616;
+
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	width: 100%;
+	z-index: 1000;
+}
+
+.channelView__container > button {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+
+	background: #28292e;
+	border-radius: 10px;
+	color: white;
+	border: none;
+}
+
+.channelView__container > button:hover {
+	background-color: #5766ff;
+}
+
+.channelView__container > button:not(:last-child) {
+	margin-right: 1vw;
+}
