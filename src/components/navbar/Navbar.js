@@ -1,7 +1,7 @@
 import AccountInformation from "./AccountInformation";
-import "./navbar.css";
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
+import "./navbar.css";
 
 export default function Navbar() {
 	const [searchQuery, setSearchQuery] = useState("");
