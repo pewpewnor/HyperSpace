@@ -2,6 +2,7 @@ import { useContext } from "react";
 import UserContext from "contexts/UserContext";
 import { findUser } from "utils/find";
 import { FaCrown } from "react-icons/fa";
+import "./accountinformation.css";
 
 export default function AccountInformation() {
 	const userInfo = useContext(UserContext);
@@ -20,7 +21,6 @@ export default function AccountInformation() {
 		<div className="account-information-container">
 			<div className="user-information-data-container">
 				<div className="user-username-container">
-					<p className="user-ast">Ast/</p>
 					<p className="user-username">{user.name}</p>
 				</div>
 
