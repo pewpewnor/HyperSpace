@@ -20,8 +20,8 @@ export default function Navbar() {
 		alert("User wants to create a new thread");
 	}
 
-	function handleSearchIcon(event) {
-		console.log(searchQuery);
+	function handleSearchIcon() {
+		alert(searchQuery);
 	}
 
 	return (
