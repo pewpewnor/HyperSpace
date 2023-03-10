@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
 	height: 100%;
 	width: 100%;
 }
@@ -12,45 +13,40 @@ html, body{
 .body {
 	display: flex;
 	height: 100%;
-
 }
 
-.middle-container__thread-section > .middle-container__thread-section__text > .text__alt{
+.middle-container__thread-section__text {
+	text-align: center;
 	height: 30vw;
 }
 
-.middle-container__thread-section > .middle-container__thread-section__text > .text__alt > h1 {
+.middle-container__thread-section__text > h1 {
 	font-size: 3rem;
-
 }
 
-.middle-container__thread-section > .middle-container__thread-section__text > .text__alt > p {
-	font-size: 1rem;
+.middle-container__thread-section__text > p {
 	font-weight: 300;
 }
 
-
-
-.left-container{
+.left-container {
 	height: 100%;
 	margin-left: 5vw;
 	margin-top: 1.7rem;
 	margin-right: 2.5vw;
 }
 
-.middle-container__thread-section{
+.middle-container__thread-section {
 	margin-top: 5rem;
 	height: 100%;
 	width: 100%;
 }
 
-.middle-container__thread-section__text{
+.middle-container__thread-section__text {
 	margin-top: 2rem;
 }
 
-.middle-container{
+.middle-container {
 	width: 62vw;
 	height: 100%;
 	margin-left: 1.2vw;
 }
-

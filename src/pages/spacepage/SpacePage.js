@@ -57,16 +57,14 @@ function SpacePage(props) {
 						<div className="middle-container__thread-section">
 							<SpaceBanner isJoined={false} />
 
-							<div className="middle-container__thread-section__text">
-								{threads.length ? (
-									threads
-								) : (
-									<div className="text__alt">
-										<h1>There's nothing here!</h1>
-										<p>Maybe navigate to another channel?</p>	
-									</div>
-								)}
-							</div>
+							{threads.length ? (
+								threads
+							) : (
+								<div className="middle-container__thread-section__text">
+									<h1>There's nothing here!</h1>
+									<p>Maybe navigate to another channel?</p>
+								</div>
+							)}
 						</div>
 					</LocationContext.Provider>
 				</div>
