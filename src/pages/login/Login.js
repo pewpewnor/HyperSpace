@@ -9,13 +9,33 @@ import "./login.css";
 function Login() {
 	return (
 		<div className="container">
-			<span className="title"><span className="title__color">log</span>in</span>
-			<Emailform />
-			<Passwordform />
-			<Forgotpassword />
-			<Rememberme />
-			<Submit />
-			<Signuplink />
+			<div className="login__container">
+				<span className="title"><span className="title__color">log</span>in</span>
+				
+				<div className="email__password__forgot">
+					<div className="emailform__box">
+						
+					</div>
+					<div className="passwordform__box">
+
+					</div>
+					<div className="forgotpassword__box">
+
+					</div>
+				</div>
+
+				<div className="rememberme__submit__signuplink">
+					<div className="rememberme__box">
+
+					</div>
+					<div className="submit__box">
+
+					</div>
+					<div className="signuplink__box">
+
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }
