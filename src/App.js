@@ -1,4 +1,5 @@
 import UserContext from "contexts/UserContext";
+import Login from "pages/login/Login";
 import "./style.css";
 
 // imports for temporary mockup
@@ -12,6 +13,7 @@ export default function App() {
 		<UserContext.Provider value={{ isLoggedIn: true, user: userData[0] }}>
 			<SpacePage space={spaceData[0]} />
 			{/* <Home /> */}
+			{/* <Login /> */}
 		</UserContext.Provider>
 	);
 }
