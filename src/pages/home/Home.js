@@ -1,4 +1,4 @@
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "components/navbar/Navbar";
 import MySpace from "components/space/MySpace";
 import Thread from "components/thread/Thread";
 import threadData from "data/threaddata";
@@ -27,7 +27,14 @@ function Home() {
 				</div>
 				<div className="middle-container">
 					<div className="middle-container__thread-section">
-						{threads.length ? threads : <h1>No threads yet!</h1>}
+						{threads.length ? (
+							threads
+						) : (
+							<div className="middle-container__thread-section__text">
+								<h1>There's nothing here!</h1>
+								<p>Maybe navigate to a different space?</p>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
