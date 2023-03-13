@@ -45,7 +45,7 @@ export default function Thread(props) {
 							{props.space.name + " / #" + props.channel.name}
 						</p>
 						<div className="thread__profile__username__container">
-							<FaCrown className="thread__profile__subscription"  />
+							<FaCrown className="thread__profile__subscription" />
 							<p className="thread__profile__username">
 								{user.name}
 							</p>
