@@ -3,8 +3,7 @@ import { useContext } from "react";
 import "./channelview.css";
 
 export default function ChannelView(props) {
-	const { currentChannel, changeCurrentChannel } =
-		useContext(LocationContext);
+	const { changeCurrentChannel } = useContext(LocationContext);
 
 	const channels = props.channelsArray.map((channel) => (
 		<button

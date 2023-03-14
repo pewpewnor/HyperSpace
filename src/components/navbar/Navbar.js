@@ -1,7 +1,7 @@
 import AccountInformation from "./AccountInformation";
-import "./navbar.css";
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
+import "./navbar.css";
 
 export default function Navbar() {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -20,8 +20,8 @@ export default function Navbar() {
 		alert("User wants to create a new thread");
 	}
 
-	function handleSearchIcon(event) {
-		console.log(searchQuery);
+	function handleSearchIcon() {
+		alert(searchQuery);
 	}
 
 	return (

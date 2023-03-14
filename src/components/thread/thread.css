@@ -61,11 +61,13 @@
 	color: #ffffff;
 }
 
-.thread__container__top
+.thread__container
+	> .thread__container__top
 	> .thread__profile__container
 	> .thread__profile
 	> .thread__profile__username__container
 	> .thread__profile__subscription {
+	fill: #ffbd59;
 	color: #ffbd59;
 	margin-right: 0.5vw;
 	width: 1rem;
@@ -132,13 +134,15 @@
 }
 
 .thread__content {
-	margin-left: 2.6vw;
-	margin-right: 2.6vw;
+	width: 100%;
 }
 
 .thread__content > .thread__content__title__container {
 	margin-bottom: 1rem;
 	display: flex;
+
+	margin-left: 2.6vw;
+	margin-right: 2.6vw;
 }
 
 .thread__content > .thread__content__title__container > .border {
@@ -161,6 +165,8 @@
 	margin-top: 1rem;
 	max-width: 55vw;
 	max-height: 37.5rem;
+	margin-left: 2.6vw;
+	margin-right: 2.6vw;
 }
 
 .thread__buttons__container {
@@ -172,6 +178,7 @@
 	display: flex;
 	align-items: center;
 	margin-left: 2.6vw;
+	margin-right: 2.6vw;
 }
 
 .thread__container > .thread__buttons__container > .thread__buttons > button {
