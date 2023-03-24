@@ -1,7 +1,8 @@
 import "./spaceBanner.css";
+import { useState } from "react";
 
 export default function SpaceBanner({ isJoined }) {
-	const hasJoined = isJoined;
+	const [hasJoined, setHasJoined] = useState(isJoined);
 
 	return (
 		<div className="space__banner__container">
@@ -31,6 +32,7 @@ export default function SpaceBanner({ isJoined }) {
 									? "space__button__joined"
 									: "space__button__Notjoined"
 							}
+							onClick={() => setHasJoined(!hasJoined)}
 						>
 							{hasJoined ? "Joined" : "Join"}
 						</button>
