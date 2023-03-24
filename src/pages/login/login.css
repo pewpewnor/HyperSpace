@@ -6,12 +6,12 @@
 	font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-html,body{
+/* html,body{
 	display: grid;
 	place-items: center;
 	height: 100%;
 	background: #28292E;
-}
+} */
 
 .container{
 	width: 720px;
