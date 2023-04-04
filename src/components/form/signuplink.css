@@ -10,12 +10,22 @@
     color: white;
 }
 
-.text span a{
+.text span .Login{
     color: #D4F88A;
     text-decoration: none;
     transition: 0.3s;
 }
 
-.text span a:hover{
+.text span .Login:hover{
     color: #5766FF;
+}
+
+.text span .Register{
+    color: #5766FF;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.text span .Register:hover{
+    color: #D4F88A;
 }
