@@ -4,7 +4,7 @@ function Rememberme(){
     return(
         <div className="rememberme">
             <input type={"checkbox"}></input>
-			<span>remember me</span>
+			<span>Remember me</span>
         </div>
     )
 }
