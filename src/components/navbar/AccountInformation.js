@@ -2,9 +2,12 @@ import { useContext } from "react";
 import UserContext from "contexts/UserContext";
 import { findUser } from "utils/find";
 import { FaCrown } from "react-icons/fa";
+import "./accountinformation.css";
+import { useState } from "react";
 
 export default function AccountInformation() {
 	const userInfo = useContext(UserContext);
+	const [dropdownVisible, setDropdownVisible] = useState(false);
 
 	if (!userInfo.isLoggedIn) {
 		return (
@@ -20,7 +23,6 @@ export default function AccountInformation() {
 		<div className="account-information-container">
 			<div className="user-information-data-container">
 				<div className="user-username-container">
-					<p className="user-ast">Ast/</p>
 					<p className="user-username">{user.name}</p>
 				</div>
 
@@ -32,11 +34,24 @@ export default function AccountInformation() {
 
 			<div className="border"></div>
 
+			<div className="navbar-profile-picture-container"
+			onMouseEnter={() => setDropdownVisible(true)}
+			>
 			<img
 				src={user.profilePicture}
 				alt={user.name}
 				className="user-profile-picture"
+				
 			></img>
+			{dropdownVisible && (
+				<div className="navbar-account-dropdown"
+				onMouseLeave={() => setDropdownVisible(false)}>
+					<a href="#">My Profile</a>
+					<a href="#">Sign out</a>
+				</div>
+			)}
+			</div>
+
 		</div>
 	);
 }

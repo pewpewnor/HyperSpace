@@ -1,0 +1,46 @@
+.user-profile-picture {
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+}
+
+.navbar-profile-picture-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.navbar-profile-picture-container > .navbar-account-dropdown{
+	position: absolute;
+	top: 3rem;
+	right: 0vw;
+
+	padding-top: 0.1vw;
+	padding-bottom: 0.1vw;
+	background: #363636;
+	z-index: 3;
+}
+
+.navbar-profile-picture-container > .navbar-account-dropdown > a{
+	display: block;
+
+	padding-left: 1vw;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+	
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.75rem;
+
+	color: #FFFFFF;
+	
+
+	width: 10.069444444444vw;
+	text-decoration: none;
+}
+
+.navbar-profile-picture-container > .navbar-account-dropdown > a:hover{
+	background-color: #5766FF;
+}
