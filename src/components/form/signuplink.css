@@ -6,26 +6,26 @@
 	font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-.text span{
-    color: white;
+.text span {
+	color: white;
 }
 
-.text span .Login{
-    color: #D4F88A;
-    text-decoration: none;
-    transition: 0.3s;
+.text span .Login {
+	color: #d4f88a;
+	text-decoration: none;
+	transition: 0.3s;
 }
 
-.text span .Login:hover{
-    color: #5766FF;
+.text span .Login:hover {
+	color: #5766ff;
 }
 
-.text span .Register{
-    color: #5766FF;
-    text-decoration: none;
-    transition: 0.3s;
+.text span .Register {
+	color: #5766ff;
+	text-decoration: none;
+	transition: 0.3s;
 }
 
-.text span .Register:hover{
-    color: #D4F88A;
+.text span .Register:hover {
+	color: #d4f88a;
 }

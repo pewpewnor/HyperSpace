@@ -6,18 +6,18 @@
 	font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-.submit__box input{
-    width: 260px;
-    height: 40px;
-    background-color:#28292E;
-    border-radius: 7px;
-    font-size: 16px;
-    font-weight: 750;
-    transition: 0.3s;
-    border: none;
+.submit__box input {
+	width: 260px;
+	height: 40px;
+	background-color: #28292e;
+	border-radius: 7px;
+	font-size: 16px;
+	font-weight: 750;
+	transition: 0.3s;
+	border: none;
 }
 
-.submit__box input:hover{
-    background-color: #5766FF;
-    color: white;
+.submit__box input:hover {
+	background-color: #5766ff;
+	color: white;
 }

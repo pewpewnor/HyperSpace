@@ -34,24 +34,25 @@ export default function AccountInformation() {
 
 			<div className="border"></div>
 
-			<div className="navbar-profile-picture-container"
-			onMouseEnter={() => setDropdownVisible(true)}
+			<div
+				className="navbar-profile-picture-container"
+				onMouseEnter={() => setDropdownVisible(true)}
 			>
-			<img
-				src={user.profilePicture}
-				alt={user.name}
-				className="user-profile-picture"
-				
-			></img>
-			{dropdownVisible && (
-				<div className="navbar-account-dropdown"
-				onMouseLeave={() => setDropdownVisible(false)}>
-					<a href="#">My Profile</a>
-					<a href="#">Sign out</a>
-				</div>
-			)}
+				<img
+					src={user.profilePicture}
+					alt={user.name}
+					className="user-profile-picture"
+				></img>
+				{dropdownVisible && (
+					<div
+						className="navbar-account-dropdown"
+						onMouseLeave={() => setDropdownVisible(false)}
+					>
+						<a href="#">My Profile</a>
+						<a href="#">Sign out</a>
+					</div>
+				)}
 			</div>
-
 		</div>
 	);
 }

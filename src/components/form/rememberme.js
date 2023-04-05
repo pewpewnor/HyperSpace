@@ -1,12 +1,12 @@
-import "./rememberme.css"
+import "./rememberme.css";
 
-function Rememberme(){
-    return(
-        <div className="rememberme">
-            <input type={"checkbox"}></input>
+function Rememberme() {
+	return (
+		<div className="rememberme">
+			<input type={"checkbox"}></input>
 			<span>Remember me</span>
-        </div>
-    )
+		</div>
+	);
 }
 
 export default Rememberme;
