@@ -9,7 +9,7 @@ export default function Space(props) {
 
 			<div className="space__data">
 				<p className="space__title">{props.name}</p>
-				<p className="space__member">6.5M Astronout Joined</p>
+				<p className="space__member">{props.members}</p>
 			</div>
 		</div>
 	);

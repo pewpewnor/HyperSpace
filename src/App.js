@@ -10,6 +10,7 @@ import userData from "data/userdata";
 import Home from "./pages/home/Home";
 import ProfilePage from "./pages/profile/ProfilePage";
 import SpacePage from "./pages/spacepage/SpacePage";
+import DiscoverPage from "./pages/discover/discover.js";
 
 export default function App() {
 	return (
@@ -17,8 +18,9 @@ export default function App() {
 			{/* <Register /> */}
 			{/* <ProfilePage user={userData[0]} /> */}
 			{/* <SpacePage space={spaceData[0]} /> */}
-			<Home />
+			{/* <Home /> */}
 			{/* <Login /> */}
+			<DiscoverPage />
 		</UserContext.Provider>
 	);
 }
