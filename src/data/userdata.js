@@ -6,7 +6,6 @@ const userData = [
 		subscription: "Lieutenant",
 		joinedSpacesID: ["SPA001", "SPA002"],
 		joinedSince: "March, 1st 2023",
-		
 	},
 	{
 		ID: "USR002",
