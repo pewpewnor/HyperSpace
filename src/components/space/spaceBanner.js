@@ -1,7 +1,7 @@
 import "./spaceBanner.css";
 import { useState } from "react";
 
-export default function SpaceBanner({ isJoined }) {
+export default function SpaceBanner({ isJoined, spaceData}) {
 	const [hasJoined, setHasJoined] = useState(isJoined);
 
 	return (
@@ -18,9 +18,10 @@ export default function SpaceBanner({ isJoined }) {
 						</div>
 
 						<div className="space__data">
-							<p className="space__title">Psychology</p>
+							{/* Template need fix */}
+							<p className="space__title">{spaceData.name}</p>
 							<p className="space__member">
-								6.5M Astronout Joined
+								{spaceData.members}
 							</p>
 						</div>
 					</div>
@@ -41,9 +42,7 @@ export default function SpaceBanner({ isJoined }) {
 
 				<div className="space__banner__bottom">
 					<p className="space__banner__desc">
-						This is Psychology Community, the best place to search
-						anything related to psychology, Come and join with 6.5M
-						user across the world!
+						{spaceData.spaceDesctiption}
 					</p>
 				</div>
 			</div>

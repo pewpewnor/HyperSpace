@@ -4,11 +4,12 @@
 
 	padding-top: 1rem;
 	padding-bottom: 1rem;
+	
 	width: 100%;
 	z-index: 2;
 }
 
-.channelView__container > button {
+.channelView__container > button{
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-top: 0.5rem;
@@ -20,10 +21,18 @@
 	border: none;
 }
 
-.channelView__container > button:hover {
+.channelView__container > button:hover:not(.isActive){
 	background-color: #5766ff;
 }
 
-.channelView__container > button:not(:last-child) {
+.channelView__container > button:not(:last-child){
 	margin-right: 1vw;
 }
+
+.channelView__container > .isActive{
+	background-color: #D4F88A;
+	color: #28292E;
+
+	font-weight: 500;
+}
+

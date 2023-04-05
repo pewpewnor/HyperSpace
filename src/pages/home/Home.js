@@ -26,6 +26,10 @@ function Home() {
 					<MySpace />
 				</div>
 				<div className="middle-container">
+					<div className="middle-container__filter-bar">
+						<h1>Home</h1>
+					</div>
+
 					<div className="middle-container__thread-section">
 						{threads.length ? (
 							threads
