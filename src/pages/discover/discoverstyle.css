@@ -1,0 +1,48 @@
+.discoverPage__body{
+    position: relative;
+    margin-left: 5vw;
+    margin-right: 5vw;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.discoverPage__body > .discoverPage__body__bottom{
+    margin-top: 5rem;
+}
+
+.discoverPage__body__bottom > h1{
+    font-family: "Poppins";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2rem;
+	color: #ffffff;
+}
+
+.discoverPage__body__bottom > p{
+    font-family: "Poppins";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	color: #ffffff;
+
+    opacity: 50%;
+}
+
+.discoverPage__space__container{
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 33.33333%;
+}
+
+@media (max-width: 400px) {
+    .discoverPage__space__container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+

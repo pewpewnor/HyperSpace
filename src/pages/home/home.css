@@ -38,6 +38,22 @@ body {
 	margin-left: 1.2vw;
 }
 
+.middle-container .middle-container__filter-bar > h1{
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2rem;
+	color: #ffffff;
+
+	margin-left: 1vw;
+	padding-top: 1rem;
+	margin-bottom: -2.5rem;
+
+	position: absolute;
+}
+
+
+
 .middle-container__thread-section__text {
 	text-align: center;
 	height: 30vw;

@@ -63,17 +63,18 @@
 	background: #f9f9f9;
 	border-radius: 0.3rem;
 	justify-content: space-between;
+
+	padding-left: 1vw;
 }
 
 .navbar-container > .search-bar-container > .search-bar > .search-input {
-	margin-left: 1vw;
 	width: 30vw;
 	background-color: #f9f9f9;
 }
 
 .navbar-container > .search-bar-container > .search-bar > span {
 	width: 3vw;
-	height: 2.25rem;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -83,8 +84,8 @@
 }
 
 .navbar-container > .search-bar-container > .search-bar > span > .search-icon {
-	width: 1.3rem;
-	height: 1.3rem;
+	width: 0.85rem;
+	height: 0.85rem;
 	fill: #5766ff;
 }
 
@@ -272,6 +273,16 @@
 /* Responsive */
 @media only screen and (max-width: 1000px) {
 	.navbar > .navbar-container > .logo-container > .logo-name-container {
+		display: none;
+	}
+}
+
+@media (max-width: 400px) {
+	.user-information-data-container{
+		display: none;
+	}
+
+	.account-information-container > .border {
 		display: none;
 	}
 }
