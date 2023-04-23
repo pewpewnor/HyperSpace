@@ -21,6 +21,7 @@
 }
 
 .text span .Register {
+	font-size: 1rem;
 	color: #5766ff;
 	text-decoration: none;
 	transition: 0.3s;
@@ -28,4 +29,8 @@
 
 .text span .Register:hover {
 	color: #d4f88a;
+}
+
+a{
+	text-decoration: none;
 }
