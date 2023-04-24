@@ -13,73 +13,75 @@
 	background: #28292E;
 } */
 
-.container {
-	width: 720px;
-	height: 612px;
-	background: white;
-	border-radius: 40px;
-	background-color: #161616;
-	align-items: center;
+.container{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+}
+
+.inner__container{
+	width: 51.25rem;
+	height: 38.25rem;
+
 	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: #28292E;
+
+	border-radius: 2rem;
 }
 
-.container .login__container .title {
-	font-size: 42px;
-	font-weight: 1000;
-	color: white;
+
+.inner__container > .inner__container__right{
+	justify-content: center;
 }
 
-.container .login__container .title .title__color {
-	color: #d4f88a;
-	font-size: 42px;
+
+.inner__container > .inner__container__left > img{
+	width: 22.938rem;
+	height: 25.75rem;
+
 }
 
-.container .login__container {
-	/* background-color: darkblue; */
+.inner__container__right> .inner__right{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	margin-left: 50%;
+	justify-content: center;
 }
 
-.email__password__forgot {
-	margin: 50px;
+.inner__container__right > .inner__right >  .title{
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 3.25rem;
+
+	margin-bottom: 2rem;
+
 }
 
-.emailform__box {
-	margin-bottom: 20px;
+.inner__container__right > .inner__right > .title > .title__color{
+	color: #D4F88A;
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 3.25rem;
+	
 }
 
-.emailform__box > input {
-	color: black;
+.emailform__container{
+	margin-bottom: 1rem;
 }
 
-.forgotpassword__box {
-	position: relative;
-	margin-left: 150px;
+.passwordform__container{
+	margin-bottom: 1rem;
 }
 
-.passwordform__box > input {
-	color: black;
+.rememberme__container{
+	margin-bottom: 1rem;
 }
 
-.rememberme__box {
-	margin-bottom: 5px;
-}
-
-.signuplink__box {
-	margin-top: 80px;
-}
-
-@media (max-width: 800px) {
-	.container {
-		width: 360px;
-	}
-
-	.container .login__container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-left: 0%;
-	}
+.submit__container{
+	margin-bottom: 2rem;
 }

@@ -7,14 +7,14 @@
 }
 
 .username__box input {
-	width: 260px;
-	height: 35px;
+	width: 16.25rem;
+	height: 2.1875rem;
 	outline: none;
 	color: black;
 	background-color: white;
 	border: none;
-	border-radius: 7px;
-	font-size: 16px;
+	border-radius: 0.4375rem;
+	font-size: 1rem;
 	font-weight: 500;
-	text-indent: 10px;
+	text-indent: 0.625rem;
 }

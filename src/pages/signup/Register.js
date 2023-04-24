@@ -34,7 +34,7 @@ export default function Register() {
 
 	return (
 		<div className="container">
-			<div className="register__container">
+			<div className="inner__container">
 				<span className="title">Register</span>
 
 				<div className="username__email__password__forgot">
