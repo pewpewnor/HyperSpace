@@ -1,5 +1,12 @@
 import { useState } from "react";
 import "./login.css";
+import loginLogo from "images/login.png";
+
+import Emailform from "components/form/emailform";
+import Passwordform from "components/form/passwordform";
+import Rememberme from "components/form/rememberme";
+import Submit from "components/form/submit";
+import Signuplink from "components/form/signuplink";
 
 function Login() {
 	const [data, setData] = useState({
@@ -25,46 +32,39 @@ function Login() {
 
 	return (
 		<div className="container">
-			<div className="login__container">
-				<span className="title">
-					<span className="title__color">log</span>in
-				</span>
-
-				<div className="email__password__forgot">
-					<div className="emailform__box">
-						<input
-							type="email"
-							name="email"
-							placeholder="email"
-							onChange={handleChange}
-						/>
-					</div>
-					<div className="passwordform__box">
-						<input
-							type="password"
-							name="password"
-							placeholder="password"
-							onChange={handleChange}
-						/>
-					</div>
-					{/* <div className="forgotpassword__box"></div> */}
+			<div className="inner__container">
+				<div className="inner__container__left">
+					<img src={loginLogo} alt="login"></img>
 				</div>
+				<div className="inner__container__right">
+					<form className="inner__right">
+						<span className="title">
+							log
+							<span className="title__color">in</span>
+						</span>
 
-				<div className="rememberme__submit__signuplink">
-					<div className="rememberme__box">
-						<input
-							type="checkbox"
-							name="rememberMe"
-							onChange={handleRememberMe}
-						/>
-						remember me
-					</div>
-					<div className="submit__box">
-						<button onClick={handleSubmit}>Login</button>
-					</div>
-					<a href="#temporary" className="signuplink__box">
-						sign up instead
-					</a>
+						<div className="email__password__forgot">
+							<div className="emailform__container">
+								<Emailform onChange={handleChange}/>
+							</div>
+
+							<div className="passwordform__container">
+								<Passwordform />
+							</div>
+						</div>
+
+						<div className="rememberme__submit__signuplink">
+							<div className="rememberme__container">
+								<Rememberme />
+							</div>
+							<div className="submit__container">
+								<Submit value="login"/>
+							</div>
+							<a href="#temporary" className="signuplink__container">
+								<Signuplink className={"login"} />
+							</a>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

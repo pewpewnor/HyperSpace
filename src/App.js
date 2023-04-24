@@ -19,8 +19,8 @@ export default function App() {
 			{/* <ProfilePage user={userData[0]} /> */}
 			{/* <SpacePage space={spaceData[0]} /> */}
 			{/* <Home /> */}
-			{/* <Login /> */}
-			<DiscoverPage />
+			<Login />
+			{/* <DiscoverPage /> */}
 		</UserContext.Provider>
 	);
 }
