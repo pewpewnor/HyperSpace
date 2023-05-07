@@ -1,7 +1,11 @@
 export default function NotFound() {
-    return <div>
-        
-        Not Found
+	return (
+		<div>
+			<div>Not Found!</div>
 
-    </div>
+			<div>
+				<img src="assets/startup-campus-vback.jpeg" alt="no pic"></img>
+			</div>
+		</div>
+	);
 }
