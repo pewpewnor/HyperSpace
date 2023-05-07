@@ -4,7 +4,7 @@ import "./discoverstyle.css"
 
 import spaceData from "data/spacedata";
 
-export default function DiscoverPage(){
+export default function Discover(){
 	const spaces = spaceData.map((space) => {
 		return <DiscoverPageSpaceComponent key={space.ID} {...space} />;
 	});
