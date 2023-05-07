@@ -3,7 +3,7 @@ import { FaCrown } from "react-icons/fa";
 
 import Navbar from "../../components/navbar/Navbar";
 
-export default function ProfilePage({ user }) {
+export default function Profile({ user }) {
 	return (
 		<div className="profilePage__container">
 			<Navbar />
