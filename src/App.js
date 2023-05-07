@@ -15,13 +15,19 @@ export default function App() {
 	return (
 		<UserContext.Provider value={{ isLoggedIn: true, user: userData[0] }}>
 			<Routes>
-				<Route path="/" element={<Home />}/>
-				<Route path="/login" element={<Login />}/>
-				<Route path="/register" element={<Register />}/>
-				<Route path="/profile" element={<Profile user={userData[0]} />}/>
-				<Route path="/space" element={<SpacePage space={spaceData[0]} />}/>
-				<Route path="/discover" element={<Discover />}/>
-				<Route path="*" element={<NotFound />}/>
+				<Route path="/" element={<Home />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
+				<Route
+					path="/profile"
+					element={<Profile user={userData[0]} />}
+				/>
+				<Route
+					path="/space"
+					element={<SpacePage space={spaceData[0]} />}
+				/>
+				<Route path="/discover" element={<Discover />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</UserContext.Provider>
 	);
