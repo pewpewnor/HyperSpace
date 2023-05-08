@@ -1,8 +1,7 @@
-import UserContext from "contexts/UserContext";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { findSpace } from "utils/find";
+import UserContext from "contexts/UserContext";
 import Space from "./Space";
+import { findSpace } from "utils/find";
 import "./myspace.css";
 
 export default function MySpace() {
@@ -24,11 +23,9 @@ export default function MySpace() {
 			</div>
 			<div className="myspace__space-view-section">{spaces}</div>
 			<div className="myspace__button-section">
-				<Link to="/discover">
-					<button className="myspace__button-section__discover-button">
-						Discover more
-					</button>
-				</Link>
+				<button className="myspace__button-section__discover-button">
+					Discover more
+				</button>
 			</div>
 		</div>
 	);
