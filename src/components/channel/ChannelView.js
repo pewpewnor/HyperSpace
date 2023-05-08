@@ -16,11 +16,17 @@ export default function ChannelView(props) {
 		</button>
 	));
 
-	function handleCreateNewChannel(event){
-		alert('user want to create new channel')
+	function handleCreateNewChannel(event) {
+		alert("user want to create new channel");
 	}
 
-	return <div className="channelView__container">{channels} 
-	{/* if the user is the mod of the space, this button is visible */}
-	<button onClick={handleCreateNewChannel} className="button_default" >+</button></div>;
+	return (
+		<div className="channelView__container">
+			{channels}
+			{/* if the user is the mod of the space, this button is visible */}
+			<button onClick={handleCreateNewChannel} className="button_default">
+				+
+			</button>
+		</div>
+	);
 }
