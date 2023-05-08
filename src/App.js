@@ -1,8 +1,8 @@
 import UserContext from "contexts/UserContext";
 import spaceData from "data/spacedata";
 import userData from "data/userdata";
-import NotFound from "notfound/NotFound";
 import Login from "pages/login/Login";
+import NotFound from "pages/notfound/NotFound.js";
 import Register from "pages/signup/Register";
 import { Route, Routes } from "react-router-dom";
 import Discover from "./pages/discover/discover.js";
