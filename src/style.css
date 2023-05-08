@@ -7,6 +7,9 @@
 	font-family: "Poppins", Arial, Helvetica, sans-serif;
 	font-size: 1rem;
 	color: white;
+
+	border-color: red;
+	border-width: 5rem;
 }
 
 html {
@@ -17,6 +20,8 @@ body {
 	width: 100vw;
 	height: 100vh;
 	background: #161616;
+
+	overflow-x: hidden;
 }
 
 .flex {
@@ -38,6 +43,10 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.card-1 {
+	width: 49rem;
 }
 
 /* Default Styling for button */

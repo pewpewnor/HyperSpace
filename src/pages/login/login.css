@@ -31,7 +31,6 @@
 	background-color: #28292e;
 
 	border-radius: 2rem;
-
 	transition: 0.3s;
 }
 
@@ -42,7 +41,6 @@
 .inner__container > .inner__container__left > img {
 	width: 22.938rem;
 	height: 25.75rem;
-
 	transition: 0.1s;
 }
 
@@ -86,6 +84,7 @@
 .submit__container {
 	margin-bottom: 2rem;
 }
+
 
 @media screen and (max-width: 960px) {
 	.inner__container {

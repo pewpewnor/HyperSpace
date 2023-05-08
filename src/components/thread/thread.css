@@ -7,7 +7,6 @@
 }
 
 .thread__container {
-	width: 62vw;
 	background: #28292e;
 	border-radius: 0.625rem;
 	display: flex;
@@ -28,7 +27,7 @@
 
 .thread__container__top > .thread__profile__container {
 	display: flex;
-	margin-left: 2.6vw;
+	margin-left: 2rem;
 }
 
 .thread__container__top > .thread__profile__container > img {
@@ -37,7 +36,7 @@
 }
 
 .thread__container__top > .thread__profile__container > .thread__profile {
-	margin-left: 1.3vw;
+	margin-left: 1.25rem;
 }
 
 .thread__container__top
@@ -69,7 +68,7 @@
 	> .thread__profile__subscription {
 	fill: #ffbd59;
 	color: #ffbd59;
-	margin-right: 0.5vw;
+	margin-right: 0.5rem;
 	width: 1rem;
 	height: 1rem;
 }
@@ -91,7 +90,7 @@
 }
 
 .thread__container__top > .thread__info {
-	margin-right: 2.6vw;
+	margin-right: 2.6rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -106,7 +105,7 @@
 	> .thread__info
 	> .thread__info__date__container
 	> .thread__info__date {
-	margin-left: 1vw;
+	margin-left: 1rem;
 	font-family: "Poppins";
 	font-style: normal;
 	font-weight: 300;
@@ -141,8 +140,8 @@
 	margin-bottom: 1rem;
 	display: flex;
 
-	margin-left: 2.6vw;
-	margin-right: 2.6vw;
+	margin-left: 2rem;
+	margin-right: 2rem;
 }
 
 .thread__content > .thread__content__title__container > .border {
@@ -163,10 +162,10 @@
 
 .thread__content > .thread__content__pictures > img {
 	margin-top: 1rem;
-	max-width: 55vw;
+	max-width: calc(100% - 7rem);
 	max-height: 37.5rem;
-	margin-left: 2.6vw;
-	margin-right: 2.6vw;
+	margin-left: 2rem;
+	margin-right: 2rem;
 }
 
 .thread__buttons__container {
@@ -177,23 +176,23 @@
 .thread__container > .thread__buttons__container > .thread__buttons {
 	display: flex;
 	align-items: center;
-	margin-left: 2.6vw;
-	margin-right: 2.6vw;
+	margin-left: 2rem;
+	margin-right: 2rem;
 }
 
 .thread__container > .thread__buttons__container > .thread__buttons > button {
 	display: flex;
 	align-items: center;
 
-	margin-right: 1vw;
+	margin-right: 1rem;
 	background: #1e1e1e;
 	border-radius: 0.313rem;
 	border: none;
 
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
-	padding-left: 1vw;
-	padding-right: 1vw;
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
 }
 
 .thread__container
@@ -236,7 +235,7 @@
 	align-items: center;
 
 	color: #ffffff;
-	margin-left: 1vw;
+	margin-left: 0.5rem;
 }
 
 .thread__container
@@ -260,5 +259,5 @@
 	align-items: center;
 
 	color: #ffffff;
-	margin-left: 1vw;
+	margin-left: 0.5rem;
 }
