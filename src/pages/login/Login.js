@@ -45,7 +45,7 @@ function Login() {
 
 						<div className="email__password__forgot">
 							<div className="emailform__container">
-								<Emailform onChange={handleChange}/>
+								<Emailform onChange={handleChange} />
 							</div>
 
 							<div className="passwordform__container">
@@ -58,9 +58,12 @@ function Login() {
 								<Rememberme />
 							</div>
 							<div className="submit__container">
-								<Submit value="login"/>
+								<Submit value="login" />
 							</div>
-							<a href="#temporary" className="signuplink__container">
+							<a
+								href="#temporary"
+								className="signuplink__container"
+							>
 								<Signuplink className={"login"} />
 							</a>
 						</div>

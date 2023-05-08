@@ -1,7 +1,7 @@
 import "./spaceBanner.css";
 import { useState } from "react";
 
-export default function SpaceBanner({ isJoined, spaceData}) {
+export default function SpaceBanner({ isJoined, spaceData }) {
 	const [hasJoined, setHasJoined] = useState(isJoined);
 
 	return (
@@ -20,9 +20,7 @@ export default function SpaceBanner({ isJoined, spaceData}) {
 						<div className="space__data">
 							{/* Template need fix */}
 							<p className="space__title">{spaceData.name}</p>
-							<p className="space__member">
-								{spaceData.members}
-							</p>
+							<p className="space__member">{spaceData.members}</p>
 						</div>
 					</div>
 
