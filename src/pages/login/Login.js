@@ -7,6 +7,11 @@ import Passwordform from "components/form/passwordform";
 import Rememberme from "components/form/rememberme";
 import Submit from "components/form/submit";
 import Signuplink from "components/form/signuplink";
+import Validation from "./Validation";
+
+//error message
+//css media
+//
 
 function Login() {
 	const [data, setData] = useState({
@@ -14,6 +19,8 @@ function Login() {
 		password: "",
 		rememberMe: false,
 	});
+
+	const [errors, setErrors] = useState({});
 
 	function handleChange(event) {
 		setData((prev) => ({
@@ -26,8 +33,13 @@ function Login() {
 		setData((prev) => ({ ...prev, rememberMe: !prev.rememberMe }));
 	}
 
-	function handleSubmit() {
+	function handleSubmit(event) {
 		console.log(data);
+	}
+
+	function handleValidation(event) {
+		event.preventDefault();
+		setErrors(Validation(data));
 	}
 
 	return (
@@ -45,27 +57,53 @@ function Login() {
 
 						<div className="email__password__forgot">
 							<div className="emailform__container">
-								<Emailform onChange={handleChange} />
+								<div className="email__box">
+									<input
+										type="email"
+										placeholder={"email"}
+										onChange={handleChange}
+									>{errors.email && 
+										<p style={{color:"red"}} >{errors.email}</p>
+									}</input>
+									
+								</div>
 							</div>
 
 							<div className="passwordform__container">
-								<Passwordform />
+								<div className="password__box">
+									<input
+										type={"password"}
+										placeholder={"password"}
+										onChange={handleChange}
+									>{errors.password && 
+										<p>{errors.password}</p>
+									}</input>
+									
+								</div>
 							</div>
 						</div>
 
 						<div className="rememberme__submit__signuplink">
 							<div className="rememberme__container">
-								<Rememberme />
+								<div className="rememberme">
+									<input onChange={handleRememberMe} type={"checkbox"}></input>
+									<span>Remember me</span>
+								</div>
 							</div>
 							<div className="submit__container">
-								<Submit value="login" />
+								<div className="submit__box">
+									<input
+										type={"submit"}
+										placeholder={"submit"}
+										onSubmit={handleValidation}
+									></input>
+								</div>
 							</div>
-							<a
-								href="#temporary"
-								className="signuplink__container"
-							>
-								<Signuplink className={"login"} />
-							</a>
+							<div className="signuplink__container">
+								<a href="#temporary">
+									<Signuplink className={"login"} />
+								</a>
+							</div>
 						</div>
 					</form>
 				</div>
