@@ -13,35 +13,35 @@ html {
 	font-size: 16px;
 }
 
-body{
+body {
 	width: 100vw;
 	height: 100vh;
 	background: #161616;
 }
 
-.flex{
+.flex {
 	display: flex;
 }
 
-.flex_row_center{
+.flex_row_center {
 	display: flex;
 	align-items: center;
 }
 
-.flex_column_center{
+.flex_column_center {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
-.flex_center{
+.flex_center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 /* Default Styling for button */
-.button__default{
+.button__default {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-top: 0.5rem;
@@ -53,30 +53,17 @@ body{
 	border: none;
 }
 
-.button__default:hover:not(.isActive){
+.button__default:hover:not(.isActive) {
 	background-color: #5766ff;
 }
 
-.button__default:not(:last-child){
+.button__default:not(:last-child) {
 	margin-right: 1vw;
 }
 
-.button__default__isActive{
-	background-color: #D4F88A;
-	color: #28292E;
+.button__default__isActive {
+	background-color: #d4f88a;
+	color: #28292e;
 
 	font-weight: 500;
-}
-
-
-@media (max-width: 820px) {
-	html {
-		font-size: 8px;
-	}
-}
-
-@media (max-width: 400px) {
-	html {
-		font-size: 6px;
-	}
 }
