@@ -33,7 +33,7 @@ export default function Thread(props) {
 	function handleShare() {}
 
 	return (
-		<div className="thread__container card-1">
+		<div className="thread__container">
 			<div className="thread__container__top">
 				<div className="thread__profile__container">
 					<img

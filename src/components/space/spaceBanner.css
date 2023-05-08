@@ -1,6 +1,7 @@
 .space__banner__container {
 	position: relative;
-	height: 12rem;
+	width: 62vw;
+	height: 11.125rem;
 	border-radius: 10px;
 
 	background-color: rgb(39, 39, 39);
