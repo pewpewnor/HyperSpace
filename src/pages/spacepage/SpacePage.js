@@ -55,7 +55,10 @@ function SpacePage(props) {
 						</div>
 
 						<div className="middle-container__thread-section">
-							<SpaceBanner isJoined={false} spaceData={props.space} />
+							<SpaceBanner
+								isJoined={false}
+								spaceData={props.space}
+							/>
 
 							{threads.length ? (
 								threads
