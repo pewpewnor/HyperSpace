@@ -14,10 +14,10 @@
 .navbar-profile-picture-container > .navbar-account-dropdown {
 	position: absolute;
 	top: 3rem;
-	right: 0vw;
+	right: 0rem;
 
-	padding-top: 0.1vw;
-	padding-bottom: 0.1vw;
+	padding-top: 0.09rem;
+	padding-bottom: 0.09rem;
 	background: #363636;
 	z-index: 3;
 }
@@ -25,7 +25,7 @@
 .navbar-profile-picture-container > .navbar-account-dropdown > a {
 	display: block;
 
-	padding-left: 1vw;
+	padding-left: 1rem;
 	padding-bottom: 0.5rem;
 	padding-top: 0.5rem;
 
@@ -36,7 +36,7 @@
 
 	color: #ffffff;
 
-	width: 10.069444444444vw;
+	width: 9.063rem;
 	text-decoration: none;
 }
 
