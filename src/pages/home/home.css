@@ -38,7 +38,7 @@ body {
 	margin-left: 1.2vw;
 }
 
-.middle-container .middle-container__filter-bar > h1{
+.middle-container .middle-container__filter-bar > h1 {
 	font-family: "Poppins";
 	font-style: normal;
 	font-weight: 700;
@@ -51,8 +51,6 @@ body {
 
 	position: absolute;
 }
-
-
 
 .middle-container__thread-section__text {
 	text-align: center;
