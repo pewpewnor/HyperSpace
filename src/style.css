@@ -7,6 +7,9 @@
 	font-family: "Poppins", Arial, Helvetica, sans-serif;
 	font-size: 1rem;
 	color: white;
+
+	border-color: red;
+	border-width: 5rem;
 }
 
 html {
@@ -17,6 +20,8 @@ body {
 	width: 100vw;
 	height: 100vh;
 	background: #161616;
+
+	overflow-x: hidden;
 }
 
 .flex {
@@ -38,6 +43,10 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.card-1 {
+	width: 49rem;
 }
 
 /* Default Styling for button */
@@ -68,7 +77,31 @@ body {
 	font-weight: 500;
 }
 
+@media (max-width: 1280px) {
+	html {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 1117px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 1029px) {
+	html {
+		font-size: 10px;
+	}
+}
+
 @media (max-width: 820px) {
+	.card-1 {
+		width: calc(100% - 5rem);
+	}
+}
+
+@media (max-width: 593px) {
 	html {
 		font-size: 8px;
 	}
@@ -77,5 +110,11 @@ body {
 @media (max-width: 400px) {
 	html {
 		font-size: 6px;
+	}
+}
+
+@media (max-width: 290px) {
+	html {
+		font-size: 4px;
 	}
 }
