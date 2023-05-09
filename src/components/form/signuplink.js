@@ -20,9 +20,9 @@ function Signuplink({ className }) {
 
 	return (
 		<div className="text">
-			<span className={text_design}>
+			<span className="text_design">
 				{text} <br />
-				<a href="" className={link_design}>
+				<a href="" className="link_design">
 					{link}
 				</a>
 			</span>
