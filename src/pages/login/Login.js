@@ -33,7 +33,7 @@ function Login() {
 	return (
 		<div className="container">
 			<div className="inner__container">
-				<div className="inner__container__left">
+				<div className="inner__container__left toHidden">
 					<img src={loginLogo} alt="login"></img>
 				</div>
 				<div className="inner__container__right">
