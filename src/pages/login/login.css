@@ -6,13 +6,6 @@
 	font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-/* html,body{
-	display: grid;
-	place-items: center;
-	height: 100%;
-	background: #28292E;
-} */
-
 .container {
 	position: relative;
 	width: 100%;
@@ -84,7 +77,6 @@
 .submit__container {
 	margin-bottom: 2rem;
 }
-
 
 @media screen and (max-width: 960px) {
 	.inner__container {
