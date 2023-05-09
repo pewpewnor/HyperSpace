@@ -1,17 +1,8 @@
-import { useState } from "react";
-import "./login.css";
-import loginLogo from "images/login.png";
-
-import Emailform from "components/form/emailform";
-import Passwordform from "components/form/passwordform";
-import Rememberme from "components/form/rememberme";
-import Submit from "components/form/submit";
 import Signuplink from "components/form/signuplink";
+import loginLogo from "images/login.png";
+import { useState } from "react";
 import Validation from "./Validation";
-
-//error message
-//css media
-//
+import "./login.css";
 
 function Login() {
 	const [data, setData] = useState({
@@ -33,7 +24,7 @@ function Login() {
 		setData((prev) => ({ ...prev, rememberMe: !prev.rememberMe }));
 	}
 
-	function handleSubmit(event) {
+	function handleSubmit() {
 		console.log(data);
 	}
 
@@ -62,10 +53,13 @@ function Login() {
 										type="email"
 										placeholder={"email"}
 										onChange={handleChange}
-									>{errors.email && 
-										<p style={{color:"red"}} >{errors.email}</p>
-									}</input>
-									
+									>
+										{errors.email && (
+											<p style={{ color: "red" }}>
+												{errors.email}
+											</p>
+										)}
+									</input>
 								</div>
 							</div>
 
@@ -75,10 +69,11 @@ function Login() {
 										type={"password"}
 										placeholder={"password"}
 										onChange={handleChange}
-									>{errors.password && 
-										<p>{errors.password}</p>
-									}</input>
-									
+									>
+										{errors.password && (
+											<p>{errors.password}</p>
+										)}
+									</input>
 								</div>
 							</div>
 						</div>
@@ -86,7 +81,10 @@ function Login() {
 						<div className="rememberme__submit__signuplink">
 							<div className="rememberme__container">
 								<div className="rememberme">
-									<input onChange={handleRememberMe} type={"checkbox"}></input>
+									<input
+										onChange={handleRememberMe}
+										type={"checkbox"}
+									></input>
 									<span>Remember me</span>
 								</div>
 							</div>
@@ -100,9 +98,7 @@ function Login() {
 								</div>
 							</div>
 							<div className="signuplink__container">
-								<a href="#temporary">
-									<Signuplink className={"login"} />
-								</a>
+								<Signuplink className={"login"} />
 							</div>
 						</div>
 					</form>
