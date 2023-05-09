@@ -66,21 +66,79 @@
 	margin-bottom: 1.5rem;
 }
 
+.email__box {
+	height: 2.5rem;
+	width: 17rem;
+	border-radius: 0.6rem;
+	padding-left: 0.5rem;
+	color: #161616;
+	font-weight: 500;
+}
+
 .passwordform__container {
 	margin-bottom: 1.5rem;
+}
+
+.password__box {
+	height: 2.5rem;
+	width: 17rem;
+	border-radius: 0.6rem;
+	padding-left: 0.5rem;
+	color: #161616;
+	font-weight: 500;
 }
 
 .rememberme__container {
 	margin-bottom: 0.5rem;
 }
 
+.rememberme__box {
+	accent-color: #d4f88a;
+}
+
+.rememberme__span {
+	padding-left: 0.3rem;
+}
+
 .submit__container {
 	margin-bottom: 2rem;
+}
+
+.submit__box {
+	height: 2.5rem;
+	width: 17rem;
+	border-radius: 0.6rem;
+	background-color: #161616;
+	border: none;
+	transition: 0.3s;
+}
+
+.submit__box:hover {
+	background-color: #5766ff;
+}
+
+.signuplink__container {
+	margin-top: 4rem;
+}
+
+.signuplink__container a {
+	color: #d4f88a;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.signuplink__container a:hover {
+	color: #5766ff;
+}
+
+.errormsg {
+	color: red;
 }
 
 @media screen and (max-width: 960px) {
 	.inner__container {
 		width: 25.625rem;
+		justify-content: center;
 	}
 
 	.inner__container > .inner__container__left > img {
@@ -88,10 +146,9 @@
 		height: 0px;
 	}
 
-	.inner__container > .inner__container__right {
-		justify-content: center;
-		margin-right: 2.5rem;
-	}
+	/* .inner__container > .inner__container__right {
+		align-content: center;
+	} */
 
 	.inner__container__right > .inner__right > .title {
 		font-family: "Poppins";
@@ -99,7 +156,5 @@
 		font-weight: 800;
 		font-size: 3.25rem;
 		margin-left: 4rem;
-
-		margin-bottom: 2rem;
 	}
 }
