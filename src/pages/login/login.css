@@ -85,7 +85,7 @@
 	.inner__container {
 		height: 100vh;
 	}
-	.inner__container > .inner__container__left {
+	.toHidden {
 		display: none;
 	}
 }
