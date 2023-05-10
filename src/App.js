@@ -13,7 +13,13 @@ import "./style.css";
 
 export default function App() {
 	return (
-		<UserContext.Provider value={{ isLoggedIn: true, user: userData[0] }}>
+		<UserContext.Provider
+			value={{
+				isLoggedIn: true,
+				user: userData[0],
+				key: null,
+			}}
+		>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
