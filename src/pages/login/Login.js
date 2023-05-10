@@ -98,7 +98,14 @@ function Login() {
 								</div>
 							</div>
 							<div className="signuplink__container">
-								<Signuplink className={"login"} />
+								<div className="signuplink__text">
+									<span className="login">
+										New to HyperSpace? <br />
+										<a href="" className="Login">
+											register here
+										</a>
+									</span>
+								</div>
 							</div>
 						</div>
 					</form>
