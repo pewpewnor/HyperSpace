@@ -21,7 +21,6 @@ const spaceData = [
 		spaceDesctiption: "Hello Norbert!",
 		members: 65000,
 	},
-
 	{
 		ID: "SPA004",
 		name: "Anime",
