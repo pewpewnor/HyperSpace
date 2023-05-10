@@ -1,6 +1,5 @@
 import ChannelView from "components/channel/ChannelView";
 import MySpace from "components/space/MySpace";
-import Space from "components/space/Space";
 import SpaceBanner from "components/space/spaceBanner";
 import Thread from "components/thread/Thread";
 import LocationContext from "contexts/LocationContext";
