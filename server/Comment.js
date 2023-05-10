@@ -10,18 +10,6 @@ const commentSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	picture: {
-		type: String,
-		default: null,
-	},
-	upvote: {
-		type: Number,
-		default: 0,
-	},
-	downvote: {
-		type: Number,
-		default: 0,
-	},
 	childComments: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],
