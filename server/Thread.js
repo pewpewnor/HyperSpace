@@ -4,6 +4,7 @@ const threadSchema = new mongoose.Schema({
 	postDate: {
 		type: Date,
 		default: () => Date.now(),
+		immutable: true,
 	},
 	views: {
 		type: Number,
@@ -38,6 +39,7 @@ const threadSchema = new mongoose.Schema({
 		type: [mongoose.SchemaTypes.ObjectId],
 		required: true,
 		ref: "User",
+		immutable: true,
 	},
 });
 
