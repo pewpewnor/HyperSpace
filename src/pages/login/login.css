@@ -78,8 +78,9 @@
 }
 
 @media (max-width: 820px) {
-	.inner__container {
-		height: 100vh;
+	.container {
+		display: flex;
+		align-items: center;
 	}
 	.toHidden {
 		display: none;
