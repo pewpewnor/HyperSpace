@@ -5,7 +5,7 @@ export default function SpaceBanner({ isJoined, spaceData }) {
 	const [hasJoined, setHasJoined] = useState(isJoined);
 
 	return (
-		<div className="space__banner__container card-1">
+		<div className="space__banner__container">
 			<div className="space__banner__background">
 				{" "}
 				{/* Insert space banner here, css still not optimized*/}{" "}

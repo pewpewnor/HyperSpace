@@ -6,60 +6,158 @@
 	font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-/* html,
-body {
-	display: grid;
-	place-items: center;
-	height: 100%;
-	background: #28292e;
-} */
-
-/*
-.container .inner__container .title {
-	font-size: 42px;
-	font-weight: 1000;
-	color: white;
+.inner__container > .inner__container__left {
+	justify-content: center;
 }
 
-.container .inner__container .title .title__color {
-	color: #d4f88a;
-	font-size: 42px;
+.inner__container > .inner__container__right > img {
+	width: 367px;
+	height: 412px;
 }
 
-.container .inner__container {
+.inner__container__left > .inner__left {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	margin-left: 50%;
+	justify-content: center;
+}
+
+.inner__container__left > .inner__left > .title {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 800;
+	font-size: 52px;
+
+	margin-bottom: 2rem;
+}
+
+.inner__container__left > .inner__left > .title > .title__color {
+	color: #d4f88a;
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 800;
+	font-size: 52px;
 }
 
 .username__email__password__forgot {
-	margin: 50px;
+	margin-bottom: 1rem;
 }
 
-.emailform__box,
 .usernameform__box {
-	margin-bottom: 20px;
+	margin-bottom: 1rem;
+}
+
+.emailform__box {
+	margin-bottom: 1rem;
+}
+
+.passwordform__box {
+	margin-bottom: 1rem;
 }
 
 .privacypolicy__box {
-	margin-bottom: 5px;
+	margin-bottom: 1rem;
 }
 
-.signuplink__box {
-	margin-top: 80px;
+.submit__box {
+	margin-bottom: 1rem;
 }
 
-@media (max-width: 800px) {
-	.container {
-		width: 360px;
-	}
-
-	.container .inner__container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-left: 0%;
-	}
+.email__box input {
+	width: 260px;
+	height: 35px;
+	outline: none;
+	color: black;
+	background-color: white;
+	border: none;
+	border-radius: 7px;
+	font-size: 16px;
+	font-weight: 500;
+	text-indent: 10px;
 }
-*/
+
+.password__box input {
+	width: 260px;
+	height: 35px;
+	outline: none;
+	color: black;
+	background-color: white;
+	border: none;
+	border-radius: 7px;
+	font-size: 16px;
+	font-weight: 500;
+	text-indent: 10px;
+}
+
+.privacypolicy {
+	display: flex;
+}
+
+.privacypolicy input:checked {
+	accent-color: #5766ff;
+	border: none;
+}
+
+.privacypolicy span {
+	color: white;
+	padding-left: 5px;
+	font-size: 14px;
+	padding-bottom: 1px;
+}
+
+.signuplink__text span {
+	color: white;
+}
+
+.signuplink__text span .Login {
+	color: #d4f88a;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.signuplink__text span .Login:hover {
+	color: #5766ff;
+}
+
+.signuplink__text span .Register {
+	font-size: 16px;
+	color: #5766ff;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.signuplink__text span .Register:hover {
+	color: #d4f88a;
+}
+
+a {
+	text-decoration: none;
+}
+
+.submit__box input {
+	width: 260px;
+	height: 40px;
+	background-color: #161616;
+	border-radius: 7px;
+	font-size: 16px;
+	font-weight: 600;
+	transition: 0.3s;
+	border: none;
+}
+
+.submit__box input:hover {
+	background-color: #5766ff;
+	color: white;
+}
+
+.username__box input {
+	width: 260px;
+	height: 35px;
+	outline: none;
+	color: black;
+	background-color: white;
+	border: none;
+	border-radius: 7px;
+	font-size: 16px;
+	font-weight: 500;
+	text-indent: 10px;
+}

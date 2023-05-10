@@ -49,7 +49,6 @@ export default function AccountInformation() {
 						onMouseLeave={() => setDropdownVisible(false)}
 					>
 						<a href="#">My Profile</a>
-						<a href="#">Create New Space</a>
 						<a href="#">Sign out</a>
 					</div>
 				)}
