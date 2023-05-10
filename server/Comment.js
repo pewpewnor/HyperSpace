@@ -4,6 +4,7 @@ const commentSchema = new mongoose.Schema({
 	postDate: {
 		type: Date,
 		default: () => Date.now(),
+		immutable: true,
 	},
 	text: {
 		type: String,
@@ -30,6 +31,7 @@ const commentSchema = new mongoose.Schema({
 		type: [mongoose.SchemaTypes.ObjectId],
 		required: true,
 		ref: "User",
+		immutable: true,
 	},
 });
 
