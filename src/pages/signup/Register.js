@@ -26,8 +26,6 @@ export default function Register() {
 
 	// );
 
-	let link = "";
-
 	return (
 		<div className="container">
 			<div className="inner__container">
@@ -81,8 +79,8 @@ export default function Register() {
 								<div className="signuplink__text">
 									<span className="register">
 										Already have an account? <br />
-										<a href="" className="register">
-											{link}
+										<a href="" className="Register">
+											login here
 										</a>
 									</span>
 								</div>
