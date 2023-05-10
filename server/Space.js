@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Channel = require("./Channel");
 
 const spaceSchema = new mongoose.Schema({
 	name: {
@@ -16,7 +17,11 @@ const spaceSchema = new mongoose.Schema({
 	},
 	channelsID: {
 		type: [mongoose.SchemaTypes.ObjectId],
-		default: [],
+		default: () => {
+			const general = new Channel({ name: "general" });
+			general.save();
+			return [general._id];
+		},
 		ref: "Channel",
 	},
 	members: {
