@@ -9,6 +9,11 @@ const spaceSchema = new mongoose.Schema({
 		type: String,
 		default: "",
 	},
+	ownerID: {
+		type: mongoose.SchemaTypes.ObjectId,
+		required: true,
+		ref: "User",
+	},
 	channelsID: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],

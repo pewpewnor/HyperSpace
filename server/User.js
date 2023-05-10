@@ -32,11 +32,6 @@ const userSchema = new mongoose.Schema({
 		default: () => Date.now(),
 		immutable: true,
 	},
-	ownedSpacesID: {
-		type: [mongoose.SchemaTypes.ObjectId],
-		default: [],
-		ref: "Space",
-	},
 	joinedSpacesID: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],
