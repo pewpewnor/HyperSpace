@@ -26,6 +26,8 @@ export default function Register() {
 
 	// );
 
+	let link = "";
+
 	return (
 		<div className="container">
 			<div className="inner__container">
@@ -38,25 +40,52 @@ export default function Register() {
 
 						<div className="username__email__password__forgot">
 							<div className="usernameform__box">
-								<Usernameform></Usernameform>
+								<div className="username__box">
+									<input
+										type={"text"}
+										placeholder={"username"}
+									></input>
+								</div>
 							</div>
 							<div className="emailform__box">
-								<Emailform></Emailform>
+								<div className="email__box">
+									<input
+										type="email"
+										placeholder={"email"}
+									></input>
+								</div>
 							</div>
 							<div className="passwordform__box">
-								<Passwordform></Passwordform>
+								<div className="password__box">
+									<input
+										type={"password"}
+										placeholder={"password"}
+									></input>
+								</div>
 							</div>
 						</div>
 
 						<div className="privacypolicy__submit__signuplink">
 							<div className="privacypolicy__box">
-								<Privacypolicy></Privacypolicy>
+								<div className="privacypolicy">
+									<input type={"checkbox"}></input>
+									<span>privacy & policy</span>
+								</div>
 							</div>
 							<div className="submit__box">
-								<Submit value="Sign up"></Submit>
+								<div className="submit__box">
+									<input type={"submit"}></input>
+								</div>
 							</div>
 							<div className="signuplink__box">
-								<Signuplink className={"register"}></Signuplink>
+								<div className="signuplink__text">
+									<span className="register">
+										Already have an account? <br />
+										<a href="" className="register">
+											{link}
+										</a>
+									</span>
+								</div>
 							</div>
 						</div>
 					</form>
