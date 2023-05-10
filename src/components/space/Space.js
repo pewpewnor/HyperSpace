@@ -1,3 +1,4 @@
+import shortenNumber from "utils/number";
 import "./space.css";
 
 export default function Space(props) {
@@ -9,7 +10,9 @@ export default function Space(props) {
 
 			<div className="space__data">
 				<p className="space__title">{props.name}</p>
-				<p className="space__member">{props.members}</p>
+				<p className="space__member">
+					{shortenNumber(props.members) + " Members"}
+				</p>
 			</div>
 		</div>
 	);
