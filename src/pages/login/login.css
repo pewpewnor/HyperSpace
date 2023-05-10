@@ -90,6 +90,7 @@
 
 .rememberme__container {
 	margin-bottom: 0.5rem;
+	margin-top: 2rem;
 }
 
 .rememberme__box {
@@ -118,7 +119,7 @@
 }
 
 .signuplink__container {
-	margin-top: 4rem;
+	margin-top: 2rem;
 }
 
 .signuplink__container a {
@@ -132,7 +133,13 @@
 }
 
 .errormsg {
-	color: red;
+	color: firebrick;
+	font-size: 13px;
+}
+
+.errormsg__container {
+	width: 17rem;
+	position: fixed;
 }
 
 @media screen and (max-width: 960px) {

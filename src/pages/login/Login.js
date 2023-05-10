@@ -51,14 +51,17 @@ function Login() {
 									className="email__box"
 									type="email"
 									placeholder={"email"}
+									name="email"
 									onChange={handleChange}
-								>
+								/>
+								<br />
+								<div className="errormsg__container">
 									{errors.email && (
-										<span className="errormsg">
+										<label className="errormsg">
 											{errors.email}
-										</span>
+										</label>
 									)}
-								</input>
+								</div>
 							</div>
 
 							<div className="passwordform__container">
@@ -66,14 +69,17 @@ function Login() {
 									className="password__box"
 									type={"password"}
 									placeholder={"password"}
+									name="password"
 									onChange={handleChange}
-								>
+								/>
+								<div className="errormsg__container">
 									{errors.password && (
-										<span style={{ color: "red" }}>
+										<label className="errormsg">
 											{errors.password}
-										</span>
+										</label>
 									)}
-								</input>
+								</div>
+								<br />
 							</div>
 						</div>
 
@@ -83,7 +89,7 @@ function Login() {
 									className="rememberme__box"
 									type="checkbox"
 									onChange={handleRememberMe}
-								></input>
+								/>
 								<span className="rememberme__span">
 									Remember me
 								</span>
@@ -94,7 +100,7 @@ function Login() {
 									type="submit"
 									placeholder="submit"
 									href=""
-								></input>
+								/>
 							</div>
 							<div className="signuplink__container">
 								<span>Already have an account?</span>
