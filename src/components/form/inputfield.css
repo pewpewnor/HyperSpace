@@ -1,1 +1,32 @@
+.inputField__title {
+	outline: none;
+	resize: none;
 
+	background-color: #28292e;
+	border: 1px;
+	border-radius: 5px;
+
+	width: 600px;
+	height: 32px;
+	min-height: 17px;
+	max-height: 400px;
+
+	display: flex;
+	align-items: center;
+}
+
+.inputField__body {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+
+	outline: none;
+	resize: none;
+
+	background-color: #28292e;
+	border: 1px;
+	border-radius: 5px;
+
+	width: 600px;
+	height: 400px;
+}
