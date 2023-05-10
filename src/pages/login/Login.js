@@ -1,8 +1,8 @@
-import Signuplink from "components/form/signuplink";
 import loginLogo from "images/login.png";
 import { useState } from "react";
-import Validation from "./Validation";
+import { Link } from "react-router-dom";
 import "./login.css";
+import loginValidation from "./loginValidation";
 
 function Login() {
 	const [data, setData] = useState({
@@ -18,19 +18,18 @@ function Login() {
 			...prev,
 			[event.target.name]: event.target.value,
 		}));
+		console.log(data);
 	}
 
 	function handleRememberMe() {
 		setData((prev) => ({ ...prev, rememberMe: !prev.rememberMe }));
 	}
 
-	function handleSubmit() {
-		console.log(data);
-	}
-
-	function handleValidation(event) {
+	function handleSubmit(event) {
 		event.preventDefault();
-		setErrors(Validation(data));
+		console.log(data);
+		console.log(loginValidation(data));
+		setErrors(loginValidation(data));
 	}
 
 	return (
@@ -40,7 +39,7 @@ function Login() {
 					<img src={loginLogo} alt="login"></img>
 				</div>
 				<div className="inner__container__right">
-					<form className="inner__right">
+					<form className="inner__right" onSubmit={handleSubmit}>
 						<span className="title">
 							log
 							<span className="title__color">in</span>
@@ -48,64 +47,59 @@ function Login() {
 
 						<div className="email__password__forgot">
 							<div className="emailform__container">
-								<div className="email__box">
-									<input
-										type="email"
-										placeholder={"email"}
-										onChange={handleChange}
-									>
-										{errors.email && (
-											<p style={{ color: "red" }}>
-												{errors.email}
-											</p>
-										)}
-									</input>
-								</div>
+								<input
+									className="email__box"
+									type="email"
+									placeholder={"email"}
+									onChange={handleChange}
+								>
+									{errors.email && (
+										<span className="errormsg">
+											{errors.email}
+										</span>
+									)}
+								</input>
 							</div>
 
 							<div className="passwordform__container">
-								<div className="password__box">
-									<input
-										type={"password"}
-										placeholder={"password"}
-										onChange={handleChange}
-									>
-										{errors.password && (
-											<p>{errors.password}</p>
-										)}
-									</input>
-								</div>
+								<input
+									className="password__box"
+									type={"password"}
+									placeholder={"password"}
+									onChange={handleChange}
+								>
+									{errors.password && (
+										<span style={{ color: "red" }}>
+											{errors.password}
+										</span>
+									)}
+								</input>
 							</div>
 						</div>
 
 						<div className="rememberme__submit__signuplink">
 							<div className="rememberme__container">
-								<div className="rememberme">
-									<input
-										onChange={handleRememberMe}
-										type={"checkbox"}
-									></input>
-									<span>Remember me</span>
-								</div>
+								<input
+									className="rememberme__box"
+									type="checkbox"
+									onChange={handleRememberMe}
+								></input>
+								<span className="rememberme__span">
+									Remember me
+								</span>
 							</div>
 							<div className="submit__container">
-								<div className="submit__box">
-									<input
-										type={"submit"}
-										placeholder={"submit"}
-										onSubmit={handleValidation}
-									></input>
-								</div>
+								<input
+									className="submit__box"
+									type="submit"
+									placeholder="submit"
+									href=""
+								></input>
 							</div>
 							<div className="signuplink__container">
-								<div className="signuplink__text">
-									<span className="login">
-										New to HyperSpace? <br />
-										<a href="" className="Login">
-											register here
-										</a>
-									</span>
-								</div>
+								<span>Already have an account?</span>
+								<br />
+								<Link to="/register">Sign up here...</Link>
 							</div>
 						</div>
 					</form>
