@@ -18,4 +18,4 @@ const childCommentSchema = new mongoose.Schema({
 	},
 });
 
-module.exports = mongoose.Model("ChildComment", childCommentSchema);
+module.exports = mongoose.model("ChildComment", childCommentSchema);
