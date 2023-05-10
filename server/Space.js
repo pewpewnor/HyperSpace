@@ -5,7 +5,7 @@ const spaceSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	spaceDescription: {
+	description: {
 		type: String,
 		default: "",
 	},
