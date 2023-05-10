@@ -1,6 +1,6 @@
 import loginLogo from "images/login.png";
 import { useState } from "react";
-import Validation from "./Validation";
+import loginValidation from "./Validation";
 import "./login.css";
 
 function Login() {
@@ -13,12 +13,11 @@ function Login() {
 	const [errors, setErrors] = useState({});
 
 	function handleChange(event) {
-		// setData((prev) => ({
-		// 	...prev,
-		// 	[event.target.name]: event.target.value,
-		// }));
-		const newObj = { ...data, [event.target.name]: event.target.value };
-		setData(newObj);
+		setData((prev) => ({
+			...prev,
+			[event.target.name]: event.target.value,
+		}));
+		console.log(data);
 	}
 
 	function handleRememberMe() {
@@ -27,8 +26,9 @@ function Login() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		setErrors(Validation(data));
 		console.log(data);
+		console.log(loginValidation(data));
+		setErrors(loginValidation(data));
 	}
 
 	return (
@@ -80,7 +80,7 @@ function Login() {
 							<div className="rememberme__container">
 								<input
 									className="rememberme__box"
-									type={"checkbox"}
+									type="checkbox"
 									onChange={handleRememberMe}
 								></input>
 								<span className="rememberme__span">
@@ -98,7 +98,7 @@ function Login() {
 							<div className="signuplink__container">
 								<span>Already have an account?</span>
 								<br />
-								<a href="">Sign up here...</a>
+								<button>Sign up here...</button>
 							</div>
 						</div>
 					</form>
