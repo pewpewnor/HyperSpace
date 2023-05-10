@@ -10,7 +10,7 @@ const commentSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	childComments: {
+	childCommentsID: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],
 		ref: "ChildComment",
