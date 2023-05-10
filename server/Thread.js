@@ -23,12 +23,14 @@ const threadSchema = new mongoose.Schema({
 		default: null,
 	},
 	upvote: {
-		type: Number,
-		default: 0,
+		type: [mongoose.SchemaTypes.ObjectId],
+		default: [],
+		ref: "User",
 	},
 	downvote: {
-		type: Number,
-		default: 0,
+		type: [mongoose.SchemaTypes.ObjectId],
+		default: [],
+		ref: "User",
 	},
 	comments: {
 		type: [mongoose.SchemaTypes.ObjectId],
