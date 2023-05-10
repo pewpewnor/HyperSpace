@@ -17,7 +17,6 @@ export default function App() {
 			value={{
 				isLoggedIn: true,
 				user: userData[0],
-				key: null,
 			}}
 		>
 			<Routes>
