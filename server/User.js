@@ -14,15 +14,20 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	joinedSpacesID: {
-		type: [mongoose.SchemaTypes.ObjectId],
-		default: [],
-		ref: "Space",
-	},
 	joinedSince: {
 		type: Date,
 		default: () => Date.now(),
 		immutable: true,
+	},
+	ownedSpacesID: {
+		type: [mongoose.SchemaTypes.ObjectId],
+		default: [],
+		ref: "Space",
+	},
+	joinedSpacesID: {
+		type: [mongoose.SchemaTypes.ObjectId],
+		default: [],
+		ref: "Space",
 	},
 });
 
