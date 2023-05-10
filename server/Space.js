@@ -24,9 +24,10 @@ const spaceSchema = new mongoose.Schema({
 		},
 		ref: "Channel",
 	},
-	members: {
-		type: Number,
-		default: 1,
+	membersID: {
+		type: [mongoose.SchemaTypes.ObjectId],
+		required: true,
+		ref: "User",
 	},
 });
 
