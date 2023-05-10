@@ -9,6 +9,8 @@ import Discover from "./pages/discover/discover.js";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/ProfilePage";
 import SpacePage from "./pages/spacepage/SpacePage";
+import CreateThread from "pages/createthread/createthread.js";
+
 import "./style.css";
 
 export default function App() {
@@ -27,6 +29,7 @@ export default function App() {
 					element={<SpacePage space={spaceData[0]} />}
 				/>
 				<Route path="/discover" element={<Discover />} />
+				<Route path="/create-thread" element={<CreateThread />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</UserContext.Provider>
