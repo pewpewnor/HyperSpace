@@ -21,11 +21,11 @@ const userSchema = new mongoose.Schema({
 	},
 	profilePicture: {
 		type: String,
-		required: true,
+		default: "assets/default-profile-picture.svg",
 	},
 	subscription: {
 		type: String,
-		required: true,
+		default: "Astronaut",
 	},
 	joinedDate: {
 		type: Date,
