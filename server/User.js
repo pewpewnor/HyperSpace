@@ -6,10 +6,14 @@ const userSchema = new mongoose.Schema({
 		required: true,
 		unique: true,
 		lowercase: true,
+		minLength: 3,
+		maxLength: 20,
 	},
 	password: {
 		type: String,
 		required: true,
+		minLength: 3,
+		maxLength: 20,
 	},
 	key: {
 		type: String,
