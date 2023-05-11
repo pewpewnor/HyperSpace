@@ -37,7 +37,7 @@ function SpacePage(props) {
 	});
 
 	return (
-		<div className="all">
+		<div className="all font_size_rule">
 			<Navbar />
 			<div className="body">
 				<div className="left-container">
