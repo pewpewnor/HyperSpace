@@ -22,12 +22,12 @@ const threadSchema = new mongoose.Schema({
 		type: String,
 		default: null,
 	},
-	upvote: {
+	upvotes: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],
 		ref: "User",
 	},
-	downvote: {
+	downvotes: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],
 		ref: "User",
@@ -38,7 +38,7 @@ const threadSchema = new mongoose.Schema({
 		ref: "Comment",
 	},
 	authorID: {
-		type: [mongoose.SchemaTypes.ObjectId],
+		type: mongoose.SchemaTypes.ObjectId,
 		required: true,
 		ref: "User",
 		immutable: true,
