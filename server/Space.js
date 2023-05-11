@@ -15,7 +15,7 @@ const spaceSchema = new mongoose.Schema({
 		required: true,
 		ref: "User",
 	},
-	channelsID: {
+	channels: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: () => {
 			const general = new Channel({ name: "general" });
@@ -24,7 +24,7 @@ const spaceSchema = new mongoose.Schema({
 		},
 		ref: "Channel",
 	},
-	membersID: {
+	members: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		required: true,
 		ref: "User",
