@@ -45,6 +45,7 @@ const spaceData = require("./mockup/spaceData");
 const channelData = require("./mockup/channelData");
 const threadData = require("./mockup/threadData");
 const commentData = require("./mockup/commentData");
+const childCommentData = require("./mockup/childCommentData");
 
 async function run() {
 	try {
@@ -55,6 +56,7 @@ async function run() {
 		await Channel.insertMany(channelData);
 		await Thread.insertMany(threadData);
 		await Comment.insertMany(commentData);
+		await ChildComment.insertMany(childCommentData);
 	} catch (error) {
 		console.error(error);
 	}
@@ -138,11 +140,17 @@ app.post("/api/myspace", async (req, res) => {
 		// TODO: bring back the commented line
 		// const user = await User.findById(userID).populate("joinedSpacesID");
 		const user = await User.findById(userID).populate({
-			path: "joinedSpacesID",
+			path: "joinedSpaces",
 			populate: {
-				path: "channelsID",
+				path: "channels",
 				populate: {
-					path: "threadsID",
+					path: "threads",
+					populate: {
+						path: "comments",
+						populate: {
+							path: "childComments",
+						},
+					},
 				},
 			},
 		});
