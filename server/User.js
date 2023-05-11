@@ -1,28 +1,41 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-	name: {
+	username: {
 		type: String,
 		required: true,
+		unique: true,
 		lowercase: true,
+		minLength: 3,
+		maxLength: 20,
+	},
+	password: {
+		type: String,
+		required: true,
+		minLength: 3,
+		maxLength: 20,
+	},
+	key: {
+		type: String,
+		default: null,
 	},
 	profilePicture: {
 		type: String,
-		required: true,
+		default: "assets/default-profile-picture.svg",
 	},
 	subscription: {
 		type: String,
-		required: true,
+		default: "Astronaut",
+	},
+	joinedDate: {
+		type: Date,
+		default: () => Date.now(),
+		immutable: true,
 	},
 	joinedSpacesID: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],
 		ref: "Space",
-	},
-	joinedSince: {
-		type: Date,
-		default: () => Date.now(),
-		immutable: true,
 	},
 });
 
