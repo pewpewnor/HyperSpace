@@ -10,7 +10,7 @@ const spaceData = [
 		ownerID: "645bcbd39365d8736c77bf5a",
 		description:
 			"This is Psychology Community, the best place to search anything related to psychology, Come and join with 6.5M user across the world!",
-		member: [
+		members: [
 			"645bcbd39365d8736c77bf5a",
 			"645bcbd39365d8736c77bf5b",
 			"645bcbd39365d8736c77bf5c",
@@ -21,21 +21,21 @@ const spaceData = [
 		name: "Gaming",
 		ownerID: "645bcbd39365d8736c77bf5a",
 		description: "Hello World!",
-		member: ["645bcbd39365d8736c77bf5a"],
+		members: ["645bcbd39365d8736c77bf5a"],
 	},
 	{
 		_id: "645bd00f2b7d749510bc10cd",
 		name: "Cooking",
 		ownerID: "645bcbd39365d8736c77bf5b",
 		description: "Hello Steven!!",
-		member: ["645bcbd39365d8736c77bf5b"],
+		members: ["645bcbd39365d8736c77bf5b"],
 	},
 	{
 		_id: "645bd00f2b7d749510bc10ce",
 		name: "Anime",
 		ownerID: "645bcbd39365d8736c77bf5c",
 		description: "Yor FORGER AAAAAAAAA",
-		member: ["645bcbd39365d8736c77bf5c"],
+		members: ["645bcbd39365d8736c77bf5c"],
 	},
 ];
 
