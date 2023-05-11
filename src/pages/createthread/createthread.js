@@ -127,7 +127,7 @@ export default function CreateThread() {
 							handleChange={handleTitleChange}
 						/>
 						<InputField
-							label="Body"
+							label="Thread Text"
 							type="inputField__body"
 							handleChange={handleBodyChange}
 						/>
