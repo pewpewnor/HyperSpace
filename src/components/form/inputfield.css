@@ -29,3 +29,7 @@
 	width: 60vw;
 	height: 25rem;
 }
+
+.inputField__label {
+	margin-bottom: 0.25rem;
+}
