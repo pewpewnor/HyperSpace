@@ -1,6 +1,7 @@
 import UserContext from "contexts/UserContext";
 import spaceData from "data/spacedata";
 import userData from "data/userdata";
+import CreateThread from "pages/createthread/createthread.js";
 import Login from "pages/login/Login";
 import NotFound from "pages/notfound/NotFound.js";
 import Register from "pages/signup/Register";
@@ -9,7 +10,6 @@ import Discover from "./pages/discover/discover.js";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/ProfilePage";
 import SpacePage from "./pages/spacepage/SpacePage";
-import CreateThread from "pages/createthread/createthread.js";
 
 import "./style.css";
 
