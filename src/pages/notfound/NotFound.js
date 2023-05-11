@@ -20,25 +20,21 @@ export default function NotFound() {
 		document.title = "404 Not Found";
 	}, [currentPage]);
 
-	return (
-		<div className="container">
-			<h1>
-				<span className="header-textSpan">4</span>0
-				<span className="header-textSpan">4</span> Page Does not Exist
-			</h1>
+	return <div className="NotFoundPage-container">
 
-			<p>
-				This page isn't available. Sorry about that.
+		<h1 className="NotFoundPage-h1"><span className="NotFoundPage-header-textSpan">4</span>0<span className="NotFoundPage-header-textSpan">4</span> Page Does not Exist</h1>
+
+		<p className="NotFoundPage-p">
+			This page isn't available. Sorry about that.
 				<br></br>
 				Try searching for something else
 			</p>
 
-			<div className="subcontainer">
-				<Link to="/">
-					<h2>Head back to home</h2>
-				</Link>
-				<img className="logoImg" src={logoImg} alt="Hyperspace Logo" />
-			</div>
+		<div className="NotFoundPage-subcontainer">
+			<Link to='/'>
+				<h2 className="NotFoundPage-h2">Head back to home</h2>
+			</Link>
+			<img className="NotFoundPage-logoImg" src={logoImg} alt="Hyperspace Logo" />
 		</div>
 	);
 }

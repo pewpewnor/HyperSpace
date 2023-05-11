@@ -2,46 +2,55 @@
 	position: fixed;
 	top: 20%;
 
-	display: flex;
-	flex-direction: column;
-	gap: 8rem;
+.NotFoundPage-container{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
 }
 
-h1,
-.header-textSpan.header-textSpan {
-	font-size: 2.2rem;
+.NotFoundPage-h1,
+.NotFoundPage-header-textSpan{
+    font-size: 2.2rem;
 }
 
-h2 {
-	transition: all 0.3s ease;
+.NotFoundPage-h2{
+    transition: all 0.3s ease;
 }
 
-h2:hover {
-	color: #5766ff;
-	text-decoration: underline;
+.NotFoundPage-h2:hover{
+    color:#5766ff;
+    text-decoration: underline;
 }
 
-p {
-	text-align: center;
+.NotFoundPage-p{
+    text-align: center;
 }
 
-p,
-h2 {
-	font-size: 1rem;
+.NotFoundPage-p,
+.NotFoundPage-h2{
+    font-size: 1rem;
 }
 
-.header-textSpan {
-	color: #d4f88a;
+.NotFoundPage-header-textSpan{
+    color: #d4f88a;
 }
 
-.logoImg {
-	width: 3rem;
+.NotFoundPage-logoImg{
+    width: 3rem;
 }
 
-.subcontainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.NotFoundPage-subcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 	row-gap: 2rem;
 }
@@ -51,21 +60,25 @@ h2 {
 		gap: 5rem;
 	}
 
-	h1,
-	.header-textSpan.header-textSpan {
-		font-size: 1.3rem;
-	}
+    .NotFoundPage-container{
+        gap: 5rem;
+    }
 
-	p,
-	h2 {
-		font-size: 0.6rem;
-	}
+    .NotFoundPage-h1,
+    .NotFoundPage-header-textSpan{
+        font-size: 1.3rem;
+    }
 
-	.logoImg {
-		width: 2.1rem;
-	}
+    .NotFoundPage-p,
+    .NotFoundPage-h2{
+        font-size: 0.6rem;
+    }
 
-	.subcontainer {
-		row-gap: 1.1rem;
-	}
+    .NotFoundPage-logoImg{
+        width: 2.1rem;
+    }
+
+    .NotFoundPage-subcontainer{
+        row-gap: 1.1rem;
+    }
 }
