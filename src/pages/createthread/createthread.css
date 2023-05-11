@@ -10,22 +10,22 @@
 	display: flex;
 	align-items: center;
 
-	margin-top: 1.5em;
-	margin-bottom: 1em;
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
 }
 
 .create__thread__title > .border {
-	width: 0.313em;
-	height: 2.625em;
+	width: 0.313rem;
+	height: 2.625rem;
 	background: #5766ff;
 	margin-left: 1vw;
 }
 
 .create__thread__title > h1 {
-	font-size: 2em;
+	font-size: 2rem;
 	font-weight: 700;
 
-	margin-left: 1em;
+	margin-left: 1rem;
 }
 
 .create__thread__target__container {
@@ -33,5 +33,14 @@
 }
 
 .create__thread__target__container > * {
-	margin-bottom: 0.5em;
+	margin-bottom: 0.5rem;
+}
+
+.create__thread__inputImage {
+	margin-top: 1rem;
+}
+
+.create__thread__inputImage > h1 {
+	font-size: 1rem;
+	font-weight: 500;
 }
