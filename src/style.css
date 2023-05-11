@@ -68,14 +68,18 @@ body {
 	font-weight: 500;
 }
 
-@media (max-width: 820px) {
-	html {
+.font_size_rule {
+	font-size: 16px;
+}
+
+@media screen and (max-width: 820px) {
+	.font_size_rule {
 		font-size: 8px;
 	}
 }
 
-@media (max-width: 400px) {
-	html {
+@media screen and (max-width: 400px) {
+	.font_size_rule {
 		font-size: 6px;
 	}
 }
