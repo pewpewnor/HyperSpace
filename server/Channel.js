@@ -5,7 +5,7 @@ const channelSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	threadsID: {
+	threads: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],
 		ref: "Thread",
