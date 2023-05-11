@@ -11,7 +11,7 @@ const childCommentSchema = new mongoose.Schema({
 		required: true,
 	},
 	authorID: {
-		type: [mongoose.SchemaTypes.ObjectId],
+		type: mongoose.SchemaTypes.ObjectId,
 		required: true,
 		ref: "User",
 		immutable: true,
