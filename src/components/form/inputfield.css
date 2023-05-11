@@ -1,0 +1,35 @@
+.inputField__title {
+	outline: none;
+	resize: none;
+
+	background-color: #28292e;
+	border: 1px;
+	border-radius: 5px;
+
+	width: 60vw;
+	height: 2rem;
+
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.inputField__body {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+
+	outline: none;
+	resize: none;
+
+	background-color: #28292e;
+	border: 1px;
+	border-radius: 5px;
+
+	width: 60vw;
+	height: 25rem;
+}
+
+.inputField__label {
+	margin-bottom: 0.25rem;
+}

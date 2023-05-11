@@ -10,9 +10,9 @@ export default function Discover() {
 	});
 
 	return (
-		<>
+		<div className="font_size_rule">
 			<Navbar />
-			<div className="discoverPage__body">
+			<div className="discoverPage__body ">
 				<div className="channelView__container">
 					<button className="isActive">Home</button>
 					<button>Gaming</button>
@@ -31,6 +31,6 @@ export default function Discover() {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
