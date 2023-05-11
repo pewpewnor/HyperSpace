@@ -69,6 +69,40 @@ run();
 
 const { generateKey, isBadString } = require("./utility");
 
+app.post("/api/test", async (req, res) => {
+	try {
+		const { key, userID } = req.body;
+		const user = await User.findById(userID).populate({
+			path: "joinedSpaces",
+			populate: {
+				path: "channels",
+				populate: {
+					path: "threads",
+					populate: {
+						path: "comments",
+						populate: {
+							path: "childComments",
+						},
+					},
+				},
+			},
+		});
+		if (!user || user.key !== key) {
+			res.status(403).json({
+				error: "You must be logged in to do this!",
+			});
+			return;
+		}
+		res.status(200).json(user);
+		return;
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Invalid data given || Server / database error!",
+		});
+	}
+});
+
 app.post("/api/login", async (req, res) => {
 	const { username, password } = req.body;
 	if (isBadString(username) || isBadString(password)) {
@@ -137,23 +171,7 @@ app.post("/api/register", async (req, res) => {
 app.post("/api/myspace", async (req, res) => {
 	try {
 		const { key, userID } = req.body;
-		// TODO: bring back the commented line
-		// const user = await User.findById(userID).populate("joinedSpacesID");
-		const user = await User.findById(userID).populate({
-			path: "joinedSpaces",
-			populate: {
-				path: "channels",
-				populate: {
-					path: "threads",
-					populate: {
-						path: "comments",
-						populate: {
-							path: "childComments",
-						},
-					},
-				},
-			},
-		});
+		const user = await User.findById(userID).populate("joinedSpaces");
 		if (!user || user.key !== key) {
 			res.status(403).json({
 				error: "You must be logged in to do this!",
