@@ -67,41 +67,7 @@ run();
 
 // End test
 
-const { generateKey, isBadString } = require("./utility");
-
-app.post("/api/test", async (req, res) => {
-	try {
-		const { key, userID } = req.body;
-		const user = await User.findById(userID).populate({
-			path: "joinedSpaces",
-			populate: {
-				path: "channels",
-				populate: {
-					path: "threads",
-					populate: {
-						path: "comments",
-						populate: {
-							path: "childComments",
-						},
-					},
-				},
-			},
-		});
-		if (!user || user.key !== key) {
-			res.status(403).json({
-				error: "You must be logged in to do this!",
-			});
-			return;
-		}
-		res.status(200).json(user);
-		return;
-	} catch (error) {
-		console.error(error);
-		res.status(500).json({
-			error: "Invalid data given || Server / database error!",
-		});
-	}
-});
+const { generateKey, isBadString, isBadObjectID } = require("./utility");
 
 app.post("/api/login", async (req, res) => {
 	const { username, password } = req.body;
@@ -168,9 +134,55 @@ app.post("/api/register", async (req, res) => {
 	}
 });
 
-app.post("/api/myspace", async (req, res) => {
+app.post("/api/user/all", async (req, res) => {
+	const { key, userID } = req.body;
+	if (isBadString(key) || isBadString(userID)) {
+		res.status(400).json({
+			error: "Key or UserID has invalid format!",
+		});
+		return;
+	}
 	try {
-		const { key, userID } = req.body;
+		const user = await User.findById(userID).populate({
+			path: "joinedSpaces",
+			populate: {
+				path: "channels",
+				populate: {
+					path: "threads",
+					populate: {
+						path: "comments",
+						populate: {
+							path: "childComments",
+						},
+					},
+				},
+			},
+		});
+		if (!user || user.key !== key) {
+			res.status(403).json({
+				error: "You must be logged in to do this!",
+			});
+			return;
+		}
+		res.status(200).json(user);
+		return;
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Server / database error!",
+		});
+	}
+});
+
+app.post("/api/user/myspace", async (req, res) => {
+	const { key, userID } = req.body;
+	if (isBadString(key) || isBadString(userID)) {
+		res.status(400).json({
+			error: "Key or UserID has invalid format!",
+		});
+		return;
+	}
+	try {
 		const user = await User.findById(userID).populate("joinedSpaces");
 		if (!user || user.key !== key) {
 			res.status(403).json({
@@ -183,7 +195,61 @@ app.post("/api/myspace", async (req, res) => {
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({
-			error: "Invalid data given || Server / database error!",
+			error: "Server / database error!",
+		});
+	}
+});
+
+app.get("/api/space", async (req, res) => {
+	const { spaceID } = req.query;
+	if (isBadObjectID(spaceID)) {
+		res.status(400).json({
+			error: "SpaceID has invalid format!",
+		});
+		return;
+	}
+
+	try {
+		const space = await Space.findById(spaceID).populate("channels");
+		if (!space) {
+			res.status(401).json({
+				error: "SpaceID does not exist!",
+			});
+			return;
+		}
+		res.status(200).json(space);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Server / database error!",
+		});
+	}
+});
+
+app.get("/api/threads", async (req, res) => {
+	const { channelID } = req.query;
+	if (isBadObjectID(channelID)) {
+		res.status(400).json({
+			error: "ChannelID has invalid format!",
+		});
+		return;
+	}
+
+	try {
+		const channel = await Channel.findById(channelID).populate("threads");
+		if (!channel) {
+			res.status(401).json({
+				error: "ChannelID does not exist!",
+			});
+			return;
+		}
+		// TODO: there is no select function
+		const threads = await channel.select("threads");
+		res.status(200).json(threads);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Server / database error!",
 		});
 	}
 });
