@@ -14,6 +14,21 @@ const channelData = [
 		name: "memes",
 		threadsID: [],
 	},
+	{
+		ID: "CHA004",
+		name: "valorant",
+		threadsID: [],
+	},
+	{
+		ID: "CHA005",
+		name: "genshin impact",
+		threadsID: [],
+	},
+	{
+		ID: "CHA006",
+		name: "guide",
+		threadsID: [],
+	},
 ];
 
 export default channelData;

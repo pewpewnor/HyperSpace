@@ -6,13 +6,12 @@
 	border: 1px;
 	border-radius: 5px;
 
-	width: 600px;
-	height: 32px;
-	min-height: 17px;
-	max-height: 400px;
+	width: 60vw;
+	height: 2rem;
 
 	display: flex;
 	align-items: center;
+	margin-bottom: 1rem;
 }
 
 .inputField__body {
@@ -27,6 +26,6 @@
 	border: 1px;
 	border-radius: 5px;
 
-	width: 600px;
-	height: 400px;
+	width: 60vw;
+	height: 25rem;
 }
