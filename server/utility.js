@@ -11,6 +11,13 @@ function isBadString(data) {
 	return false;
 }
 
+function isBadObjectID(id) {
+	if (isBadString(id) || id.length !== 24) {
+		return true;
+	}
+	return false;
+}
+
 function isBadBoolean(data) {
 	if (data === undefined || typeof data !== "boolean") {
 		return true;
@@ -21,4 +28,5 @@ function isBadBoolean(data) {
 module.exports = {
 	generateKey,
 	isBadString,
+	isBadObjectID,
 };
