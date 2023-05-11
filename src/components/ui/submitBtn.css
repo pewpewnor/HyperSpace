@@ -1,0 +1,16 @@
+.submitButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 15rem;
+	height: 2rem;
+	background-color: #28292e;
+
+	border-radius: 0.5rem;
+	border: none;
+}
+
+.submitButton:hover {
+	background-color: #5766ff;
+}
