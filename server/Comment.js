@@ -10,13 +10,13 @@ const commentSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	childCommentsID: {
+	childComments: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: [],
 		ref: "ChildComment",
 	},
 	authorID: {
-		type: [mongoose.SchemaTypes.ObjectId],
+		type: mongoose.SchemaTypes.ObjectId,
 		required: true,
 		ref: "User",
 		immutable: true,
