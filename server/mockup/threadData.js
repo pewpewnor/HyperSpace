@@ -15,14 +15,14 @@ const threadData = [
 			"645bcbd39365d8736c77bf5b",
 			"645bcbd39365d8736c77bf5c",
 		],
+		comments: ["645ca6bc200e8b6c6bc46735", "645ca6bc200e8b6c6bc46736"],
 		authorID: "645bcbd39365d8736c77bf5a",
 	},
 	{
 		_id: "645bda46c41febba4c220f1c",
 		title: "What is the meaning of life?",
 		text: "This text should not be long enough to be cut off!!!",
-		upvotes: ["645bcbd39365d8736c77bf5a"],
-		downvotes: ["645bcbd39365d8736c77bf5a"],
+		comments: ["645ca6bc200e8b6c6bc46737"],
 		authorID: "645bcbd39365d8736c77bf5b",
 	},
 	{
