@@ -63,11 +63,11 @@
 	font-size: 3.25rem;
 }
 
-.emailform__container {
+.usernameform__container {
 	margin-bottom: 1.5rem;
 }
 
-.email__box {
+.username__box {
 	height: 2.5rem;
 	width: 17rem;
 	border-radius: 0.6rem;
@@ -91,7 +91,7 @@
 
 .rememberme__container {
 	margin-bottom: 0.5rem;
-	margin-top: 2rem;
+	/* margin-top: 2rem; */
 }
 
 .rememberme__box {

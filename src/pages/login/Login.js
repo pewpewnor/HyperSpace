@@ -6,7 +6,7 @@ import loginValidation from "./loginValidation";
 
 function Login() {
 	const [data, setData] = useState({
-		email: "",
+		username: "",
 		password: "",
 		rememberMe: false,
 	});
@@ -45,20 +45,20 @@ function Login() {
 							<span className="title__color">in</span>
 						</span>
 
-						<div className="email__password__forgot">
-							<div className="emailform__container">
+						<div className="username__password__forgot">
+							<div className="usernameform__container">
 								<input
-									className="email__box"
-									type="email"
-									placeholder={"email"}
-									name="email"
+									className="username__box"
+									type="text"
+									placeholder={"username"}
+									name="username"
 									onChange={handleChange}
 								/>
 								<br />
 								<div className="errormsg__container">
-									{errors.email && (
+									{errors.username && (
 										<label className="errormsg">
-											{errors.email}
+											{errors.username}
 										</label>
 									)}
 								</div>
