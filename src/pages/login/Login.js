@@ -6,7 +6,7 @@ import loginValidation from "./loginValidation";
 
 function Login() {
 	const [data, setData] = useState({
-		email: "",
+		username: "",
 		password: "",
 		rememberMe: false,
 	});
@@ -45,20 +45,23 @@ function Login() {
 							<span className="title__color">in</span>
 						</span>
 
-						<div className="email__password__forgot">
-							<div className="emailform__container">
+						<div className="username__password__forgot">
+							<div className="usernameform__container">
 								<input
-									className="email__box"
-									type="email"
-									placeholder={"email"}
+									className="username__box"
+									type="text"
+									placeholder={"username"}
+									name="username"
 									onChange={handleChange}
-								>
-									{errors.email && (
-										<span className="errormsg">
-											{errors.email}
-										</span>
+								/>
+								<br />
+								<div className="errormsg__container">
+									{errors.username && (
+										<label className="errormsg">
+											{errors.username}
+										</label>
 									)}
-								</input>
+								</div>
 							</div>
 
 							<div className="passwordform__container">
@@ -66,14 +69,17 @@ function Login() {
 									className="password__box"
 									type={"password"}
 									placeholder={"password"}
+									name="password"
 									onChange={handleChange}
-								>
+								/>
+								<div className="errormsg__container">
 									{errors.password && (
-										<span style={{ color: "red" }}>
+										<label className="errormsg">
 											{errors.password}
-										</span>
+										</label>
 									)}
-								</input>
+								</div>
+								<br />
 							</div>
 						</div>
 
@@ -83,7 +89,7 @@ function Login() {
 									className="rememberme__box"
 									type="checkbox"
 									onChange={handleRememberMe}
-								></input>
+								/>
 								<span className="rememberme__span">
 									Remember me
 								</span>
@@ -94,7 +100,7 @@ function Login() {
 									type="submit"
 									placeholder="submit"
 									href=""
-								></input>
+								/>
 							</div>
 							<div className="signuplink__container">
 								<span>Already have an account?</span>
