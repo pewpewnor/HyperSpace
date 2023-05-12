@@ -28,7 +28,6 @@ const {
 	isBadObjectID,
 	isNotLoggedIn,
 	deleteAll,
-	generateObjectID,
 } = require("./utility");
 
 // Insert mockup data
