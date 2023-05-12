@@ -1,7 +1,10 @@
 import UserContext from "contexts/UserContext";
 import spaceData from "data/spacedata";
 import userData from "data/userdata";
+
 import CreateThread from "pages/createthread/createthread.js";
+import CreateSpace from "pages/createspace/createspace.js";
+
 import Login from "pages/login/Login";
 import NotFound from "pages/notfound/NotFound.js";
 import Register from "pages/signup/Register";
@@ -35,6 +38,8 @@ export default function App() {
 				/>
 				<Route path="/discover" element={<Discover />} />
 				<Route path="/create-thread" element={<CreateThread />} />
+				<Route path="/create-space" element={<CreateSpace />} />
+
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</UserContext.Provider>

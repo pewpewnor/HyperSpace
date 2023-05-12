@@ -1,6 +1,7 @@
 import AccountInformation from "./AccountInformation";
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 export default function Navbar() {
@@ -16,10 +17,6 @@ export default function Navbar() {
 		}
 	}
 
-	function handleCreatePost() {
-		alert("User wants to create a new thread");
-	}
-
 	function handleSearchIcon() {
 		alert(searchQuery);
 	}
@@ -27,13 +24,13 @@ export default function Navbar() {
 	return (
 		<div className="navbar">
 			<div className="navbar-container">
-				<div className="logo-container">
+				<Link to="/" className="logo-container">
 					<img src="assets/hyperspace-logo.png" alt="logo"></img>
 					<div className="logo-name-container">
 						<h1 id="logo-first">Hyper</h1>
 						<h1 id="logo-second">Space</h1>
 					</div>
-				</div>
+				</Link>
 
 				<div className="search-bar-container">
 					<div className="search-bar">
@@ -51,12 +48,9 @@ export default function Navbar() {
 					</div>
 				</div>
 
-				<button
-					className="add-post-container"
-					onClick={handleCreatePost}
-				>
+				<Link to="/create-thread" className="add-post-container">
 					<p>+</p>
-				</button>
+				</Link>
 
 				<AccountInformation />
 			</div>
