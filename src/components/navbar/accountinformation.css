@@ -22,7 +22,7 @@
 	z-index: 3;
 }
 
-.navbar-profile-picture-container > .navbar-account-dropdown > a {
+.navbar-profile-picture-container > .navbar-account-dropdown > .more__navbar {
 	display: block;
 
 	padding-left: 1rem;
@@ -40,6 +40,8 @@
 	text-decoration: none;
 }
 
-.navbar-profile-picture-container > .navbar-account-dropdown > a:hover {
+.navbar-profile-picture-container
+	> .navbar-account-dropdown
+	> .more__navbar:hover {
 	background-color: #5766ff;
 }
