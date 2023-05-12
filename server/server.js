@@ -443,8 +443,8 @@ app.post("/api/crud/comment", async (req, res) => {
 	}
 });
 
-// Uses userID + key, text, threadID
-// Create new comment
+// Uses userID + key, text, commentID
+// Create new child comment
 app.post("/api/crud/childcomment", async (req, res) => {
 	if (await isNotLoggedIn(req.body)) {
 		res.status(403).json({
