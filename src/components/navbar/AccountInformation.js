@@ -4,6 +4,7 @@ import { findUser } from "utils/find";
 import { FaCrown } from "react-icons/fa";
 import "./accountinformation.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function AccountInformation() {
 	const userInfo = useContext(UserContext);
@@ -48,8 +49,15 @@ export default function AccountInformation() {
 						className="navbar-account-dropdown"
 						onMouseLeave={() => setDropdownVisible(false)}
 					>
-						<a href="#">My Profile</a>
-						<a href="#">Sign out</a>
+						<Link to="/profile" className="more__navbar">
+							My Profile
+						</Link>
+						<Link to="/create-space" className="more__navbar">
+							Create New Space
+						</Link>
+						<Link to="/login" className="more__navbar">
+							Sign out
+						</Link>
 					</div>
 				)}
 			</div>

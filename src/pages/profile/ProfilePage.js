@@ -5,7 +5,7 @@ import Navbar from "../../components/navbar/Navbar";
 
 export default function Profile({ user }) {
 	return (
-		<div className="profilePage__container">
+		<div className="profilePage__container font_size_rule">
 			<Navbar />
 
 			<div className="profilePage__body__container">

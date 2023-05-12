@@ -10,7 +10,7 @@ const spaceData = [
 	{
 		ID: "SPA002",
 		name: "Gaming",
-		channelsID: [],
+		channelsID: ["CHA004", "CHA005", "CHA006"],
 		spaceDesctiption: "Hello World!",
 		members: 8432475545,
 	},
@@ -21,7 +21,6 @@ const spaceData = [
 		spaceDesctiption: "Hello Norbert!",
 		members: 65000,
 	},
-
 	{
 		ID: "SPA004",
 		name: "Anime",
