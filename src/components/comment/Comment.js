@@ -1,5 +1,5 @@
-import { findUser } from "utils/find";
 import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
+import { findUser } from "utils/find";
 
 import ThreadText from "../thread/ThreadText";
 
@@ -19,7 +19,7 @@ function Comment(props) {
 				</div>
 			</div>
 			<div className="comment__comment">
-				<ThreadText />
+				<ThreadText text={props.text} />
 			</div>
 		</div>
 	);
