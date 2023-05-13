@@ -5,7 +5,7 @@ function loginValidation(data) {
 
 	if (data.username.length < 1) {
 		 = "email is required";
-	} 
+	}
 	// else if (!email_pattern.test(data.email)) {
 	// 	 = "username must be valid";
 	// }
