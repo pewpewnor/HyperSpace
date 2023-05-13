@@ -1,0 +1,11 @@
+.CreateChannelPopUp {
+	position: fixed;
+	top: 50;
+	left: 50;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-color: red;
+	z-index: 500;
+}
