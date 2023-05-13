@@ -34,7 +34,9 @@ export default function App() {
 				/>
 				<Route
 					path="/space"
-					element={<SpacePage space={spaceData[0]} />}
+					element={
+						<SpacePage space={spaceData[0]} user={userData[0]} />
+					}
 				/>
 				<Route path="/discover" element={<Discover />} />
 				<Route path="/create-thread" element={<CreateThread />} />

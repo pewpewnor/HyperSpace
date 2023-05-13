@@ -6,6 +6,7 @@ const spaceData = [
 		spaceDesctiption:
 			"This is Psychology Community, the best place to search anything related to psychology, Come and join with 6.5M user across the world!",
 		members: 525557,
+		ownerID: "USR001",
 	},
 	{
 		ID: "SPA002",
@@ -13,6 +14,7 @@ const spaceData = [
 		channelsID: ["CHA004", "CHA005", "CHA006"],
 		spaceDesctiption: "Hello World!",
 		members: 8432475545,
+		ownerID: "USR002",
 	},
 	{
 		ID: "SPA003",
@@ -20,6 +22,7 @@ const spaceData = [
 		channelsID: [],
 		spaceDesctiption: "Hello Norbert!",
 		members: 65000,
+		ownerID: "USR003",
 	},
 	{
 		ID: "SPA004",
@@ -27,6 +30,7 @@ const spaceData = [
 		channelsID: [],
 		spaceDesctiption: "Yor FORGER AAAAAAAAA",
 		members: 7000000000000,
+		ownerID: "USR001",
 	},
 ];
 
