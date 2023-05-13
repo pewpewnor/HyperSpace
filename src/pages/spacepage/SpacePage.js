@@ -35,6 +35,14 @@ function SpacePage(props) {
 		);
 	});
 
+	const [isCreateChannelPopUpOpen, setIsCreateChannelPopUpOpen] =
+		useState(false);
+
+	function handleCreateChannelPopUp() {
+		setIsCreateChannelPopUpOpen(!isCreateChannelPopUpOpen);
+		console.log(isCreateChannelPopUpOpen);
+	}
+
 	return (
 		<div className="all font_size_rule">
 			<Navbar />
@@ -50,7 +58,14 @@ function SpacePage(props) {
 						}}
 					>
 						<div className="middle-container__filter-bar">
-							<ChannelView channelsArray={channelsArray} />
+							<ChannelView
+								channelsArray={channelsArray}
+								user={props.user}
+								space={props.space}
+								handleCreateChannelPopUp={
+									handleCreateChannelPopUp
+								}
+							/>
 						</div>
 					</LocationContext.Provider>
 
