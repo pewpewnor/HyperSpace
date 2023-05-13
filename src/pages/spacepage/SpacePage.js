@@ -46,6 +46,18 @@ function SpacePage(props) {
 		console.log(!isCreateChannelPopUpOpen);
 	}
 
+	const [newChannel, setNewChannel] = useState("");
+
+	function handleCreateChannelChange(event) {
+		event.stopPropagation();
+		setNewChannel(event.target.value);
+	}
+
+	function handleCreateChannelSubmit(event) {
+		setIsCreateChannelPopUpOpen(!isCreateChannelPopUpOpen);
+		console.log(newChannel);
+	}
+
 	return (
 		<div className="all font_size_rule">
 			<Navbar />
@@ -89,6 +101,8 @@ function SpacePage(props) {
 				{isCreateChannelPopUpOpen && (
 					<CreateChannelPopUp
 						handleCreateChannelPopUp={handleCreateChannelPopUp}
+						handleCreateChannelChange={handleCreateChannelChange}
+						handleCreateChannelSubmit={handleCreateChannelSubmit}
 					/>
 				)}
 			</div>
