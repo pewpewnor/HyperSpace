@@ -8,6 +8,8 @@ import "./home.css";
 import spaceData from "data/spacedata";
 import channelData from "data/channeldata";
 
+import PopupThread from "components/thread/PopupThread";
+
 function Home() {
 	const threads = threadData.map((thread) => (
 		<Thread
@@ -15,6 +17,15 @@ function Home() {
 			space={spaceData[0]}
 			channel={channelData[0]}
 			{...thread}
+		/>
+	));
+
+	const testingthreads = threadData.map((popupthread) => (
+		<PopupThread
+			key={popupthread.ID}
+			space={spaceData[0]}
+			channel={channelData[0]}
+			{...popupthread}
 		/>
 	));
 
@@ -33,6 +44,17 @@ function Home() {
 					<div className="middle-container__thread-section">
 						{threads.length ? (
 							threads
+						) : (
+							<div className="middle-container__thread-section__text">
+								<h1>There's nothing here!</h1>
+								<p>Maybe navigate to a different space?</p>
+							</div>
+						)}
+					</div>
+
+					<div className="middle-container__thread-section">
+						{testingthreads.length ? (
+							testingthreads
 						) : (
 							<div className="middle-container__thread-section__text">
 								<h1>There's nothing here!</h1>

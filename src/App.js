@@ -14,6 +14,8 @@ import Home from "./pages/home/Home";
 import Profile from "./pages/profile/ProfilePage";
 import SpacePage from "./pages/spacepage/SpacePage";
 
+import PopupThread from "./components/thread/PopupThread"
+
 import "./style.css";
 
 export default function App() {
@@ -39,6 +41,8 @@ export default function App() {
 				<Route path="/discover" element={<Discover />} />
 				<Route path="/create-thread" element={<CreateThread />} />
 				<Route path="/create-space" element={<CreateSpace />} />
+
+				<Route path="/popupthread" element={<PopupThread />} />
 
 				<Route path="*" element={<NotFound />} />
 			</Routes>
