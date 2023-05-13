@@ -7,8 +7,9 @@ const threadSchema = new mongoose.Schema({
 		immutable: true,
 	},
 	views: {
-		type: Number,
-		default: 0,
+		type: [mongoose.SchemaTypes.ObjectId],
+		default: [],
+		ref: "User",
 	},
 	title: {
 		type: String,
