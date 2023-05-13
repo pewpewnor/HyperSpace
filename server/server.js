@@ -320,10 +320,17 @@ app.post("/api/crud/channel", async (req, res) => {
 	}
 
 	try {
+		const space = await Space.findById(spaceID);
+		if (!space.ownerID.equals(userID)) {
+			res.status(403).json({
+				error: "You must be the owner of the space to do this!",
+			});
+			return;
+		}
+
 		const newChannel = await Channel.create({
 			name: name,
 		});
-		const space = await Space.findById(spaceID);
 		space.channels.push(newChannel._id);
 		space.save();
 
@@ -512,6 +519,123 @@ app.post("/api/crud/childcomment", async (req, res) => {
 		console.error(error);
 		res.status(500).json({
 			error: "CommentID invalid || Server / database error!",
+		});
+	}
+});
+
+// Uses userID + key, threadID
+// Add view to thread
+app.post("/api/crud/view", async (req, res) => {
+	if (await isNotLoggedIn(req.body)) {
+		res.status(403).json({
+			error: "You must be logged in to do this!",
+		});
+		return;
+	}
+	const { userID, threadID } = req.body;
+	if (isBadObjectID(userID) || isBadObjectID(threadID)) {
+		res.status(400).json({
+			error: "UserID or threadID has invalid format!",
+		});
+		return;
+	}
+
+	try {
+		const thread = await Thread.findById(threadID);
+		if (!thread.views.includes(userID)) {
+			thread.views.push(userID);
+			thread.save();
+			res.status(200).json({
+				status: "View has been add to this thread!",
+			});
+			return;
+		}
+
+		res.status(200).json({
+			status: "User has already viewed this thread!",
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Invalid Thread ID || Server / database error!",
+		});
+	}
+});
+
+// Uses userID + key, threadID
+// Add upvote to thread
+app.post("/api/crud/upvote", async (req, res) => {
+	if (await isNotLoggedIn(req.body)) {
+		res.status(403).json({
+			error: "You must be logged in to do this!",
+		});
+		return;
+	}
+	const { userID, threadID } = req.body;
+	if (isBadObjectID(userID) || isBadObjectID(threadID)) {
+		res.status(400).json({
+			error: "UserID or threadID has invalid format!",
+		});
+		return;
+	}
+
+	try {
+		const thread = await Thread.findById(threadID);
+		if (!thread.upvotes.includes(userID)) {
+			thread.upvotes.push(userID);
+			thread.save();
+			res.status(200).json({
+				status: "Upvote has been add to this thread!",
+			});
+			return;
+		}
+
+		res.status(200).json({
+			status: "User has already upvoted this thread!",
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Invalid Thread ID || Server / database error!",
+		});
+	}
+});
+
+// Uses userID + key, threadID
+// Add downvote to thread
+app.post("/api/crud/downvote", async (req, res) => {
+	if (await isNotLoggedIn(req.body)) {
+		res.status(403).json({
+			error: "You must be logged in to do this!",
+		});
+		return;
+	}
+	const { userID, threadID } = req.body;
+	if (isBadObjectID(userID) || isBadObjectID(threadID)) {
+		res.status(400).json({
+			error: "UserID or threadID has invalid format!",
+		});
+		return;
+	}
+
+	try {
+		const thread = await Thread.findById(threadID);
+		if (!thread.downvotes.includes(userID)) {
+			thread.downvotes.push(userID);
+			thread.save();
+			res.status(200).json({
+				status: "Downvote has been add to this thread!",
+			});
+			return;
+		}
+
+		res.status(200).json({
+			status: "User has already downvoted this thread!",
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Invalid Thread ID || Server / database error!",
 		});
 	}
 });
