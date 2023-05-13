@@ -1,6 +1,5 @@
 import LocationContext from "contexts/LocationContext";
 import { useContext } from "react";
-import CreateChannelPopUp from "./create-channel-popup";
 // import { findUser } from "utils/find";
 // import { useState } from "react";
 import "./channelview.css";
@@ -19,21 +18,16 @@ export default function ChannelView(props) {
 		</button>
 	));
 
-	function showPopUp() {
-		return (
-			<CreateChannelPopUp
-				handleCreateChannelPopUp={props.handleCreateChannelPopUp}
-			/>
-		);
-	}
-
 	return (
 		<div className="channelView__container">
 			{channels}
 			{/* if the user is the mod of the space, this button is visible */}
 
 			{props.user.ID === props.space.ownerID && (
-				<button onClick={showPopUp} className="button_default">
+				<button
+					onClick={props.handleCreateChannelPopUp}
+					className="button_default"
+				>
 					+
 				</button>
 			)}

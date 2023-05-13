@@ -6,6 +6,8 @@ import LocationContext from "contexts/LocationContext";
 import { useState } from "react";
 import { findChannel, findThread } from "utils/find";
 import Navbar from "../../components/navbar/Navbar";
+import CreateChannelPopUp from "components/channel/create-channel-popup";
+
 import "./spacepage.css";
 
 function SpacePage(props) {
@@ -38,9 +40,10 @@ function SpacePage(props) {
 	const [isCreateChannelPopUpOpen, setIsCreateChannelPopUpOpen] =
 		useState(false);
 
-	function handleCreateChannelPopUp() {
+	function handleCreateChannelPopUp(event) {
 		setIsCreateChannelPopUpOpen(!isCreateChannelPopUpOpen);
-		console.log(isCreateChannelPopUpOpen);
+
+		console.log(!isCreateChannelPopUpOpen);
 	}
 
 	return (
@@ -82,6 +85,12 @@ function SpacePage(props) {
 						)}
 					</div>
 				</div>
+
+				{isCreateChannelPopUpOpen && (
+					<CreateChannelPopUp
+						handleCreateChannelPopUp={handleCreateChannelPopUp}
+					/>
+				)}
 			</div>
 		</div>
 	);
