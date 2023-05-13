@@ -1,36 +1,45 @@
 import "./register.css";
-
+import { useState } from "react";
 import registerLogo from "images/register.png";
+import { Link } from "react-router-dom";
+import registerValidation from "./registerValidation";
 
 export default function Register() {
-	// return(
 
-	//     <div className="container">
+	const [data, setData] = useState({
+		username : "",
+		email : "",
+		password : "",
+		privacyPolicy: false,
+	});
 
-	//         <div className="register-box">
+	const [errors, setErrors] = useState({});
 
-	//             <div className="header">
-	//                 <div className="title">Register</div>
-	//             </div>
-	//             <div className="bottom">
+	function eventType(event) {
+		return event.target.type === 'checkbox' ? event.target.checked : event.target.value
+	}
 
-	//                 <Usernameform></Usernameform>
-	//                 <Emailform className=""></Emailform>
-	//                 <Passwordform className=""></Passwordform>
+	function handleChange(event){
+		setData((prev) => ({
+			...prev,
+			[event.target.name]: eventType(event),
+		}));
+		console.log(data);
+	}
 
-	//             </div>
+	function handleSubmit(event){
+		event.preventDefault();
+		setErrors(registerValidation(data));
+		console.log(data)
+	}
 
-	//         </div>
-
-	//     </div>
-
-	// );
+	const [passwordVisible, setPasswordVisible] = useState(false);
 
 	return (
 		<div className="container">
 			<div className="inner__container">
 				<div className="inner__container__left">
-					<form className="inner__left">
+					<form className="inner__left" onSubmit={handleSubmit}>
 						<span className="title">
 							regis
 							<span className="title__color">ter</span>
@@ -42,7 +51,16 @@ export default function Register() {
 									<input
 										type={"text"}
 										placeholder={"username"}
+										name="username"
+										onChange={handleChange}
 									></input>
+								</div>
+								<div className="errormsg__container">
+									{errors.username && (
+										<label className="errormsg">
+											{errors.username}
+										</label>
+									)}
 								</div>
 							</div>
 							<div className="emailform__box">
@@ -50,7 +68,16 @@ export default function Register() {
 									<input
 										type="email"
 										placeholder={"email"}
+										name="email"
+										onChange={handleChange}
 									></input>
+								</div>
+								<div className="errormsg__container">
+									{errors.email && (
+										<label className="errormsg">
+											{errors.email}
+										</label>
+									)}
 								</div>
 							</div>
 							<div className="passwordform__box">
@@ -58,7 +85,18 @@ export default function Register() {
 									<input
 										type={"password"}
 										placeholder={"password"}
+										name="password"
+										onChange={handleChange}
 									></input>
+								</div>
+								
+				
+								<div className="errormsg__container">
+									{errors.password && (
+										<label className="errormsg">
+											{errors.password}
+										</label>
+									)}
 								</div>
 							</div>
 						</div>
@@ -66,9 +104,14 @@ export default function Register() {
 						<div className="privacypolicy__submit__signuplink">
 							<div className="privacypolicy__box">
 								<div className="privacypolicy">
-									<input type={"checkbox"}></input>
+									<input type={"checkbox"} name="privacyPolicy" onChange={handleChange} checked={data.privacyPolicy}></input>
 									<span>privacy & policy</span>
 								</div>
+								{errors.privacyPolicy && (
+										<label className="errormsg">
+											{errors.privacyPolicy}
+										</label>
+									)}
 							</div>
 							<div className="submit__box">
 								<div className="submit__box">
@@ -79,9 +122,10 @@ export default function Register() {
 								<div className="signuplink__text">
 									<span className="register">
 										Already have an account? <br />
-										<a href="" className="Register">
+
+										<Link to={"/Login"} className="Register">
 											login here
-										</a>
+										</Link>
 									</span>
 								</div>
 							</div>
