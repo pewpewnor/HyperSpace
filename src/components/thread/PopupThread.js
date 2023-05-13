@@ -1,15 +1,17 @@
-import ThreadText from "./ThreadText";
-import { findUser } from "utils/find";
-import { getMomentFrom } from "utils/date";
-import shortenNumber from "utils/number";
+import { AiOutlineShareAlt } from "react-icons/ai";
 import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
 import { RiRocket2Line } from "react-icons/ri";
 import { TbClock } from "react-icons/tb";
-import { AiOutlineShareAlt } from "react-icons/ai";
+import { getMomentFrom } from "utils/date";
+import { findUser } from "utils/find";
+import shortenNumber from "utils/number";
 import "./PopupThread.css";
+import ThreadText from "./ThreadText";
 
-import Comment from "../comment/Comment";
+import channelData from "data/channeldata";
+import spaceData from "data/spacedata";
 import ChildComment from "../comment/ChildComment";
+import Comment from "../comment/Comment";
 
 export default function Thread(props) {
 	const user = findUser(props.userID);
@@ -142,18 +144,24 @@ export default function Thread(props) {
 					<div className="popupthread__blackline"></div>
 					<div className="popupthread__commentlist__container">
 						<Comment
+							space={spaceData[0]}
+							channel={channelData[0]}
 							postDate={1677764208799}
 							text={"aku ga mau"}
 							childComments={childComment}
 							userID={"USR001"}
 						/>
 						<Comment
+							space={spaceData[0]}
+							channel={channelData[0]}
 							postDate={1677764208769}
 							text={"aku ga mau"}
 							childComments={childComment}
 							userID={"USR001"}
 						/>
 						<Comment
+							space={spaceData[0]}
+							channel={channelData[0]}
 							postDate={1677764208759}
 							text={"aku ga mau"}
 							childComments={childComment}
