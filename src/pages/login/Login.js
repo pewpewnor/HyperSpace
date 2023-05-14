@@ -50,8 +50,8 @@ function Login() {
 		if (resData.error) {
 			setErrors((prev) => ({
 				...prev,
-: "Username or Password is wrong",
-: "Username or Password is wrong",
+: "username or password is wrong",
+: "username or password is wrong",
 			}));
 		} else {
 			if (data.rememberMe) {
@@ -73,14 +73,14 @@ function Login() {
 		if (data.username.length < 1) {
 			setErrors((prev) => ({
 				...prev,
-: "Username is required",
+: "username is required",
 			}));
 			fail = true;
 		}
 		if (data.password.length < 1) {
 			setErrors((prev) => ({
 				...prev,
-: "Password is required",
+: "password is required",
 			}));
 			fail = true;
 		}
