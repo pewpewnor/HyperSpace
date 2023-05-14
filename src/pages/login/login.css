@@ -12,7 +12,7 @@
 	height: 100vh;
 	display: grid;
 	place-items: center;
-	margin-top: -7.5vh;
+	/* margin-top: -7.5vh; */
 }
 
 .inner__container {

@@ -101,7 +101,7 @@ export default function Register() {
 
 						<div className="username__email__password__forgot">
 							<div className="usernameform__box">
-								<div className="username__box">
+								<div className="register-username__box">
 									<input
 										type={"text"}
 										placeholder={"username"}
@@ -118,7 +118,7 @@ export default function Register() {
 								</div>
 							</div>
 							<div className="emailform__box">
-								<div className="email__box">
+								<div className="register-email__box">
 									<input
 										type="text"
 										placeholder={"email"}
@@ -135,7 +135,7 @@ export default function Register() {
 								</div>
 							</div>
 							<div className="passwordform__box">
-								<div className="password__box">
+								<div className="register-password__box">
 									<input
 										type={"password"}
 										placeholder={"password"}
