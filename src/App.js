@@ -1,10 +1,6 @@
 import UserContext from "contexts/UserContext";
-import spaceData from "data/spacedata";
-import userData from "data/userdata";
-
 import CreateSpace from "pages/createspace/createspace.js";
 import CreateThread from "pages/createthread/createthread.js";
-
 import NotLoggedIn from "pages/forbidden/NotLoggedIn.js";
 import Login from "pages/login/Login";
 import NotFound from "pages/notfound/NotFound.js";
@@ -15,7 +11,6 @@ import Discover from "./pages/discover/discover.js";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/ProfilePage";
 import SpacePage from "./pages/spacepage/SpacePage";
-
 import "./style.css";
 
 export default function App() {
