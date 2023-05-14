@@ -1,10 +1,11 @@
 import loginLogo from "images/login.png";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
-import loginValidation from "./loginValidation";
 
 function Login() {
+	const navigate = useNavigate();
 	const [data, setData] = useState({
 		username: "",
 		password: "",
@@ -12,6 +13,16 @@ function Login() {
 	});
 
 	const [errors, setErrors] = useState({});
+
+	useEffect(() => {
+		const cookie = Cookies.get("hyperspace-data");
+		if (cookie) {
+			const { username, password } = JSON.parse(cookie);
+			if (username !== undefined && password !== undefined) {
+				setData({ username: username, password: password });
+			}
+		}
+	}, []);
 
 	function handleChange(event) {
 		setData((prev) => ({
@@ -25,11 +36,58 @@ function Login() {
 		setData((prev) => ({ ...prev, rememberMe: !prev.rememberMe }));
 	}
 
+	async function checkLoginCredential() {
+		const res = await fetch("http://localhost:3001/api/login", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		});
+		const resData = await res.json();
+
+		if (resData.error) {
+			setErrors((prev) => ({
+				...prev,
+				username: "Username or Password is wrong",
+				password: "Username or Password is wrong",
+			}));
+		} else {
+			if (data.rememberMe) {
+				Cookies.set("hyperspace-data", JSON.stringify(data), {
+					expires: 1,
+					path: "",
+					sameSite: "strict",
+				});
+			}
+			navigate("/");
+		}
+	}
+
 	function handleSubmit(event) {
 		event.preventDefault();
-		console.log(data);
-		console.log(loginValidation(data));
-		setErrors(loginValidation(data));
+
+		let fail = false;
+
+		if (data.username.length < 1) {
+			setErrors((prev) => ({
+				...prev,
+				username: "Username is required",
+			}));
+			fail = true;
+		}
+		if (data.password.length < 1) {
+			setErrors((prev) => ({
+				...prev,
+				password: "Password is required",
+			}));
+			fail = true;
+		}
+
+		if (!fail) {
+			checkLoginCredential();
+		}
 	}
 
 	return (
@@ -52,6 +110,7 @@ function Login() {
 									type="text"
 									placeholder={"username"}
 									name="username"
+									value={data.username}
 									onChange={handleChange}
 								/>
 								<br />
@@ -70,6 +129,7 @@ function Login() {
 									type={"password"}
 									placeholder={"password"}
 									name="password"
+									value={data.password}
 									onChange={handleChange}
 								/>
 								<div className="errormsg__container">
