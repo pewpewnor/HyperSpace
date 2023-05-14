@@ -40,20 +40,27 @@
 
 .username__email__password__forgot {
 	margin-bottom: 1rem;
+	/* background-color: red;
+	display: flex;
+	flex-direction: column;
+	justify-content: left; */
 }
 
 .usernameform__box {
 	margin-bottom: 1.5rem;
-	
+
 }
 
 .emailform__box {
 	margin-bottom: 1.5rem;
+	height: 40px;
+
 }
 
 /* ++++++++++++++++++++++ */
 .passwordform__box {
 	margin-bottom: 1.5rem;
+
 	
 }
 
@@ -65,7 +72,7 @@
 	margin-bottom: 1.5rem;
 }
 
-.email__box input {
+.register-email__box input {
 	width: 260px;
 	height: 35px;
 	outline: none;
@@ -81,7 +88,7 @@
 /* ++++++++++++++++++++++ */
 
 
-.password__box input {
+.register-password__box input {
 	outline: none;
 	color: black;
 	background-color: white;
@@ -161,7 +168,7 @@ a {
 	color: white;
 }
 
-.username__box input {
+.register-username__box input {
 	width: 260px;
 	height: 35px;
 	outline: none;
