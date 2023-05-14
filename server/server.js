@@ -344,6 +344,83 @@ app.get("/api/threads", async (req, res) => {
 	}
 });
 
+// Uses key & userID
+// Get all recommended threads
+app.post("/api/recommendedthreads", async (req, res) => {
+	if (await isNotLoggedIn(req.body)) {
+		res.status(403).json({
+			error: "You must be logged in to do this!",
+		});
+		return;
+	}
+	const { userID } = req.body;
+	if (isBadObjectID(userID)) {
+		res.status(400).json({
+			error: "UserID has invalid format!",
+		});
+		return;
+	}
+
+	try {
+		const user = await User.findById(userID).populate({
+			path: "joinedSpaces",
+			populate: {
+				path: "channels",
+				populate: "threads",
+			},
+		});
+
+		let allThreads = [];
+
+		// const threads = user.joinedSpaces.map((space) => space.channels)[0];
+		// .map((channel) => ({ ...channel.threads }))[0];
+
+		const spaces = user.joinedSpaces;
+		for (const space of spaces) {
+			const channels = space.channels;
+			for (const channel of channels) {
+				const threads = channel.threads;
+				for (const thread of threads) {
+					allThreads.push({
+						id: "THREADDATAGROUP" + allThreads.length,
+						thread: thread,
+						space: space,
+						channel: channel,
+					});
+				}
+			}
+		}
+
+		let randomThreads = [];
+
+		const numOfItemsToPick = 10;
+
+		if (allThreads.length > numOfItemsToPick) {
+			for (let i = 0; i < numOfItemsToPick; i++) {
+				const randomIndex = Math.floor(
+					Math.random() * allThreads.length
+				);
+				const randomThread = allThreads[randomIndex];
+
+				if (!randomThreads.includes(randomThread)) {
+					randomThreads.push(randomThread);
+				} else {
+					i--;
+				}
+			}
+		} else {
+			randomThreads = allThreads;
+		}
+
+		res.status(200).json(randomThreads);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Server / database error!",
+		});
+	}
+});
+
 // Uses userID + key, title, text, picture, channelID
 // Create new thread
 app.post("/api/crud/thread", async (req, res) => {
