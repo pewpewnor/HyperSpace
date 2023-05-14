@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 mongoose
-	.connect(process.env.DEV_URI)
+	.connect(process.env.URI)
 	.then(() => console.log("Server: Database connected"))
 	.catch((err) => console.log(err));
 
