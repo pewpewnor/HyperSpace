@@ -43,23 +43,26 @@
 }
 
 .usernameform__box {
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
+	
 }
 
 .emailform__box {
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
 }
 
+/* ++++++++++++++++++++++ */
 .passwordform__box {
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
+	
 }
 
 .privacypolicy__box {
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
 }
 
 .submit__box {
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
 }
 
 .email__box input {
@@ -75,7 +78,18 @@
 	text-indent: 10px;
 }
 
+/* ++++++++++++++++++++++ */
+
+
 .password__box input {
+	outline: none;
+	color: black;
+	background-color: white;
+	border: none;
+	
+	font-size: 16px;
+	font-weight: 500;
+	text-indent: 10px;
 	width: 260px;
 	height: 35px;
 	outline: none;
@@ -83,10 +97,8 @@
 	background-color: white;
 	border: none;
 	border-radius: 7px;
-	font-size: 16px;
-	font-weight: 500;
-	text-indent: 10px;
 }
+
 
 .privacypolicy {
 	display: flex;
@@ -160,4 +172,39 @@ a {
 	font-size: 16px;
 	font-weight: 500;
 	text-indent: 10px;
+
+}
+
+.errormsg {
+	color: firebrick;
+	font-size: 13px;
+}
+
+.errormsg__container {
+	width: 17rem;
+	position: fixed;
+}
+
+.AiFillEyeInvisible{
+	fill: #000;
+}
+
+@media screen and (max-width: 974px) {
+	.inner__container {
+		width: 25.625rem;
+		justify-content: center;
+	}
+
+	.inner__container > .inner__container__right > img {
+		width: 0px;
+		height: 0px;
+	}
+
+	.inner__container__right > .inner__right > .title {
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: 800;
+		font-size: 3.25rem;
+		margin-left: 4rem;
+	}
 }
