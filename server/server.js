@@ -159,7 +159,7 @@ app.post("/api/user/myspace", async (req, res) => {
 			});
 			return;
 		}
-		res.status(200).json(user);
+		res.status(200).json(user.joinedSpaces);
 		return;
 	} catch (error) {
 		console.error(error);
