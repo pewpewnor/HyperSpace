@@ -58,6 +58,20 @@ async function run() {
 
 run();
 
+// Uses key & userID
+// Check if use is logged in or not
+app.post("/api/checkloggedin", async (req, res) => {
+	if (await isNotLoggedIn(req.body)) {
+		res.status(403).json({
+			error: "You must be logged in to do this!",
+		});
+	} else {
+		res.status(200).json({
+			status: "This user is logged in!",
+		});
+	}
+});
+
 // Uses username & password
 // Validate login
 app.post("/api/login", async (req, res) => {
@@ -123,49 +137,6 @@ app.post("/api/register", async (req, res) => {
 		console.error(error);
 		res.status(500).json({
 			error: "Invalid username or password due to validation || Server / database error!",
-		});
-	}
-});
-
-// TODO: delete this once not needed
-// Uses key & userID
-// Get all possible information from userID
-app.post("/api/user/all", async (req, res) => {
-	const { key, userID } = req.body;
-	if (isBadString(key) || isBadObjectID(userID)) {
-		res.status(400).json({
-			error: "Key or UserID has invalid format!",
-		});
-		return;
-	}
-	try {
-		const user = await User.findById(userID).populate({
-			path: "joinedSpaces",
-			populate: {
-				path: "channels",
-				populate: {
-					path: "threads",
-					populate: {
-						path: "comments",
-						populate: {
-							path: "childComments",
-						},
-					},
-				},
-			},
-		});
-		if (!user || user.key !== key) {
-			res.status(403).json({
-				error: "You must be logged in to do this!",
-			});
-			return;
-		}
-		res.status(200).json(user);
-		return;
-	} catch (error) {
-		console.error(error);
-		res.status(500).json({
-			error: "Server / database error!",
 		});
 	}
 });
@@ -297,7 +268,7 @@ app.post("/api/crud/space", async (req, res) => {
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({
-			error: "Server / database error!",
+			error: "Space name unique validation fail || Server / database error!",
 		});
 	}
 });
