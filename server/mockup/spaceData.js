@@ -21,6 +21,7 @@ const spaceData = [
 		name: "Gaming",
 		ownerID: "645bcbd39365d8736c77bf5a",
 		description: "Hello World!",
+		picture: "space/gaming.png",
 		members: ["645bcbd39365d8736c77bf5a"],
 	},
 	{
