@@ -4,6 +4,7 @@ const Channel = require("./Channel");
 const spaceSchema = new mongoose.Schema({
 	name: {
 		type: String,
+		unique: true,
 		required: true,
 	},
 	description: {
