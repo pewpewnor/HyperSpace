@@ -5,11 +5,15 @@ const spaceSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		unique: true,
+		lowercase: true,
+		minLength: 1,
+		maxLength: 20,
 		required: true,
 	},
 	description: {
 		type: String,
 		default: "",
+		maxLength: 300,
 	},
 	ownerID: {
 		type: mongoose.SchemaTypes.ObjectId,
