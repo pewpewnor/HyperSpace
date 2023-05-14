@@ -16,6 +16,10 @@ const spaceSchema = new mongoose.Schema({
 		required: true,
 		ref: "User",
 	},
+	picture: {
+		type: String,
+		default: "",
+	},
 	channels: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: () => {
