@@ -2,11 +2,7 @@ const channelData = [
 	{
 		_id: "645bd234506bbaf816efa32c",
 		name: "general",
-		threads: [
-			"645bda46c41febba4c220f1b",
-			"645bda46c41febba4c220f1c",
-			"645bda46c41febba4c220f1d",
-		],
+		threads: ["645bda46c41febba4c220f1b", "645bda46c41febba4c220f1d"],
 	},
 	{
 		_id: "645bd234506bbaf816efa32d",
