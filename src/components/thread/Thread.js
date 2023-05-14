@@ -1,28 +1,18 @@
-import ThreadText from "./ThreadText";
-import { findUser } from "utils/find";
-import { getMomentFrom } from "utils/date";
-import shortenNumber from "utils/number";
+import { AiOutlineShareAlt } from "react-icons/ai";
 import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
 import { RiRocket2Line } from "react-icons/ri";
 import { TbClock } from "react-icons/tb";
-import { AiOutlineShareAlt } from "react-icons/ai";
+import { getMomentFrom } from "utils/date";
+import shortenNumber from "utils/number";
+import ThreadText from "./ThreadText";
 import "./thread.css";
 
 export default function Thread(props) {
-	const user = findUser(props.userID);
 	const moment = getMomentFrom(new Date(props.postDate));
-	const views = shortenNumber(props.views);
-	const pictures = props.pictures.map((url) => (
-		<img
-			key={url}
-			className="thread__content__pictures__image"
-			src={url}
-			alt="something for content"
-		/>
-	));
-	const upvotes = shortenNumber(props.upvote);
-	const downvotes = shortenNumber(props.downvote);
-	const comments = shortenNumber(props.comments);
+	const views = shortenNumber(props.views.length);
+	const upvotes = shortenNumber(props.upvotes.length);
+	const downvotes = shortenNumber(props.downvotes.length);
+	const comments = shortenNumber(props.comments.length);
 
 	function handleUpvote() {}
 
@@ -37,7 +27,7 @@ export default function Thread(props) {
 			<div className="thread__container__top">
 				<div className="thread__profile__container">
 					<img
-						src={user.profilePicture}
+						src={props.user.profilePicture}
 						alt="something for user profile"
 					/>
 					<div className="thread__profile">
@@ -47,7 +37,7 @@ export default function Thread(props) {
 						<div className="thread__profile__username__container">
 							<FaCrown className="thread__profile__subscription" />
 							<p className="thread__profile__username">
-								{user.name}
+								{props.user.name}
 							</p>
 						</div>
 					</div>
@@ -72,7 +62,14 @@ export default function Thread(props) {
 				<div>
 					<ThreadText text={props.text} />
 				</div>
-				<div className="thread__content__pictures">{pictures}</div>
+				<div className="thread__content__pictures">
+					<img
+						key={props._id}
+						className="thread__content__pictures__image"
+						src={props.picture}
+						alt="something for content"
+					/>
+				</div>
 			</div>
 
 			<div className="thread__buttons__container">
