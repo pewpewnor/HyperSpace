@@ -6,7 +6,13 @@ import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
 import { RiRocket2Line } from "react-icons/ri";
 import { TbClock } from "react-icons/tb";
 import { AiOutlineShareAlt } from "react-icons/ai";
+import { useState } from "react";
 import "./thread.css";
+
+import channelData from "data/channeldata";
+import spaceData from "data/spacedata";
+import ChildComment from "../comment/ChildComment";
+import Comment from "../comment/Comment";
 
 export default function Thread(props) {
 	const user = findUser(props.userID);
@@ -20,15 +26,38 @@ export default function Thread(props) {
 			alt="something for content"
 		/>
 	));
+
+	const [popup, setPopup] = useState(false);
+
 	const upvotes = shortenNumber(props.upvote);
 	const downvotes = shortenNumber(props.downvote);
 	const comments = shortenNumber(props.comments);
+
+	const childComment = [
+		<ChildComment
+			postDate={1677764208799}
+			text={"wut?"}
+			userID={"USR003"}
+		/>,
+		<ChildComment
+			postDate={1677764208779}
+			text={"hahhhhh"}
+			userID={"USR003"}
+		/>,
+		<ChildComment
+			postDate={1677764208769}
+			text={"maksudnya"}
+			userID={"USR003"}
+		/>,
+	];
 
 	function handleUpvote() {}
 
 	function handleDownvote() {}
 
-	function handleComment() {}
+	const handleComment = () => {
+		setPopup(!popup);
+	};
 
 	function handleShare() {}
 
@@ -108,6 +137,55 @@ export default function Thread(props) {
 					</button>
 				</div>
 			</div>
+
+			{popup && (
+				<div className="popupthread__comment__container">
+					<label>Comment as {user.name}</label>
+					<div className="popupthread__user__comment__container">
+						<img
+							src={user.profilePicture}
+							alt="something for user profile"
+						/>
+						<input
+							className="popupthread__user__comment__text"
+							placeholder="What are your thought about this post?"
+							type={"text"}
+						/>
+						<button className="popupthread__user__submit__comment">
+							submit
+						</button>
+					</div>
+					<div className="popupthread__blackline"></div>
+					<div className="popupthread__commentlist__container">
+						<Comment
+							// space={spaceData[0]}
+							// channel={channelData[0]}
+							postDate={1677764208799}
+							text={
+								"aku ga mau aku mau tapi ga maukamu siapa afjas afknvvnd askfdjhife ifjdf difdifj"
+							}
+							childComment={childComment}
+							userID={"USR001"}
+						/>
+						<Comment
+							// space={spaceData[0]}
+							// channel={channelData[0]}
+							postDate={1677764208769}
+							text={"aku ga mau"}
+							childComment={childComment}
+							userID={"USR001"}
+						/>
+						<Comment
+							// space={spaceData[0]}
+							// channel={channelData[0]}
+							postDate={1677764208759}
+							text={"aku ga mau"}
+							childComment={childComment}
+							userID={"USR001"}
+						/>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }
