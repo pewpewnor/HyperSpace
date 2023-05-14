@@ -90,7 +90,7 @@ function Login() {
 	}
 
 	return (
-		<div className="container">
+		<div className="login-register-container">
 			<div className="inner__container">
 				<div className="inner__container__left">
 					<img src={loginLogo} alt="login"></img>
