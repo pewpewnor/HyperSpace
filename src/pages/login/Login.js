@@ -48,11 +48,10 @@ function Login() {
 		const resData = await res.json();
 
 		if (resData.error) {
-			setErrors((prev) => ({
-				...prev,
+			setErrors({
 				username: "username or password is wrong",
 				password: "username or password is wrong",
-			}));
+			});
 		} else {
 			if (data.rememberMe) {
 				Cookies.set("hyperspace-data", JSON.stringify(data), {
@@ -69,24 +68,21 @@ function Login() {
 		event.preventDefault();
 
 		let fail = false;
+		const errors = {};
 
 		if (data.username.length < 1) {
-			setErrors((prev) => ({
-				...prev,
-				username: "username is required",
-			}));
+			errors.username = "username is required";
 			fail = true;
 		}
 		if (data.password.length < 1) {
-			setErrors((prev) => ({
-				...prev,
-				password: "password is required",
-			}));
+			errors.password = "password is required";
 			fail = true;
 		}
 
 		if (!fail) {
 			checkLoginCredential();
+		} else {
+			setErrors(errors);
 		}
 	}
 
