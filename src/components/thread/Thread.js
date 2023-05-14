@@ -63,12 +63,13 @@ export default function Thread(props) {
 					<ThreadText text={props.text} />
 				</div>
 				<div className="thread__content__pictures">
-					<img
-						key={props._id}
-						className="thread__content__pictures__image"
-						src={props.picture}
-						alt="something for content"
-					/>
+					{props.picture && (
+						<img
+							className="thread__content__pictures__image"
+							src={props.picture}
+							alt="something for content"
+						/>
+					)}
 				</div>
 			</div>
 
