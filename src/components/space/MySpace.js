@@ -1,19 +1,66 @@
-import { useContext } from "react";
 import UserContext from "contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Space from "./Space";
-import { findSpace } from "utils/find";
 import "./myspace.css";
 
 export default function MySpace() {
-	const { user } = useContext(UserContext);
+	const [user] = useContext(UserContext);
+	const [isLoading, setIsLoading] = useState(true);
 
-	const spaceArray = user.joinedSpacesID.map((spaceID) => {
-		return findSpace(spaceID);
-	});
+	const [joinedSpaces, setJoinedSpaces] = useState([]);
 
-	const spaces = spaceArray.map((space) => {
-		return <Space key={space.ID} {...space} />;
-	});
+	useEffect(() => {
+		async function getSpaces() {
+			let spaces = [];
+
+			try {
+				const resSpaces = await fetch(
+					"http://localhost:3001/api/user/myspace",
+					{
+						method: "POST",
+						headers: {
+							Accept: "application/json",
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({ ...user, userID: user._id }),
+					}
+				);
+				if (!resSpaces.ok) {
+					return;
+				}
+				spaces = await resSpaces.json();
+			} catch (error) {}
+
+			setJoinedSpaces(
+				spaces.map((space) => {
+					return <Space key={space._id} {...space} />;
+				})
+			);
+			setIsLoading(false);
+		}
+
+		getSpaces();
+	}, []);
+
+	if (isLoading) {
+		return (
+			<div className="myspace">
+				<div className="myspace__top-section">
+					<div className="myspace__top-section__border"></div>
+					<div className="myspace__top-section__title">My Space</div>
+				</div>
+				<div className="myspace__space-view-section"></div>
+				<div className="myspace__button-section">
+					<Link to="/discover">
+						<button className="myspace__button-section__discover-button">
+							Discover more
+						</button>
+					</Link>
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<div className="myspace">
@@ -21,11 +68,13 @@ export default function MySpace() {
 				<div className="myspace__top-section__border"></div>
 				<div className="myspace__top-section__title">My Space</div>
 			</div>
-			<div className="myspace__space-view-section">{spaces}</div>
+			<div className="myspace__space-view-section">{joinedSpaces}</div>
 			<div className="myspace__button-section">
-				<button className="myspace__button-section__discover-button">
-					Discover more
-				</button>
+				<Link to="/discover">
+					<button className="myspace__button-section__discover-button">
+						Discover more
+					</button>
+				</Link>
 			</div>
 		</div>
 	);
