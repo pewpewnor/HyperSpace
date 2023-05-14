@@ -1,11 +1,13 @@
+import UserContext from "contexts/UserContext";
 import loginLogo from "images/login.png";
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 
 function Login() {
 	const navigate = useNavigate();
+	const [user, setUser] = useContext(UserContext);
 	const [data, setData] = useState({
 		username: "",
 		password: "",
@@ -29,7 +31,6 @@ function Login() {
 			...prev,
 			[event.target.name]: event.target.value,
 		}));
-		console.log(data);
 	}
 
 	function handleRememberMe() {
@@ -54,12 +55,14 @@ function Login() {
 			});
 		} else {
 			if (data.rememberMe) {
-				Cookies.set("hyperspace-data", JSON.stringify(data), {
+				Cookies.set("hyperspace-data", JSON.stringify(resData), {
 					expires: 1,
 					path: "",
 					sameSite: "strict",
 				});
 			}
+
+			setUser(resData);
 			navigate("/");
 		}
 	}
