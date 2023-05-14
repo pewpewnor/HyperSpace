@@ -90,7 +90,7 @@ export default function Register() {
 	}
 
 	return (
-		<div className="container">
+		<div className="login-register-container">
 			<div className="inner__container">
 				<div className="inner__container__left">
 					<form className="inner__left" onSubmit={handleSubmit}>
