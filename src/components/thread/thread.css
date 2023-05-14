@@ -14,7 +14,7 @@
 	flex-direction: column;
 	align-items: center;
 	margin-top: 1rem;
-	padding-bottom: 3rem;
+	padding-bottom: 2rem;
 }
 
 .thread__container__top {
@@ -261,4 +261,93 @@
 
 	color: #ffffff;
 	margin-left: 1vw;
+}
+
+.popupthread__comment__container {
+	/* background-color: #ffbd59; */
+	width: 100%;
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.popupthread__comment__container > label {
+	margin-left: 2.6vw;
+	margin-right: 2.6vw;
+}
+
+.popupthread__comment__container > .popupthread__user__comment__container {
+	/* background-color: #5766ff; */
+
+	margin-top: 1rem;
+	max-width: 60vw;
+	max-height: 37.5rem;
+	margin-left: 2.6vw;
+	margin-right: 2.6vw;
+
+	display: flex;
+	margin-left: 2.6vw;
+	/* flex-direction: column; */
+}
+
+.popupthread__comment__container
+	> .popupthread__user__comment__container
+	> img {
+	width: 2.438rem;
+	height: 2.438rem;
+
+	border-radius: 20px;
+}
+
+.popupthread__comment__container
+	> .popupthread__user__comment__container
+	> .popupthread__user__comment__text {
+	width: 80%;
+	margin-left: 1rem;
+	margin-right: 0.5rem;
+	border-radius: 7.5px;
+	padding-left: 0.75rem;
+	font-weight: 300;
+	font-size: 14px;
+	color: #1e1e1e;
+	border: none;
+}
+
+.thread__container > .popupthread__comment__container
+	> .popupthread__user__comment__container
+	> .popupthread__user__submit__comment {
+	width: 20%;
+	margin-left: 0.5rem;
+	border-radius: 7.5px;
+	border: none;
+	transition: 0.3s;
+
+	background-color: #1e1e1e;
+}
+
+.thread__container > .popupthread__comment__container
+	> .popupthread__user__comment__container
+	> .popupthread__user__submit__comment:hover {
+	background-color: #5766ff;
+}
+
+.thread__container > .popupthread__comment__container > .popupthread__blackline {
+	background-color: #1e1e1e;
+	width: 91.5%;
+	height: 3px;
+	margin-left: 2.6vw;
+	margin-right: 2.6vw;
+	margin-top: 2.6vw;
+	margin-bottom: 2.6vw;
+}
+
+.thread__container > .popupthread__comment__container > .popupthread__commentlist__container {
+	background-color: #363636;
+	width: 91.5%;
+	margin-left: 2.6vw;
+	margin-right: 2.6vw;
+	height: 100%;
+	border-radius: 0.625rem;
+	padding-top: 0.1rem;
+	padding-bottom: 2rem;
+	margin-bottom: -1.5rem;
 }

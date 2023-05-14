@@ -1,30 +1,34 @@
 import { findUser } from "utils/find";
-import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
+import { getMomentFrom } from "utils/date";
 
 import ThreadText from "../thread/ThreadText";
+import "./ChildComment.css";
 
-function Comment(props) {
+function childComment(props) {
 	const user = findUser(props.userID);
+	const moment = getMomentFrom(new Date(props.postDate));
 
 	return (
 		<div className="childcomment__profile__container">
-			<img src={user.profilePicture} alt="something for user profile" />
-			<div className="childcomment__profile">
-				<p className="childcomment__profile__spacename">
-					{props.space.name + " / #" + props.channel.name}
-				</p>
-				<div className="childcomment__profile__username__container">
-					<FaCrown className="childcomment__profile__subscription" />
-					<p className="childcomment__profile__username">
-						{user.name}
-					</p>
+			<div className="childcomment__profile__user__container">
+				<img
+					src={user.profilePicture}
+					alt="something for user profile"
+				/>
+				<div className="childcomment__profile">
+					<div className="childcomment__profile__username__container">
+						<p className="childcomment__profile__username">
+							{user.name}
+						</p>
+					</div>
+					<div className="childcomment__info__date">Posted {moment}</div>
 				</div>
 			</div>
 			<div className="childcomment__comment">
-				<ThreadText />
+				<ThreadText text={props.text} />
 			</div>
 		</div>
 	);
 }
 
-export default Comment;
+export default childComment;
