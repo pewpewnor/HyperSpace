@@ -5,6 +5,7 @@ import userData from "data/userdata";
 import CreateSpace from "pages/createspace/createspace.js";
 import CreateThread from "pages/createthread/createthread.js";
 
+import NotLoggedIn from "pages/forbidden/NotLoggedIn.js";
 import Login from "pages/login/Login";
 import NotFound from "pages/notfound/NotFound.js";
 import Register from "pages/signup/Register";
@@ -26,19 +27,12 @@ export default function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
-				<Route
-					path="/profile"
-					element={<Profile user={userData[0]} />}
-				/>
-				<Route
-					path="/space"
-					element={
-						<SpacePage space={spaceData[0]} user={userData[0]} />
-					}
-				/>
+				<Route path="/profile/:username" element={<Profile />} />
+				<Route path="/space/:spaceName" element={<SpacePage />} />
 				<Route path="/discover" element={<Discover />} />
 				<Route path="/create-thread" element={<CreateThread />} />
 				<Route path="/create-space" element={<CreateSpace />} />
+				<Route path="/forbidden" element={<NotLoggedIn />} />
 
 				<Route path="*" element={<NotFound />} />
 			</Routes>
