@@ -59,12 +59,9 @@ function Home() {
 		getThreads();
 	}, []);
 
-	if (isLoading) {
-		return <Loading />;
-	}
-
 	return (
 		<div className="all font_size_rule">
+			{isLoading && <Loading />}
 			<Navbar />
 			<div className="body">
 				<div className="left-container">
@@ -76,14 +73,7 @@ function Home() {
 					</div>
 
 					<div className="middle-container__thread-section">
-						{threads.length ? (
-							threads
-						) : (
-							<div className="middle-container__thread-section__text">
-								<h1>There's nothing here!</h1>
-								<p>Maybe navigate to a different space?</p>
-							</div>
-						)}
+						{threads}
 					</div>
 				</div>
 			</div>
