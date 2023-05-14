@@ -14,10 +14,14 @@ const threadSchema = new mongoose.Schema({
 	title: {
 		type: String,
 		required: true,
+		minLength: 1,
+		maxLength: 150,
 	},
 	text: {
 		type: String,
 		required: true,
+		minLength: 1,
+		maxLength: 800,
 	},
 	picture: {
 		type: String,

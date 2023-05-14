@@ -9,6 +9,8 @@ const childCommentSchema = new mongoose.Schema({
 	text: {
 		type: String,
 		required: true,
+		minLength: 1,
+		maxLength: 150,
 	},
 	authorID: {
 		type: mongoose.SchemaTypes.ObjectId,

@@ -4,6 +4,8 @@ const channelSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
+		minLength: 1,
+		maxLength: 20,
 	},
 	threads: {
 		type: [mongoose.SchemaTypes.ObjectId],

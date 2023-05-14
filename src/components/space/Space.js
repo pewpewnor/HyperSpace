@@ -6,6 +6,7 @@ export default function Space(props) {
 		<div className="space__info__container">
 			<div className="space__profile-picture">
 				{/* Insert profile picture here */}
+				{props.picture && <img src={props.picture} alt="space" />}
 			</div>
 
 			<div className="space__data">
