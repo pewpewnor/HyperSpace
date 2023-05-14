@@ -1,0 +1,36 @@
+.CreateChannelPopUp {
+	position: fixed;
+	top: 50;
+	left: 50;
+
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 500;
+}
+
+.CreateChannelPopUp____container {
+	background: #161616;
+	position: absolute;
+
+	width: 70vw;
+	padding: 2rem 2rem 2rem 2rem;
+
+	margin-top: 10rem;
+}
+
+.CreateChannelPopUp____container____header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.CreateChannelPopUp____container____header > p {
+	color: red;
+	font-weight: 700;
+
+	cursor: pointer;
+}

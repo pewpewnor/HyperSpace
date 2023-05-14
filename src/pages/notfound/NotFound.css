@@ -1,0 +1,85 @@
+.container {
+	position: fixed;
+	top: 20%;
+}
+
+.NotFoundPage-container {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	right: 0%;
+	bottom: 0%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 8rem;
+}
+
+.NotFoundPage-h1,
+.NotFoundPage-header-textSpan {
+	font-size: 2.2rem;
+}
+
+.NotFoundPage-h2 {
+	transition: all 0.3s ease;
+}
+
+.NotFoundPage-h2:hover {
+	color: #5766ff;
+	text-decoration: underline;
+}
+
+.NotFoundPage-p {
+	text-align: center;
+}
+
+.NotFoundPage-p,
+.NotFoundPage-h2 {
+	font-size: 1rem;
+}
+
+.NotFoundPage-header-textSpan {
+	color: #d4f88a;
+}
+
+.NotFoundPage-logoImg {
+	width: 3rem;
+}
+
+.NotFoundPage-subcontainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	row-gap: 2rem;
+}
+
+@media screen and (max-width: 730px) {
+	.container {
+		gap: 5rem;
+	}
+
+	.NotFoundPage-container {
+		gap: 5rem;
+	}
+
+	.NotFoundPage-h1,
+	.NotFoundPage-header-textSpan {
+		font-size: 1.3rem;
+	}
+
+	.NotFoundPage-p,
+	.NotFoundPage-h2 {
+		font-size: 0.6rem;
+	}
+
+	.NotFoundPage-logoImg {
+		width: 2.1rem;
+	}
+
+	.NotFoundPage-subcontainer {
+		row-gap: 1.1rem;
+	}
+}

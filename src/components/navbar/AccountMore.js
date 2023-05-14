@@ -9,6 +9,7 @@ export default function AccountMorePopUp() {
 			<div className="account-more-container">
 				<div className="button-container">
 					<button>My Profile</button>
+					<button>Create new space</button>
 					<button>Sign out</button>
 				</div>
 			</div>
