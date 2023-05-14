@@ -7,7 +7,7 @@ export default function Loading() {
 			</div>
 
 			<div className="main-content">
-				<h1>Loading...</h1>
+				<h1 className="loading-h1">Loading...</h1>
 			</div>
 		</div>
 	);
