@@ -1,7 +1,6 @@
 import UserContext from "contexts/UserContext";
 import CreateSpace from "pages/createspace/createspace.js";
 import CreateThread from "pages/createthread/createthread.js";
-// import NotLoggedIn from "pages/forbidden/NotLoggedIn.js";
 import Login from "pages/login/Login";
 import NotFound from "pages/notfound/NotFound.js";
 import Register from "pages/signup/Register";
@@ -40,7 +39,6 @@ export default function App() {
 				<Route path="/discover" element={<Discover />} />
 				<Route path="/create-thread" element={<CreateThread />} />
 				<Route path="/create-space" element={<CreateSpace />} />
-				{/* <Route path="/forbidden" element={<NotLoggedIn />} /> */}
 
 				<Route path="*" element={<NotFound />} />
 			</Routes>
