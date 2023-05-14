@@ -2,12 +2,13 @@ import UserContext from "contexts/UserContext";
 import spaceData from "data/spacedata";
 import userData from "data/userdata";
 
-import CreateThread from "pages/createthread/createthread.js";
 import CreateSpace from "pages/createspace/createspace.js";
+import CreateThread from "pages/createthread/createthread.js";
 
 import Login from "pages/login/Login";
 import NotFound from "pages/notfound/NotFound.js";
 import Register from "pages/signup/Register";
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Discover from "./pages/discover/discover.js";
 import Home from "./pages/home/Home";
@@ -17,13 +18,10 @@ import SpacePage from "./pages/spacepage/SpacePage";
 import "./style.css";
 
 export default function App() {
+	const [user, setUser] = useState(null);
+
 	return (
-		<UserContext.Provider
-			value={{
-				isLoggedIn: true,
-				user: userData[0],
-			}}
-		>
+		<UserContext.Provider value={[user, setUser]}>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
