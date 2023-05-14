@@ -18,7 +18,7 @@ const spaceSchema = new mongoose.Schema({
 	},
 	picture: {
 		type: String,
-		default: "",
+		default: null,
 	},
 	channels: {
 		type: [mongoose.SchemaTypes.ObjectId],
