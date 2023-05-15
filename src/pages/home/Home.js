@@ -82,6 +82,15 @@ function Home() {
 		/>
 	));
 
+	// const testingthreads = threadData.map((popupthread) => (
+	// 	<PopupThread
+	// 		key={popupthread.ID}
+	// 		space={spaceData[0]}
+	// 		channel={channelData[0]}
+	// 		{...popupthread}
+	// 	/>
+	// ));
+
 	return (
 		<div className="all font_size_rule">
 			{isLoading && <Loading />}
