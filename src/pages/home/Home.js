@@ -76,7 +76,6 @@ function Home() {
 			key={data.id}
 			{...data.thread}
 			space={data.space}
-			user={data.user}
 			channel={data.channel}
 		/>
 	));
