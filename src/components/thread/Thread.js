@@ -14,8 +14,6 @@ export default function Thread(props) {
 	const [popup, setPopup] = useState(false);
 	const [comments, setComments] = useState([]);
 
-	console.log("rendering thread...");
-
 	useEffect(() => {
 		async function getComments() {
 			const res = await fetch(
