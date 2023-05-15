@@ -13,6 +13,7 @@ function Home() {
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [searchQuery, setSearchQuery] = useState("");
+
 	const [threadsData, setThreadsData] = useState([]);
 
 	useEffect(() => {
