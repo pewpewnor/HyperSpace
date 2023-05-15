@@ -59,7 +59,7 @@ async function run() {
 run();
 
 // Uses key & userID
-// Check if use is logged in or not
+// Check if user is logged in or not
 app.post("/api/checkloggedin", async (req, res) => {
 	if (await isNotLoggedIn(req.body)) {
 		res.status(403).json({
@@ -366,7 +366,13 @@ app.post("/api/recommendedthreads", async (req, res) => {
 			path: "joinedSpaces",
 			populate: {
 				path: "channels",
-				populate: "threads",
+				populate: {
+					path: "threads",
+					populate: {
+						path: "authorID",
+						select: "-key",
+					},
+				},
 			},
 		});
 
