@@ -1,11 +1,9 @@
-import { findUser } from "utils/find";
 import { getMomentFrom } from "utils/date";
-
 import ThreadText from "../thread/ThreadText";
 import "./ChildComment.css";
 
-function childComment(props) {
-	const user = findUser(props.userID);
+function ChildComment(props) {
+	const user = props.authorID;
 	const moment = getMomentFrom(new Date(props.postDate));
 
 	return (
@@ -18,10 +16,12 @@ function childComment(props) {
 				<div className="childcomment__profile">
 					<div className="childcomment__profile__username__container">
 						<p className="childcomment__profile__username">
-							{user.name}
+							{user.username}
 						</p>
 					</div>
-					<div className="childcomment__info__date">Posted {moment}</div>
+					<div className="childcomment__info__date">
+						Posted {moment}
+					</div>
 				</div>
 			</div>
 			<div className="childcomment__comment">
@@ -31,4 +31,4 @@ function childComment(props) {
 	);
 }
 
-export default childComment;
+export default ChildComment;
