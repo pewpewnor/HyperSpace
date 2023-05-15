@@ -67,7 +67,6 @@ function Home() {
 	}, [user, navigate, searchQuery]);
 
 	function handleSearch(event) {
-		// setIsLoading(true);
 		setSearchQuery(event.target.value);
 	}
 
