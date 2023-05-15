@@ -1,49 +1,69 @@
-import { useState } from "react";
+import ChildComment from "components/comment/ChildComment";
+import Comment from "components/comment/Comment";
+import { useEffect, useState } from "react";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
 import { RiRocket2Line } from "react-icons/ri";
 import { TbClock } from "react-icons/tb";
 import { getMomentFrom } from "utils/date";
 import shortenNumber from "utils/number";
-import ChildComment from "../comment/ChildComment";
-import Comment from "../comment/Comment";
 import ThreadText from "./ThreadText";
 import "./thread.css";
 
 export default function Thread(props) {
+	const [popup, setPopup] = useState(false);
+	const [comments, setComments] = useState([]);
+
+	console.log("rendering thread...");
+
+	useEffect(() => {
+		async function getComments() {
+			const res = await fetch(
+				"http://localhost:3001/api/comments?threadID=" + props._id
+			);
+			if (!res.ok) return;
+			const resData = await res.json();
+
+			setComments(
+				resData.comments.map((comment) => (
+					<Comment
+						key={comment._id}
+						{...comment}
+						childComments={comment.childComments.map(
+							(childComment) => (
+								<ChildComment
+									key={childComment._id}
+									{...childComment}
+								/>
+							)
+						)}
+					/>
+				))
+			);
+		}
+
+		if (popup) {
+			getComments();
+		}
+	}, [props._id, popup]);
+
+	const user = props.authorID;
 	const moment = getMomentFrom(new Date(props.postDate));
 	const views = shortenNumber(props.views.length);
-
-	const [popup, setPopup] = useState(false);
-
 	const upvotes = shortenNumber(props.upvotes.length);
 	const downvotes = shortenNumber(props.downvotes.length);
-	const comments = shortenNumber(props.comments.length);
 
-	const childComment = [
-		<ChildComment
-			postDate={1677764208799}
-			text={"wut?"}
-			userID={"USR003"}
-		/>,
-		<ChildComment
-			postDate={1677764208779}
-			text={"hahhhhh"}
-			userID={"USR003"}
-		/>,
-		<ChildComment
-			postDate={1677764208769}
-			text={"maksudnya"}
-			userID={"USR003"}
-		/>,
-	];
+	const commentNumbers =
+		props.comments.length > comments.length
+			? shortenNumber(props.comments.length)
+			: shortenNumber(comments.length);
 
 	function handleUpvote() {}
 
 	function handleDownvote() {}
 
 	const handleComment = () => {
-		setPopup(!popup);
+		setPopup((prev) => !prev);
 	};
 
 	function handleShare() {}
@@ -53,7 +73,7 @@ export default function Thread(props) {
 			<div className="thread__container__top">
 				<div className="thread__profile__container">
 					<img
-						src={props.user.profilePicture}
+						src={user.profilePicture}
 						alt="something for user profile"
 					/>
 					<div className="thread__profile">
@@ -63,7 +83,7 @@ export default function Thread(props) {
 						<div className="thread__profile__username__container">
 							<FaCrown className="thread__profile__subscription" />
 							<p className="thread__profile__username">
-								{props.user.name}
+								{user.username}
 							</p>
 						</div>
 					</div>
@@ -120,7 +140,9 @@ export default function Thread(props) {
 						onClick={handleComment}
 					>
 						<FaRegCommentAlt className="thread__buttons__comment__icon thread__buttons__icons" />
-						<p className="thread__buttons__value">{comments}</p>
+						<p className="thread__buttons__value">
+							{commentNumbers}
+						</p>
 					</button>
 
 					<button
@@ -133,12 +155,12 @@ export default function Thread(props) {
 				</div>
 			</div>
 
-			{popup && (
+			{popup && comments && (
 				<div className="popupthread__comment__container">
-					<label>Comment as {props.user.name}</label>
+					<label>Comment as {user.username}</label>
 					<div className="popupthread__user__comment__container">
 						<img
-							src={props.user.profilePicture}
+							src={user.profilePicture}
 							alt="something for user profile"
 						/>
 						<input
@@ -152,32 +174,7 @@ export default function Thread(props) {
 					</div>
 					<div className="popupthread__blackline"></div>
 					<div className="popupthread__commentlist__container">
-						<Comment
-							// space={spaceData[0]}
-							// channel={channelData[0]}
-							postDate={1677764208799}
-							text={
-								"aku ga mau aku mau tapi ga maukamu siapa afjas afknvvnd askfdjhife ifjdf difdifj"
-							}
-							childComment={childComment}
-							userID={"USR001"}
-						/>
-						<Comment
-							// space={spaceData[0]}
-							// channel={channelData[0]}
-							postDate={1677764208769}
-							text={"aku ga mau"}
-							childComment={childComment}
-							userID={"USR001"}
-						/>
-						<Comment
-							// space={spaceData[0]}
-							// channel={channelData[0]}
-							postDate={1677764208759}
-							text={"aku ga mau"}
-							childComment={childComment}
-							userID={"USR001"}
-						/>
+						{comments}
 					</div>
 				</div>
 			)}
