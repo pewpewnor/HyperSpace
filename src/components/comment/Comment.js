@@ -1,20 +1,16 @@
-import { findUser } from "utils/find";
+import { useState } from "react";
 import { getMomentFrom } from "utils/date";
-import { FaRegCommentAlt } from "react-icons/fa";
-
 import ThreadText from "../thread/ThreadText";
 import "./Comment.css";
-import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
 
 function Comment(props) {
-	const user = findUser(props.userID);
+	const user = props.authorID;
 	const moment = getMomentFrom(new Date(props.postDate));
 
 	const [reply, setReply] = useState(false);
 
 	const handleReply = () => {
-		setReply(!reply);
+		setReply((prev) => !prev);
 	};
 
 	return (
@@ -27,7 +23,7 @@ function Comment(props) {
 				<div className="comment__profile">
 					<div className="comment__profile__username__container">
 						<p className="comment__profile__username">
-							{user.name}
+							{user.username}
 						</p>
 					</div>
 					<div className="comment__info__date">Posted {moment}</div>
@@ -52,7 +48,7 @@ function Comment(props) {
 				</div>
 			)}
 			<div className="comment__childcomment__list__container">
-				{props.childComment}
+				{props.childComments}
 			</div>
 		</div>
 	);
