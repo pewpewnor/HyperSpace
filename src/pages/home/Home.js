@@ -9,19 +9,19 @@ import "./home.css";
 
 function Home() {
 	const navigate = useNavigate();
-	const [isLoading, setIsLoading] = useState(true);
 	const [user] = useContext(UserContext);
 
-	const [threads, setThreads] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [searchQuery, setSearchQuery] = useState("");
+	const [threadsData, setThreadsData] = useState([]);
 
 	useEffect(() => {
 		async function getThreads() {
+			console.log("fetching...");
 			if (user === null) {
 				navigate("/login");
 				return;
 			}
-
-			let threadsData = [];
 
 			try {
 				const res = await fetch(
@@ -39,30 +39,53 @@ function Home() {
 					navigate("/login");
 					return;
 				}
-				threadsData = await res.json();
+				const resData = await res.json();
+
+				if (searchQuery.trim() === "") {
+					setThreadsData(resData);
+				} else {
+					setThreadsData(
+						resData.filter((data) => {
+							const thread = data.thread;
+
+							return (
+								thread.title
+									.toLowerCase()
+									.includes(searchQuery.toLowerCase()) ||
+								thread.text
+									.toLowerCase()
+									.includes(searchQuery.toLowerCase())
+							);
+						})
+					);
+				}
 			} catch (error) {}
 
-			setThreads(
-				threadsData.map((data) => (
-					<Thread
-						key={data.id}
-						{...data.thread}
-						user={user}
-						space={data.space}
-						channel={data.channel}
-					/>
-				))
-			);
 			setIsLoading(false);
 		}
 
 		getThreads();
-	}, [user, navigate]);
+	}, [user, navigate, searchQuery]);
+
+	function handleSearch(event) {
+		// setIsLoading(true);
+		setSearchQuery(event.target.value);
+	}
+
+	const threads = threadsData.map((data) => (
+		<Thread
+			key={data.id}
+			{...data.thread}
+			user={user}
+			space={data.space}
+			channel={data.channel}
+		/>
+	));
 
 	return (
 		<div className="all font_size_rule">
 			{isLoading && <Loading />}
-			<Navbar />
+			<Navbar searchQuery={searchQuery} handleSearch={handleSearch} />
 			<div className="body">
 				<div className="left-container">
 					<MySpace />
