@@ -1,26 +1,10 @@
-import AccountInformation from "./AccountInformation";
-import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import AccountInformation from "./AccountInformation";
 import "./navbar.css";
 
-export default function Navbar() {
-	const [searchQuery, setSearchQuery] = useState("");
-
-	function handleSearchQuery(event) {
-		setSearchQuery(event.target.value);
-	}
-
-	function handleSearchQueryEnter(event) {
-		if (event.key === "Enter") {
-			alert("User wants to search: " + searchQuery);
-		}
-	}
-
-	function handleSearchIcon() {
-		alert(searchQuery);
-	}
-
+export default function Navbar({ searchQuery, handleSearch }) {
 	return (
 		<div className="navbar">
 			<div className="navbar-container">
@@ -39,10 +23,9 @@ export default function Navbar() {
 							name="searchQuery"
 							placeholder="Search anything here..."
 							value={searchQuery}
-							onChange={handleSearchQuery}
-							onKeyDown={handleSearchQueryEnter}
+							onChange={handleSearch}
 						></input>
-						<span onClick={handleSearchIcon}>
+						<span>
 							<FaSearch className="search-icon" />
 						</span>
 					</div>

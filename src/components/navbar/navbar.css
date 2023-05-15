@@ -89,21 +89,21 @@
 	fill: #5766ff;
 }
 
-.navbar-container > .search-bar-container > .search-bar > span:hover {
+/* .navbar-container > .search-bar-container > .search-bar > span:hover {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-color: #5766ff;
 	border-radius: 0 0.3rem 0.3rem 0;
-}
+} */
 
-.navbar-container
+/* .navbar-container
 	> .search-bar-container
 	> .search-bar
 	> span:hover
 	.search-icon {
 	fill: #ffffff;
-}
+} */
 
 .navbar-container > .search-bar-container > .search-bar > .search-input {
 	border: 0;
