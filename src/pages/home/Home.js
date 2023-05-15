@@ -17,7 +17,6 @@ function Home() {
 
 	useEffect(() => {
 		async function getThreads() {
-			console.log("fetching...");
 			if (user === null) {
 				navigate("/login");
 				return;
@@ -76,20 +75,11 @@ function Home() {
 		<Thread
 			key={data.id}
 			{...data.thread}
-			user={user}
 			space={data.space}
+			user={data.user}
 			channel={data.channel}
 		/>
 	));
-
-	// const testingthreads = threadData.map((popupthread) => (
-	// 	<PopupThread
-	// 		key={popupthread.ID}
-	// 		space={spaceData[0]}
-	// 		channel={channelData[0]}
-	// 		{...popupthread}
-	// 	/>
-	// ));
 
 	return (
 		<div className="all font_size_rule">
