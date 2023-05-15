@@ -9,7 +9,7 @@ export default function Navbar({ searchQuery, handleSearch }) {
 		<div className="navbar">
 			<div className="navbar-container">
 				<Link to="/" className="logo-container">
-					<img src="assets/hyperspace-logo.png" alt="logo"></img>
+					<img src="/assets/hyperspace-logo.png" alt="logo"></img>
 					<div className="logo-name-container">
 						<h1 id="logo-first">Hyper</h1>
 						<h1 id="logo-second">Space</h1>
