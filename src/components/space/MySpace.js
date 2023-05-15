@@ -41,7 +41,7 @@ export default function MySpace() {
 		}
 
 		getSpaces();
-	}, []);
+	}, [user]);
 
 	if (isLoading) {
 		return (
