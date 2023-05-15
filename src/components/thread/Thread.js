@@ -5,13 +5,10 @@ import { RiRocket2Line } from "react-icons/ri";
 import { TbClock } from "react-icons/tb";
 import { getMomentFrom } from "utils/date";
 import shortenNumber from "utils/number";
-import ThreadText from "./ThreadText";
-import "./thread.css";
-
-import channelData from "data/channeldata";
-import spaceData from "data/spacedata";
 import ChildComment from "../comment/ChildComment";
 import Comment from "../comment/Comment";
+import ThreadText from "./ThreadText";
+import "./thread.css";
 
 export default function Thread(props) {
 	const moment = getMomentFrom(new Date(props.postDate));
@@ -138,10 +135,10 @@ export default function Thread(props) {
 
 			{popup && (
 				<div className="popupthread__comment__container">
-					<label>Comment as {user.name}</label>
+					<label>Comment as {props.user.name}</label>
 					<div className="popupthread__user__comment__container">
 						<img
-							src={user.profilePicture}
+							src={props.user.profilePicture}
 							alt="something for user profile"
 						/>
 						<input
