@@ -57,7 +57,7 @@ function Home() {
 		}
 
 		getThreads();
-	}, []);
+	}, [user, navigate]);
 
 	return (
 		<div className="all font_size_rule">
