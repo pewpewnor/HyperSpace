@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
 	},
 	profilePicture: {
 		type: String,
-		default: "assets/default-profile-picture.svg",
+		default: "/assets/default-profile-picture.svg",
 	},
 	subscription: {
 		type: String,
