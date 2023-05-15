@@ -485,7 +485,13 @@ app.get("/api/comments", async (req, res) => {
 		const comments = await Thread.findById(threadID)
 			.populate({
 				path: "comments",
-				populate: "childComments",
+				populate: [
+					{
+						path: "childComments",
+						populate: { path: "authorID", select: "-key" },
+					},
+					{ path: "authorID", select: "-key" },
+				],
 			})
 			.select("comments");
 		if (!comments) {
