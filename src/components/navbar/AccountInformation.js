@@ -1,10 +1,8 @@
-import { useContext } from "react";
 import UserContext from "contexts/UserContext";
-import { findUser } from "utils/find";
+import { useContext, useState } from "react";
 import { FaCrown } from "react-icons/fa";
-import "./accountinformation.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./accountinformation.css";
 
 export default function AccountInformation() {
 	const userInfo = useContext(UserContext);
