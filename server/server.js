@@ -169,22 +169,24 @@ app.post("/api/user/myspace", async (req, res) => {
 	}
 });
 
-// Uses spaceID
+// Uses spaceName
 // Get space information + all channel information for that space
 app.get("/api/space", async (req, res) => {
-	const { spaceID } = req.query;
-	if (isBadObjectID(spaceID)) {
+	const { spaceName } = req.query;
+	if (isBadString(spaceName)) {
 		res.status(400).json({
-			error: "SpaceID has invalid format!",
+			error: "Space name has invalid format!",
 		});
 		return;
 	}
 
 	try {
-		const space = await Space.findById(spaceID).populate("channels");
+		const space = await Space.findOne({ name: spaceName }).populate(
+			"channels"
+		);
 		if (!space) {
 			res.status(401).json({
-				error: "SpaceID does not exist!",
+				error: "Space name does not exist!",
 			});
 			return;
 		}
@@ -326,9 +328,13 @@ app.get("/api/threads", async (req, res) => {
 	}
 
 	try {
-		const threads = await Channel.findById(channelID)
-			.populate("threads")
-			.select("threads");
+		const threads = await Channel.findById(channelID).populate({
+			path: "threads",
+			populate: {
+				path: "authorID",
+				select: "-key",
+			},
+		});
 		if (!threads) {
 			res.status(401).json({
 				error: "ChannelID does not exist!",
