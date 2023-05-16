@@ -68,6 +68,7 @@ app.post("/api/checkloggedin", async (req, res) => {
 	} else {
 		res.status(200).json({
 			status: "This user is logged in!",
+			user: await User.findById(req.body.userID),
 		});
 	}
 });
