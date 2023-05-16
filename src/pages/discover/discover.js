@@ -13,15 +13,6 @@ export default function Discover() {
 		<div className="font_size_rule">
 			<Navbar />
 			<div className="discoverPage__body ">
-				<div className="channelView__container">
-					<button className="isActive">Home</button>
-					<button>Gaming</button>
-					<button>Traveling</button>
-					<button>Education</button>
-					<button>Music</button>
-					<button>Films</button>
-				</div>
-
 				<div className="discoverPage__body__bottom">
 					<h1>Discover more space</h1>
 					<p>See other community in HyperSpace!</p>

@@ -2,6 +2,11 @@
 	display: flex;
 }
 
+.space__info__container:hover {
+	background-color: #5766ff;
+	border-radius: 5px;
+}
+
 .space__info__container > .space__data {
 	display: flex;
 	flex-direction: column;
