@@ -5,8 +5,7 @@ import MySpace from "components/space/MySpace";
 import SpaceBanner from "components/space/spaceBanner";
 import Thread from "components/thread/Thread";
 import LocationContext from "contexts/LocationContext";
-import UserContext from "contexts/UserContext";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 
@@ -38,32 +37,36 @@ function SpacePage(props) {
 		useState(false);
 
 	// get threads and also change channel
-	async function changeCurrentChannel(newChannel, searchQuery) {
-		try {
-			const res = await fetch(
-				"http://localhost:3000/api/threads?channelID=" + newChannel._id
-			);
-			if (!res.ok) {
-				navigate("/404");
-				return;
-			}
-			const resData = await res.json();
+	const changeCurrentChannel = useCallback(
+		async (newChannel, searchQuery) => {
+			try {
+				const res = await fetch(
+					"http://localhost:3000/api/threads?channelID=" +
+						newChannel._id
+				);
+				if (!res.ok) {
+					navigate("/404");
+					return;
+				}
+				const resData = await res.json();
 
-			if (searchQuery !== undefined && searchQuery.trim() !== "") {
-				resData.threads = resData.threads.filter((thread) => {
-					return (
-						thread.title
-							.toLowerCase()
-							.includes(searchQuery.toLowerCase()) ||
-						thread.text
-							.toLowerCase()
-							.includes(searchQuery.toLowerCase())
-					);
-				});
-			}
-			setCurrentChannel(resData);
-		} catch (error) {}
-	}
+				if (searchQuery !== undefined && searchQuery.trim() !== "") {
+					resData.threads = resData.threads.filter((thread) => {
+						return (
+							thread.title
+								.toLowerCase()
+								.includes(searchQuery.toLowerCase()) ||
+							thread.text
+								.toLowerCase()
+								.includes(searchQuery.toLowerCase())
+						);
+					});
+				}
+				setCurrentChannel(resData);
+			} catch (error) {}
+		},
+		[navigate]
+	);
 
 	useEffect(() => {
 		async function getSpace() {
@@ -83,7 +86,7 @@ function SpacePage(props) {
 		}
 
 		getSpace();
-	}, []);
+	}, [changeCurrentChannel, navigate, spaceName]);
 
 	function handleSearch(event) {
 		setSearchQuery(event.target.value);
