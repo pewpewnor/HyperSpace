@@ -1,6 +1,6 @@
 import { getMomentFrom } from "utils/date";
-import ThreadText from "../thread/ThreadText";
 import "./ChildComment.css";
+import CommentText from "./CommentText";
 
 function ChildComment(props) {
 	const user = props.authorID;
@@ -25,7 +25,7 @@ function ChildComment(props) {
 				</div>
 			</div>
 			<div className="childcomment__comment">
-				<ThreadText text={props.text} />
+				<CommentText text={props.text} />
 			</div>
 		</div>
 	);
