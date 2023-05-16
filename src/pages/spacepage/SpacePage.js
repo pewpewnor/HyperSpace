@@ -41,7 +41,7 @@ function SpacePage(props) {
 	async function changeCurrentChannel(newChannel, searchQuery) {
 		try {
 			const res = await fetch(
-				"http://localhost:3001/api/threads?channelID=" + newChannel._id
+				"http://localhost:3000/api/threads?channelID=" + newChannel._id
 			);
 			if (!res.ok) {
 				navigate("/404");
@@ -69,7 +69,7 @@ function SpacePage(props) {
 		async function getSpace() {
 			try {
 				const res = await fetch(
-					"http://localhost:3001/api/space?spaceName=" + spaceName
+					"http://localhost:3000/api/space?spaceName=" + spaceName
 				);
 				if (!res.ok) {
 					navigate("/404");

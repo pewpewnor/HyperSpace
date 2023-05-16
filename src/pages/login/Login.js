@@ -38,7 +38,7 @@ function Login() {
 	}
 
 	async function checkLoginCredential() {
-		const res = await fetch("http://localhost:3001/api/login", {
+		const res = await fetch("http://localhost:3000/api/login", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",

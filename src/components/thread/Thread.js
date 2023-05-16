@@ -17,7 +17,7 @@ export default function Thread(props) {
 	useEffect(() => {
 		async function getComments() {
 			const res = await fetch(
-				"http://localhost:3001/api/comments?threadID=" + props._id
+				"http://localhost:3000/api/comments?threadID=" + props._id
 			);
 			if (!res.ok) return;
 			const resData = await res.json();
