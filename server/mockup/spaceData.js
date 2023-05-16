@@ -11,6 +11,7 @@ const spaceData = [
 		description:
 			"This is Psychology Community, the best place to search anything related to psychology, Come and join with 6.5M user across the world!",
 		picture: "/space/psychology.png",
+		bannerPicture: "/spacebanner/gaming.jpg",
 		members: [
 			"645bcbd39365d8736c77bf5a",
 			"645bcbd39365d8736c77bf5b",
@@ -23,6 +24,7 @@ const spaceData = [
 		ownerID: "645bcbd39365d8736c77bf5a",
 		description: "Hello World!",
 		picture: "/space/gaming.png",
+		bannerPicture: "/spacebanner/gaming.jpg",
 		members: ["645bcbd39365d8736c77bf5a"],
 	},
 	{
