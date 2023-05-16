@@ -5,10 +5,12 @@
 	border-radius: 10px;
 
 	background-color: rgb(39, 39, 39);
+	overflow: hidden;
 }
 
 .space__banner__container > .space__banner__background {
-	filter: brightness(25%);
+	position: absolute;
+	filter: brightness(10%);
 }
 
 .space__banner__container > .space__banner__data {
