@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getMomentFrom } from "utils/date";
-import ThreadText from "../thread/ThreadText";
 import "./Comment.css";
+import CommentText from "./CommentText";
 
 function Comment(props) {
 	const user = props.authorID;
@@ -30,7 +30,7 @@ function Comment(props) {
 				</div>
 			</div>
 			<div className="comment__comment">
-				<ThreadText text={props.text} />
+				<CommentText text={props.text} />
 			</div>
 			<div className="comment__comment__button">
 				<button onClick={handleReply}>reply</button>
