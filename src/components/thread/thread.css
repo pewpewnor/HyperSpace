@@ -312,7 +312,8 @@
 	border: none;
 }
 
-.thread__container > .popupthread__comment__container
+.thread__container
+	> .popupthread__comment__container
 	> .popupthread__user__comment__container
 	> .popupthread__user__submit__comment {
 	width: 20%;
@@ -324,13 +325,16 @@
 	background-color: #1e1e1e;
 }
 
-.thread__container > .popupthread__comment__container
+.thread__container
+	> .popupthread__comment__container
 	> .popupthread__user__comment__container
 	> .popupthread__user__submit__comment:hover {
 	background-color: #5766ff;
 }
 
-.thread__container > .popupthread__comment__container > .popupthread__blackline {
+.thread__container
+	> .popupthread__comment__container
+	> .popupthread__blackline {
 	background-color: #1e1e1e;
 	width: 91.5%;
 	height: 3px;
@@ -340,7 +344,9 @@
 	margin-bottom: 2.6vw;
 }
 
-.thread__container > .popupthread__comment__container > .popupthread__commentlist__container {
+.thread__container
+	> .popupthread__comment__container
+	> .popupthread__commentlist__container {
 	background-color: #363636;
 	width: 91.5%;
 	margin-left: 2.6vw;

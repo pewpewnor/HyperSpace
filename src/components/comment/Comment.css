@@ -94,7 +94,7 @@
 	color: #5766ff;
 }
 
-.comment__profile__container > .comment__user__comment__container{
+.comment__profile__container > .comment__user__comment__container {
 	margin-top: 1rem;
 	max-width: 60vw;
 	max-height: 37.5rem;
@@ -112,7 +112,9 @@
 	border-radius: 20px;
 }
 
-.comment__profile__container > .comment__user__comment__container > .comment__user__comment__text{
+.comment__profile__container
+	> .comment__user__comment__container
+	> .comment__user__comment__text {
 	width: 80%;
 	margin-right: 0.5rem;
 	border-radius: 7.5px;
@@ -125,7 +127,9 @@
 	border: none;
 }
 
-.comment__profile__container > .comment__user__comment__container > .comment__user__submit__comment{
+.comment__profile__container
+	> .comment__user__comment__container
+	> .comment__user__submit__comment {
 	width: 20%;
 	margin-left: 0.5rem;
 	border-radius: 7.5px;
