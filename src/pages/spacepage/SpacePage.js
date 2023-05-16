@@ -1,66 +1,121 @@
 import ChannelView from "components/channel/ChannelView";
+import CreateChannelPopUp from "components/channel/create-channel-popup";
+import Loading from "components/loading/Loading";
 import MySpace from "components/space/MySpace";
 import SpaceBanner from "components/space/spaceBanner";
 import Thread from "components/thread/Thread";
 import LocationContext from "contexts/LocationContext";
-import { useState } from "react";
-import { findChannel, findThread } from "utils/find";
+import UserContext from "contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
-import CreateChannelPopUp from "components/channel/create-channel-popup";
 
 import "./spacepage.css";
 
 function SpacePage(props) {
-	const [currentChannel, setCurrentChannel] = useState(
-		findChannel(props.space.channelsID[0])
-	);
+	const navigate = useNavigate();
+	const { spaceName } = useParams();
 
-	function handleChangeCurrentChannel(channelID) {
-		const channel = findChannel(channelID);
-		setCurrentChannel(channel);
-	}
+	const [isLoading, setIsLoading] = useState(true);
+	const [searchQuery, setSearchQuery] = useState("");
 
-	const channelsArray = props.space.channelsID.map((channelID) =>
-		findChannel(channelID)
-	);
-
-	const threads = currentChannel.threadsID.map((threadID) => {
-		const thread = findThread(threadID);
-
-		return (
-			<Thread
-				key={thread.ID}
-				space={props.space}
-				channel={currentChannel}
-				{...thread}
-			/>
-		);
+	const [spaceData, setSpaceData] = useState({
+		_id: "",
+		name: spaceName,
+		description: "",
+		ownerID: "",
+		picture: null,
+		channels: [],
+		members: [],
+	});
+	const [currentChannel, setCurrentChannel] = useState({
+		_id: "",
+		name: "general",
+		threads: [],
 	});
 
 	const [isCreateChannelPopUpOpen, setIsCreateChannelPopUpOpen] =
 		useState(false);
 
-	function handleCreateChannelPopUp(event) {
-		setIsCreateChannelPopUpOpen(!isCreateChannelPopUpOpen);
+	// get threads and also change channel
+	async function changeCurrentChannel(newChannel, searchQuery) {
+		try {
+			const res = await fetch(
+				"http://localhost:3001/api/threads?channelID=" + newChannel._id
+			);
+			if (!res.ok) {
+				navigate("/404");
+				return;
+			}
+			const resData = await res.json();
 
-		console.log(!isCreateChannelPopUpOpen);
+			if (searchQuery !== undefined && searchQuery.trim() !== "") {
+				resData.threads = resData.threads.filter((thread) => {
+					return (
+						thread.title
+							.toLowerCase()
+							.includes(searchQuery.toLowerCase()) ||
+						thread.text
+							.toLowerCase()
+							.includes(searchQuery.toLowerCase())
+					);
+				});
+			}
+			setCurrentChannel(resData);
+		} catch (error) {}
 	}
 
-	const [newChannel, setNewChannel] = useState("");
+	useEffect(() => {
+		async function getSpace() {
+			try {
+				const res = await fetch(
+					"http://localhost:3001/api/space?spaceName=" + spaceName
+				);
+				if (!res.ok) {
+					navigate("/404");
+					return;
+				}
+				const resData = await res.json();
+				setSpaceData(resData);
+				await changeCurrentChannel(resData.channels[0]);
+			} catch (error) {}
+		}
+
+		getSpace();
+		setIsLoading(false);
+	}, []);
+
+	function handleSearch(event) {
+		setSearchQuery(event.target.value);
+		changeCurrentChannel(currentChannel, event.target.value);
+	}
+
+	function handleCreateChannelPopUp() {
+		setIsCreateChannelPopUpOpen(!isCreateChannelPopUpOpen);
+	}
 
 	function handleCreateChannelChange(event) {
 		event.stopPropagation();
-		setNewChannel(event.target.value);
+		alert(event.target.value);
 	}
 
-	function handleCreateChannelSubmit(event) {
+	function handleCreateChannelSubmit() {
 		setIsCreateChannelPopUpOpen(!isCreateChannelPopUpOpen);
-		console.log(newChannel);
 	}
+
+	const threads = currentChannel.threads.map((thread) => (
+		<Thread
+			key={thread._id}
+			{...thread}
+			space={spaceData}
+			channel={currentChannel}
+		/>
+	));
 
 	return (
 		<div className="all font_size_rule">
-			<Navbar />
+			{isLoading && <Loading />}
+			<Navbar searchQuery={searchQuery} handleSearch={handleSearch} />
 			<div className="body">
 				<div className="left-container">
 					<MySpace />
@@ -69,14 +124,13 @@ function SpacePage(props) {
 					<LocationContext.Provider
 						value={{
 							currentChannel: currentChannel,
-							changeCurrentChannel: handleChangeCurrentChannel,
+							changeCurrentChannel: changeCurrentChannel,
 						}}
 					>
 						<div className="middle-container__filter-bar">
 							<ChannelView
-								channelsArray={channelsArray}
-								user={props.user}
-								space={props.space}
+								channelsArray={spaceData.channels}
+								space={spaceData}
 								handleCreateChannelPopUp={
 									handleCreateChannelPopUp
 								}
@@ -85,7 +139,7 @@ function SpacePage(props) {
 					</LocationContext.Provider>
 
 					<div className="middle-container__thread-section">
-						<SpaceBanner isJoined={false} spaceData={props.space} />
+						<SpaceBanner isJoined={false} spaceData={spaceData} />
 
 						{threads.length ? (
 							threads
