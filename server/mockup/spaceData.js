@@ -22,7 +22,8 @@ const spaceData = [
 		_id: "645bd00f2b7d749510bc10cc",
 		name: "Gaming",
 		ownerID: "645bcbd39365d8736c77bf5a",
-		description: "Hello World!",
+		description:
+			"Engage with gamers worldwide, discuss news, reviews, strategies. Join the community for gaming excitement & insights.",
 		picture: "/space/gaming.png",
 		bannerPicture: "/spacebanner/gaming.jpg",
 		members: ["645bcbd39365d8736c77bf5a"],
