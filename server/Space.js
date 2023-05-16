@@ -24,6 +24,10 @@ const spaceSchema = new mongoose.Schema({
 		type: String,
 		default: null,
 	},
+	bannerPicture: {
+		type: String,
+		default: null,
+	},
 	channels: {
 		type: [mongoose.SchemaTypes.ObjectId],
 		default: () => {
