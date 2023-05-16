@@ -9,7 +9,7 @@ export default function Space(props) {
 					<img
 						className="space__profile-picture"
 						src={props.picture}
-						alt="space"
+						alt=""
 					/>
 				)}
 			</div>
