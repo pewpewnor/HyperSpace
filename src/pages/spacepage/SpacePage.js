@@ -129,7 +129,7 @@ function SpacePage(props) {
 					>
 						<div className="middle-container__filter-bar">
 							<ChannelView
-								channelsArray={spaceData.channels}
+								channels={spaceData.channels}
 								space={spaceData}
 								handleCreateChannelPopUp={
 									handleCreateChannelPopUp

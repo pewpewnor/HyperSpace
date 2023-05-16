@@ -1,17 +1,17 @@
 import LocationContext from "contexts/LocationContext";
+import UserContext from "contexts/UserContext";
 import { useContext } from "react";
-// import { findUser } from "utils/find";
-// import { useState } from "react";
 import "./channelview.css";
 
 export default function ChannelView(props) {
+	const [user] = useContext(UserContext);
 	const { changeCurrentChannel } = useContext(LocationContext);
 
-	const channels = props.channelsArray.map((channel) => (
+	const channels = props.channels.map((channel) => (
 		<button
-			key={channel.ID}
+			key={channel._id}
 			onClick={() => {
-				changeCurrentChannel(channel.ID);
+				changeCurrentChannel(channel);
 			}}
 		>
 			{channel.name}
@@ -21,9 +21,7 @@ export default function ChannelView(props) {
 	return (
 		<div className="channelView__container">
 			{channels}
-			{/* if the user is the mod of the space, this button is visible */}
-
-			{props.user.ID === props.space.ownerID && (
+			{user._id === props.space.ownerID && (
 				<button
 					onClick={props.handleCreateChannelPopUp}
 					className="button_default"
