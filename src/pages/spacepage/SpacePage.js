@@ -11,7 +11,7 @@ import Navbar from "../../components/navbar/Navbar";
 
 import "./spacepage.css";
 
-function SpacePage(props) {
+function SpacePage() {
 	const navigate = useNavigate();
 	const { spaceName } = useParams();
 
@@ -142,7 +142,7 @@ function SpacePage(props) {
 					</LocationContext.Provider>
 
 					<div className="middle-container__thread-section">
-						<SpaceBanner spaceData={spaceData} />
+						{!isLoading && <SpaceBanner spaceData={spaceData} />}
 
 						{threads.length ? (
 							threads
