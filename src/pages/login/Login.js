@@ -7,7 +7,7 @@ import "./login.css";
 
 function Login() {
 	const navigate = useNavigate();
-	const [user, setUser] = useContext(UserContext);
+	const [setUser] = useContext(UserContext);
 	const [data, setData] = useState({
 		username: "",
 		password: "",
