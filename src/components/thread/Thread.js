@@ -111,7 +111,7 @@ export default function Thread(props) {
 						<img
 							className="thread__content__pictures__image"
 							src={props.picture}
-							alt="something for content"
+							alt=""
 						/>
 					)}
 				</div>
