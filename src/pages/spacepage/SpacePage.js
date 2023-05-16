@@ -78,11 +78,11 @@ function SpacePage(props) {
 				const resData = await res.json();
 				setSpaceData(resData);
 				await changeCurrentChannel(resData.channels[0]);
+				setIsLoading(false);
 			} catch (error) {}
 		}
 
 		getSpace();
-		setIsLoading(false);
 	}, []);
 
 	function handleSearch(event) {
@@ -139,7 +139,7 @@ function SpacePage(props) {
 					</LocationContext.Provider>
 
 					<div className="middle-container__thread-section">
-						<SpaceBanner isJoined={false} spaceData={spaceData} />
+						<SpaceBanner spaceData={spaceData} />
 
 						{threads.length ? (
 							threads
