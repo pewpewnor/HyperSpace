@@ -4,6 +4,7 @@
 	padding-bottom: 0.5rem;
 	padding-left: 1vw;
 	padding-right: 1vw;
+	cursor: pointer;
 }
 
 .space__info__container:hover {
