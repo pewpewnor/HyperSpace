@@ -11,7 +11,9 @@ export default function AccountInformation() {
 	if (!userInfo.isLoggedIn) {
 		return (
 			<div className="account-information-container">
-				<button className="sign-in-button">Login</button>
+				<Link to="/login">
+					<button className="sign-in-button">Login</button>
+				</Link>
 			</div>
 		);
 	}
