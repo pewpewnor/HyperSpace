@@ -1,9 +1,58 @@
-import { useState } from "react";
+import UserContext from "contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
 import shortenNumber from "utils/number";
 import "./spaceBanner.css";
 
 export default function SpaceBanner({ spaceData }) {
-	const [hasJoined, setHasJoined] = useState(false);
+	const [user] = useContext(UserContext);
+	const [hasJoined, setHasJoined] = useState(null);
+
+	useEffect(() => {
+		async function checkJoin() {
+			try {
+				const res = await fetch("/api/checkjoinspace", {
+					method: "POST",
+					headers: {
+						Accept: "application/json",
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						key: user.key,
+						userID: user._id,
+						spaceID: spaceData._id,
+					}),
+				});
+				const resData = await res.json();
+				if (res.ok && resData.true !== undefined) {
+					setHasJoined(true);
+					return;
+				}
+			} catch (error) {}
+			setHasJoined(false);
+		}
+		if (user) {
+			checkJoin();
+		}
+	}, [spaceData._id, user, hasJoined]);
+
+	async function handleJoin() {
+		try {
+			const res = await fetch("/api/joinspace", {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					key: user.key,
+					userID: user._id,
+					spaceID: spaceData._id,
+				}),
+			});
+			console.log(await res.json());
+		} catch (error) {}
+		setHasJoined((prev) => !prev);
+	}
 
 	return (
 		<div className="space__banner__container">
@@ -35,16 +84,18 @@ export default function SpaceBanner({ spaceData }) {
 					</div>
 
 					<div className="space__button">
-						<button
-							className={
-								hasJoined
-									? "space__button__joined"
-									: "space__button__Notjoined"
-							}
-							onClick={() => setHasJoined(!hasJoined)}
-						>
-							{hasJoined ? "Joined" : "Join"}
-						</button>
+						{hasJoined !== null && (
+							<button
+								className={
+									hasJoined
+										? "space__button__joined"
+										: "space__button__Notjoined"
+								}
+								onClick={handleJoin}
+							>
+								{hasJoined ? "Joined" : "Join"}
+							</button>
+						)}
 					</div>
 				</div>
 
