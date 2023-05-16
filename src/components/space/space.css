@@ -1,5 +1,9 @@
 .space__info__container {
 	display: flex;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1vw;
+	padding-right: 1vw;
 }
 
 .space__info__container:hover {
