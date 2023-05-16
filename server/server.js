@@ -56,7 +56,7 @@ async function run() {
 	console.log("Server: Halleluya the run works");
 }
 
-run();
+// run();
 
 // Uses key & userID
 // Check if user is logged in or not
