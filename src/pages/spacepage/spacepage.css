@@ -50,3 +50,10 @@ body {
 	height: 100%;
 	margin-left: 1.2vw;
 }
+
+@media (max-width: 1000px) {
+	.middle-container {
+		width: 100%;
+		margin-right: 8.7vw;
+	}
+}
