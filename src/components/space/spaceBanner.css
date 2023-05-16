@@ -11,6 +11,7 @@
 .space__banner__container > .space__banner__background {
 	position: absolute;
 	width: 100%;
+	height: 100%;
 	filter: brightness(10%);
 }
 
