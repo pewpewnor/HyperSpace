@@ -42,6 +42,13 @@ const spaceData = [
 		description: "Yor FORGER AAAAAAAAA",
 		members: ["645bcbd39365d8736c77bf5c"],
 	},
+	{
+		_id: "645bd00f2b7d749510bc10cf",
+		name: "Politics",
+		ownerID: "645bcbd39365d8736c77bf5c",
+		description: "I love politics",
+		members: ["645bcbd39365d8736c77bf5c"],
+	},
 ];
 
 module.exports = spaceData;
