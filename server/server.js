@@ -201,7 +201,40 @@ app.get("/api/space", async (req, res) => {
 });
 
 // Uses userID + key, spaceID
-// This user joins a space
+// Check if this user joins a space
+app.post("/api/checkjoinspace", async (req, res) => {
+	if (await isNotLoggedIn(req.body)) {
+		res.status(403).json({
+			error: "You must be logged in to do this!",
+		});
+		return;
+	}
+	const { userID, spaceID } = req.body;
+	if (isBadObjectID(userID) || isBadObjectID(spaceID)) {
+		res.status(400).json({
+			error: "UserID or SpaceID has invalid format!",
+		});
+		return;
+	}
+
+	try {
+		const user = await User.findById(userID);
+		if (!user.joinedSpaces.includes(spaceID)) {
+			res.status(200).json({ false: "User has not joined the space!" });
+			return;
+		}
+
+		res.status(200).json({ true: "User has already joined space!" });
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "SpaceID is invalid || Server / database error!",
+		});
+	}
+});
+
+// Uses userID + key, spaceID
+// This user toggle joins the space
 app.post("/api/joinspace", async (req, res) => {
 	if (await isNotLoggedIn(req.body)) {
 		res.status(403).json({
@@ -222,11 +255,15 @@ app.post("/api/joinspace", async (req, res) => {
 		if (!user.joinedSpaces.includes(spaceID)) {
 			user.joinedSpaces.push(spaceID);
 			user.save();
-			res.status(200).json({ status: "User has joined the space!" });
+			res.status(200).json({ status: "User now joined the space!" });
 			return;
 		}
 
-		res.status(200).json({ status: "User has already joined space!" });
+		user.joinedSpaces = user.joinedSpaces.filter(
+			(sID) => sID.equals(spaceID) === false
+		);
+		user.save();
+		res.status(200).json({ status: "User no longer joined the space!" });
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({
