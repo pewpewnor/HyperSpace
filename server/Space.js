@@ -13,7 +13,7 @@ const spaceSchema = new mongoose.Schema({
 	description: {
 		type: String,
 		default: "",
-		maxLength: 300,
+		maxLength: 150,
 	},
 	ownerID: {
 		type: mongoose.SchemaTypes.ObjectId,
