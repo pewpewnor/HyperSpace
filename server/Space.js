@@ -22,7 +22,7 @@ const spaceSchema = new mongoose.Schema({
 	},
 	picture: {
 		type: String,
-		default: null,
+		default: "/assets/default-space-picture.jpg",
 	},
 	bannerPicture: {
 		type: String,
