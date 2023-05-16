@@ -2,27 +2,34 @@ import { useState } from "react";
 import shortenNumber from "utils/number";
 import "./spaceBanner.css";
 
-export default function SpaceBanner({ isJoined, spaceData }) {
-	const [hasJoined, setHasJoined] = useState(isJoined);
+export default function SpaceBanner({ spaceData }) {
+	const [hasJoined, setHasJoined] = useState(false);
 
 	return (
 		<div className="space__banner__container">
-			<div className="space__banner__background">
-				{" "}
-				{/* Insert space banner here, css still not optimized*/}{" "}
-			</div>
+			{spaceData.bannerPicture && (
+				<img
+					className="space__banner__background"
+					src={spaceData.bannerPicture}
+					alt=""
+				/>
+			)}
 			<div className="space__banner__data">
 				<div className="space__banner__top">
 					<div className="space__profile">
-						<div className="space__profile-picture">
-							{/* Insert profile picture here */}
-						</div>
+						{spaceData.picture && (
+							<img
+								className="space__profile-picture"
+								src={spaceData.picture}
+								alt=""
+							/>
+						)}
 
 						<div className="space__data">
-							{/* Template need fix */}
 							<p className="space__title">{spaceData.name}</p>
 							<p className="space__member">
-								{shortenNumber(spaceData.members) + " Members"}
+								{shortenNumber(spaceData.members.length) +
+									" Members"}
 							</p>
 						</div>
 					</div>
@@ -43,7 +50,7 @@ export default function SpaceBanner({ isJoined, spaceData }) {
 
 				<div className="space__banner__bottom">
 					<p className="space__banner__desc">
-						{spaceData.spaceDesctiption}
+						{spaceData.description}
 					</p>
 				</div>
 			</div>
