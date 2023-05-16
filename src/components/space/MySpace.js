@@ -15,7 +15,7 @@ export default function MySpace() {
 
 			try {
 				const resSpaces = await fetch(
-					"http://localhost:3001/api/user/myspace",
+					"http://localhost:3000/api/user/myspace",
 					{
 						method: "POST",
 						headers: {
