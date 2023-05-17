@@ -9,7 +9,7 @@
 .comment__profile__container > .comment__profile__user__container {
 	display: flex;
 	margin-top: 2.6vh;
-	margin-left: 2.6vw;
+	margin-left: 1.6rem;
 }
 
 .comment__profile__container > .comment__profile__user__container > img {
@@ -63,38 +63,68 @@
 	color: #ffffff;
 }
 
-.comment__profile__container > .comment__comment {
-	/* margin-left: 3rem; */
+.comment__profile__container > .comment__down__container {
+	display: flex;
+	flex-direction: row;
+}
+
+.comment__profile__container
+	> .comment__down__container
+	> .comment__left__container {
+	width: 5px;
+	margin-left: 2.6rem;
+	margin-top: 1rem;
+	background-color: #d4f88a;
+	border-radius: 3px;
+}
+
+.comment__profile__container
+	> .comment__down__container
+	> .comment__right__container
+	> .comment__comment {
+	margin-left: 2.3rem;
 	margin-top: 1rem;
 	/* margin-bottom: 1.5rem; */
 	/* background-color:aqua; */
 }
 
-.comment__profile__container > .comment__childcomment__list__container {
-	margin-left: 3rem;
+.comment__profile__container
+	> .comment__down__container
+	> .comment__right__container
+	> .comment__childcomment__list__container {
+	/* margin-left: 5.2rem; */
 	margin-top: 1rem;
+	margin-left: 2rem;
+	/* background-color: #5766ff; */
 }
 
-.comment__profile__container > .comment__comment__button {
-	margin-left: 1.6vw;
-}
-
-.comment__profile__container > .comment__comment__button > button {
+.comment__profile__container
+	> .comment__down__container
+	> .comment__right__container
+	> .comment__comment__button
+	> button {
 	background: none;
 	border-style: none;
 	font-size: 14px;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
-	padding-left: 1vw;
-	padding-right: 1vw;
+	margin-left: 2.3rem;
 	color: aliceblue;
+	/* background-color: #5766ff; */
 }
 
-.comment__profile__container > .comment__comment__button > button:hover {
+.comment__profile__container
+	> .comment__down__container
+	> .comment__right__container
+	> .comment__comment__button
+	> button:hover {
 	color: #5766ff;
 }
 
-.comment__profile__container > .comment__user__comment__container {
+.comment__profile__container
+	> .comment__down__container
+	> .comment__right__container
+	> .comment__user__comment__container {
 	margin-top: 1rem;
 	max-width: 60vw;
 	max-height: 37.5rem;
@@ -105,7 +135,11 @@
 	margin-left: 2.6vw;
 }
 
-.comment__profile__container > .comment__user__comment__container > img {
+.comment__profile__container
+	> .comment__down__container
+	> .comment__right__container
+	> .comment__user__comment__container
+	> img {
 	width: 2.438rem;
 	height: 2.438rem;
 
@@ -113,10 +147,14 @@
 }
 
 .comment__profile__container
+	> .comment__down__container
+	> .comment__right__container
 	> .comment__user__comment__container
 	> .comment__user__comment__text {
 	width: 80%;
+	margin-top: -1rem;
 	margin-right: 0.5rem;
+	margin-left: 4rem;
 	border-radius: 7.5px;
 	padding-left: 0.75rem;
 	padding-top: 0.5rem;
@@ -128,13 +166,24 @@
 }
 
 .comment__profile__container
+	> .comment__down__container
+	> .comment__right__container
 	> .comment__user__comment__container
 	> .comment__user__submit__comment {
 	width: 20%;
 	margin-left: 0.5rem;
+	margin-top: -1rem;
 	border-radius: 7.5px;
 	border: none;
 	transition: 0.3s;
 
 	background-color: #1e1e1e;
+}
+
+.comment__profile__container
+	> .comment__down__container
+	> .comment__childcomment__list__container {
+	display: flex;
+	flex-direction: row;
+	/* background-color:aqua; */
 }
