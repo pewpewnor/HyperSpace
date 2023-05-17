@@ -9,7 +9,7 @@
 .childcomment__profile__container > .childcomment__profile__user__container {
 	display: flex;
 	margin-top: 1rem;
-	margin-left: 1rem;
+	/* margin-left: 1rem; */
 	/* background-color:aqua; */
 }
 
@@ -24,7 +24,7 @@
 .childcomment__profile__container
 	> .childcomment__profile__user__container
 	> .childcomment__profile {
-	margin-left: 1.3vw;
+	margin-left: 1rem;
 }
 
 .childcomment__profile__container
@@ -69,4 +69,9 @@
 	/* margin-left: 3rem; */
 	margin-top: 1vh;
 	/* background-color:aqua; */
+}
+
+.childcomment__profile__container > .childcomment__comment{
+	/* background-color: aqua; */
+	margin-left: 3.7rem;
 }
