@@ -1,17 +1,41 @@
+import Loading from "components/loading/Loading";
 import Navbar from "components/navbar/Navbar";
 import DiscoverPageSpaceComponent from "components/space/discoverSpace";
+import { useEffect, useState } from "react";
 import "./discoverstyle.css";
 
-import spaceData from "data/spacedata";
-
 export default function Discover() {
-	const spaces = spaceData.map((space) => {
-		return <DiscoverPageSpaceComponent key={space.ID} {...space} />;
+	const [isLoading, setIsLoading] = useState(true);
+	const [searchQuery, setSearchQuery] = useState("");
+
+	const [spacesData, setSpacesData] = useState([]);
+
+	useEffect(() => {
+		async function getAllSpaces() {
+			try {
+				const res = await fetch("/api/discover");
+				const resData = await res.json();
+
+				setSpacesData(resData);
+			} catch (error) {}
+			setIsLoading(false);
+		}
+
+		getAllSpaces();
+	}, []);
+
+	const spaces = spacesData.map((space) => {
+		return <DiscoverPageSpaceComponent key={space._id} {...space} />;
 	});
+
+	function handleSearch(event) {
+		setSearchQuery(event.target.value);
+	}
 
 	return (
 		<div className="font_size_rule">
-			<Navbar />
+			{isLoading && <Loading />}
+			<Navbar searchQuery={searchQuery} handleSearch={handleSearch} />
 			<div className="discoverPage__body ">
 				<div className="discoverPage__body__bottom">
 					<h1>Discover more space</h1>
