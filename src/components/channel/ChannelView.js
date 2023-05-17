@@ -21,7 +21,7 @@ export default function ChannelView(props) {
 	return (
 		<div className="channelView__container">
 			{channels}
-			{user._id === props.space.ownerID && (
+			{user && user._id === props.space.ownerID && (
 				<button
 					onClick={props.handleCreateChannelPopUp}
 					className="button_default"
