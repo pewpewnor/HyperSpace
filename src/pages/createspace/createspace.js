@@ -15,7 +15,7 @@ export default function CreateSpace() {
 		name: "",
 		description: "",
 		bannerImage: "",
-		profileImage: "",
+		// profileImage: "",
 	});
 
 	if (!user) {
