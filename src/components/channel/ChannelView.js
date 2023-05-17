@@ -1,4 +1,3 @@
-import LocationContext from "contexts/LocationContext";
 import UserContext from "contexts/UserContext";
 import { useContext } from "react";
 import "./channelview.css";
