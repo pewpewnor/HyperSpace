@@ -682,6 +682,67 @@ app.post("/api/crud/view", async (req, res) => {
 	}
 });
 
+// Uses key & userID
+// Get all recommended threads
+app.post("/api/profiledata", async (req, res) => {
+	if (await isNotLoggedIn(req.body)) {
+		res.status(403).json({
+			error: "You must be logged in to do this!",
+		});
+		return;
+	}
+	const { userID } = req.body;
+	if (isBadObjectID(userID)) {
+		res.status(400).json({
+			error: "UserID has invalid format!",
+		});
+		return;
+	}
+
+	try {
+		const user = await User.findById(userID).populate({
+			path: "joinedSpaces",
+			populate: {
+				path: "channels",
+				populate: {
+					path: "threads",
+					populate: {
+						path: "authorID",
+						select: "-key",
+					},
+				},
+			},
+		});
+
+		let viewTotal = 0;
+		let allThreads = [];
+
+		const spaces = user.joinedSpaces;
+		for (const space of spaces) {
+			const channels = space.channels;
+			for (const channel of channels) {
+				const threads = channel.threads;
+				for (const thread of threads) {
+					viewTotal += thread.views.length;
+					allThreads.push({
+						id: "THREADDATAGROUP" + allThreads.length,
+						thread: thread,
+						space: space,
+						channel: channel,
+					});
+				}
+			}
+		}
+
+		res.status(200).json({ viewTotal: viewTotal, threads: allThreads });
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Server / database error!",
+		});
+	}
+});
+
 // Uses userID + key, threadID
 // Add upvote to thread
 app.post("/api/crud/upvote", async (req, res) => {
