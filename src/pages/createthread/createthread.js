@@ -1,16 +1,15 @@
 import { useState } from "react";
 
-import "./createthread.css";
 import Navbar from "components/navbar/Navbar";
+import "./createthread.css";
 
 import InputField from "components/form/inputfield";
 import SubmitBtn from "components/ui/submitBtn";
 
 import userData from "data/userdata";
-import { findSpace, findChannel } from "utils/find";
+import { findChannel, findSpace } from "utils/find";
 
 export default function CreateThread() {
-	// userData[0] should be change later
 	const [selectedSpaces, setSelectedSpaces] = useState(
 		userData[0].joinedSpacesID[0]
 	);

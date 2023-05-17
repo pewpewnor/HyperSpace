@@ -5,14 +5,15 @@ import MySpace from "components/space/MySpace";
 import SpaceBanner from "components/space/spaceBanner";
 import Thread from "components/thread/Thread";
 import LocationContext from "contexts/LocationContext";
-import { useCallback, useEffect, useState } from "react";
+import UserContext from "contexts/UserContext";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
-
 import "./spacepage.css";
 
 function SpacePage() {
 	const navigate = useNavigate();
+	const [user] = useContext(UserContext);
 	const { spaceName } = useParams();
 
 	const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,7 @@ function SpacePage() {
 
 	const [isCreateChannelPopUpOpen, setIsCreateChannelPopUpOpen] =
 		useState(false);
+	const [newChannelName, setNewChannelName] = useState("");
 
 	// get threads and also change channel
 	const changeCurrentChannel = useCallback(
@@ -99,10 +101,32 @@ function SpacePage() {
 
 	function handleCreateChannelChange(event) {
 		event.stopPropagation();
-		alert(event.target.value);
+		setNewChannelName(event.target.value);
 	}
 
-	function handleCreateChannelSubmit() {
+	async function handleCreateChannelSubmit() {
+		const res = await fetch("/api/crud/channel", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				...user,
+				userID: user._id,
+				name: newChannelName,
+				spaceID: spaceData._id,
+			}),
+		});
+		const resData = await res.json();
+		console.log(resData);
+		if (resData.status) {
+			await changeCurrentChannel(resData.channel, searchQuery);
+			setSpaceData((prev) => ({
+				...prev,
+				channels: [...prev.channels, resData.channel],
+			}));
+		}
 		setIsCreateChannelPopUpOpen(!isCreateChannelPopUpOpen);
 	}
 
