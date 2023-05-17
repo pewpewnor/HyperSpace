@@ -26,6 +26,7 @@ export default function App() {
 			"645bd00f2b7d749510bc10ce",
 		],
 		profilePicture: "/user/profile-pic-1.jpg",
+		subscription: "Astronaut",
 		joinedDate: Date.now(),
 	});
 
