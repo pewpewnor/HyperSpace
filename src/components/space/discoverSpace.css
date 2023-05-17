@@ -1,6 +1,5 @@
 .discoverPage__spaceComponent__container {
 	width: 40vw;
-	height: 18rem;
 	padding-bottom: 1rem;
 
 	background-color: #28292e;
@@ -34,7 +33,15 @@
 
 .discoverPage__spaceComponent__spaceData__top {
 	justify-content: space-between;
+	margin-bottom: 1.5rem;
 	margin-top: 1rem;
+}
+
+.discoverPage__spaceComponent__spaceData__top__spaceProfile__profilePicture {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	margin-right: 1rem;
 }
 
 .discoverPage__spaceComponent__spaceData__top__spaceProfile__data > h2 {
@@ -43,6 +50,7 @@
 	font-weight: 600;
 	font-size: 1rem;
 	color: #ffffff;
+	margin-bottom: 5px;
 }
 
 .discoverPage__spaceComponent__spaceData__top__spaceProfile__data > p {
