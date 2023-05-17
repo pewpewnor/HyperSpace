@@ -1,11 +1,63 @@
-import "./ProfilePage.css";
+import Loading from "components/loading/Loading";
+import Thread from "components/thread/Thread";
+import UserContext from "contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
 import { FaCrown } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
+import "./ProfilePage.css";
 
-export default function Profile({ user }) {
+export default function Profile() {
+	const [isLoading, setIsLoading] = useState(true);
+	const navigate = useNavigate();
+	const [user] = useContext(UserContext);
+
+	const [profileData, setProfileData] = useState({
+		viewTotal: 0,
+		threads: [],
+	});
+
+	useEffect(() => {
+		async function getProfileData() {
+			try {
+				const res = await fetch("/api/profiledata", {
+					method: "POST",
+					headers: {
+						Accept: "application/json",
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ ...user, userID: user._id }),
+				});
+				if (!res.ok) {
+					navigate("/login");
+					return;
+				}
+				const resData = await res.json();
+				setProfileData(resData);
+				setIsLoading(false);
+			} catch (err) {}
+		}
+
+		getProfileData();
+	}, [navigate, user]);
+
+	if (!user) {
+		navigate(-1);
+		return;
+	}
+
+	const threads = profileData.threads.map((data) => (
+		<Thread
+			key={data.id}
+			{...data.thread}
+			space={data.space}
+			channel={data.channel}
+		/>
+	));
+
 	return (
 		<div className="profilePage__container font_size_rule">
+			{isLoading && <Loading />}
 			<Navbar />
 
 			<div className="profilePage__body__container">
@@ -18,7 +70,7 @@ export default function Profile({ user }) {
 								<div className="profilePage__border"></div>
 								<div className="profilePage__user__data">
 									<div className="profilePage__user__name">
-										{user.name}
+										{user.username}
 									</div>
 									<div className="profilePage__user__subscription">
 										<FaCrown className="profilePage__user_subscription__crown" />
@@ -30,7 +82,11 @@ export default function Profile({ user }) {
 							</div>
 							<div className="profilePage__profile_joined__date">
 								<p>Joined at</p>
-								<h1>{user.joinedSince}</h1>
+								<h1>
+									{new Date(user.joinedDate)
+										.toString()
+										.slice(4, 16)}
+								</h1>
 							</div>
 						</div>
 
@@ -40,8 +96,7 @@ export default function Profile({ user }) {
 									Total Views
 								</h1>
 								<h2 className="profilePage__user__detailed__data__container__value">
-									{/* Placeholder */}
-									202,304 Views
+									{profileData.viewTotal} Views
 								</h2>
 							</div>
 							<div className="profilePage__user__income__container">
@@ -65,7 +120,7 @@ export default function Profile({ user }) {
 
 					<div className="profilePage__bottomSection__container">
 						<h1>Your Thread</h1>
-						{/* Placeholder: Place threads posted by user here */}
+						{threads}
 					</div>
 				</div>
 			</div>
