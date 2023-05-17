@@ -4,32 +4,53 @@ import Navbar from "components/navbar/Navbar";
 
 import InputField from "components/form/inputfield";
 import SubmitBtn from "components/ui/submitBtn";
-import { useState } from "react";
+import UserContext from "contexts/UserContext";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateSpace() {
-	const [space, setSpace] = useState({
-		title: "",
+	const [user] = useContext(UserContext);
+	const navigate = useNavigate();
+	const [newSpace, setNewSpace] = useState({
+		name: "",
 		description: "",
 		bannerImage: "",
 		profileImage: "",
 	});
 
+	if (!user) {
+		navigate("/login");
+		return;
+	}
+
 	function handleTitleChange(event) {
-		setSpace((prev) => ({
+		setNewSpace((prev) => ({
 			...prev,
-			title: event.target.value,
+			name: event.target.value,
 		}));
 	}
 
 	function handleBodyChange(event) {
-		setSpace((prev) => ({
+		setNewSpace((prev) => ({
 			...prev,
 			description: event.target.value,
 		}));
 	}
 
-	function handleSubmit(event) {
-		console.log(space);
+	async function handleSubmit() {
+		const res = await fetch("/api/crud/space", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ ...user, userID: user._id, ...newSpace }),
+		});
+		if ((await res.json()).status) {
+			navigate("/space/" + newSpace.name);
+			return;
+		}
+		alert("Space name/title already exists, try a different one!");
 	}
 
 	return (
