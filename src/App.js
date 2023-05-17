@@ -37,7 +37,10 @@ export default function App() {
 				<Route path="/profile/:username" element={<Profile />} />
 				<Route path="/space/:spaceName" element={<SpacePage />} />
 				<Route path="/discover" element={<Discover />} />
-				<Route path="/create-thread" element={<CreateThread />} />
+				<Route
+					path="/create-thread/:channelID"
+					element={<CreateThread />}
+				/>
 				<Route path="/create-space" element={<CreateSpace />} />
 
 				<Route path="*" element={<NotFound />} />
