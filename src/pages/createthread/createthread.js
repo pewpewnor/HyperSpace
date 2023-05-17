@@ -1,50 +1,24 @@
-import { useState } from "react";
-
+import InputField from "components/form/inputfield";
 import Navbar from "components/navbar/Navbar";
+import SubmitBtn from "components/ui/submitBtn";
+import UserContext from "contexts/UserContext";
+import { useContext, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./createthread.css";
 
-import InputField from "components/form/inputfield";
-import SubmitBtn from "components/ui/submitBtn";
-
-import userData from "data/userdata";
-import { findChannel, findSpace } from "utils/find";
-
 export default function CreateThread() {
-	const [selectedSpaces, setSelectedSpaces] = useState(
-		userData[0].joinedSpacesID[0]
-	);
-
-	const [selectedChannel, setSelectedChannel] = useState(
-		findSpace(selectedSpaces).channelsID[0]
-	);
-
+	const [user] = useContext(UserContext);
+	const navigate = useNavigate();
+	const { channelID } = useParams();
 	const [newThread, setNewThread] = useState({
-		space: selectedSpaces,
-		channel: selectedChannel,
 		title: "",
-		body: "",
-		image: "",
+		text: "",
+		picture: null,
 	});
 
-	function handleSpaceChange(event) {
-		const selected = event.target.value;
-		setSelectedSpaces(selected);
-
-		setNewThread((prev) => ({
-			...prev,
-			space: selected,
-			channel: findSpace(selected).channelsID[0],
-		}));
-	}
-
-	function handleChannelChange(event) {
-		const selected = event.target.value;
-		setSelectedChannel(selected);
-
-		setNewThread((prev) => ({
-			...prev,
-			channel: selected,
-		}));
+	if (!channelID || !user) {
+		navigate("/");
+		return;
 	}
 
 	function handleTitleChange(event) {
@@ -57,12 +31,29 @@ export default function CreateThread() {
 	function handleBodyChange(event) {
 		setNewThread((prev) => ({
 			...prev,
-			body: event.target.value,
+			text: event.target.value,
 		}));
 	}
 
-	function handleSubmit(event) {
-		console.log(newThread);
+	async function handleSubmit() {
+		const res = await fetch("/api/crud/thread", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				...user,
+				userID: user._id,
+				channelID: channelID,
+				...newThread,
+			}),
+		});
+		if ((await res.json()).status) {
+			navigate(-1);
+			return;
+		}
+		alert("Your title or text is too long!");
 	}
 
 	return (
@@ -74,51 +65,6 @@ export default function CreateThread() {
 					<h1 className="font_size_rule">Create New Thread</h1>
 				</div>
 				<div className="create__thread__target__container">
-					<div className="create__thread__target__space">
-						<label htmlFor="space">Choose Space: </label>
-						<select
-							name="space"
-							id="spaces"
-							value={selectedSpaces}
-							onChange={handleSpaceChange}
-							className="select__dropdown"
-						>
-							{/* Index 0 here should be change into userData id */}
-							{userData[0].joinedSpacesID.map((space) => (
-								<option value={space} key={findSpace(space).ID}>
-									{findSpace(space).name}
-								</option>
-							))}
-							;
-						</select>
-					</div>
-					<div className="create__thread__target__channel">
-						{selectedSpaces && (
-							<>
-								<label htmlFor="channel">
-									Choose channel:{" "}
-								</label>
-								<select
-									name="channel"
-									id="channel"
-									value={selectedChannel}
-									onChange={handleChannelChange}
-									className="select__dropdown"
-								>
-									{findSpace(selectedSpaces).channelsID.map(
-										(channel) => (
-											<option
-												value={channel}
-												key={findChannel(channel).ID}
-											>
-												{findChannel(channel).name}
-											</option>
-										)
-									)}
-								</select>
-							</>
-						)}
-					</div>
 					<div className="create__thread__inputField__container">
 						<InputField
 							label="Thread Title"
