@@ -10,6 +10,7 @@ const userData = [
 			"645bd00f2b7d749510bc10cd",
 			"645bd00f2b7d749510bc10ce",
 		],
+		subscription: "Captain",
 		profilePicture: "/user/profile-pic-1.jpg",
 	},
 	{
