@@ -1,9 +1,12 @@
+import UserContext from "contexts/UserContext";
+import { useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AccountInformation from "./AccountInformation";
 import "./navbar.css";
 
 export default function Navbar({ searchQuery, handleSearch }) {
+	const [user] = useContext(UserContext);
 	return (
 		<div className="navbar">
 			<div className="navbar-container">
@@ -30,9 +33,11 @@ export default function Navbar({ searchQuery, handleSearch }) {
 					</div>
 				</div>
 
-				<Link to="/create-thread" className="add-post-container">
-					<p>+</p>
-				</Link>
+				{user && (
+					<Link to="/create-thread" className="add-post-container">
+						<p>+</p>
+					</Link>
+				)}
 
 				<AccountInformation />
 			</div>
