@@ -141,30 +141,25 @@ function SpacePage() {
 	return (
 		<div className="all font_size_rule">
 			{isLoading && <Loading />}
-			<Navbar searchQuery={searchQuery} handleSearch={handleSearch} />
+			<Navbar
+				searchQuery={searchQuery}
+				handleSearch={handleSearch}
+				currentChannel={currentChannel}
+			/>
 			<div className="body">
 				<div className="left-container">
 					<MySpace />
 				</div>
 				<div className="middle-container">
-					<LocationContext.Provider
-						value={{
-							currentChannel: currentChannel,
-							changeCurrentChannel: changeCurrentChannel,
-						}}
-					>
-						<div className="middle-container__filter-bar">
-							<ChannelView
-								channels={spaceData.channels}
-								space={spaceData}
-								handleCreateChannelPopUp={
-									handleCreateChannelPopUp
-								}
-								currentChannel={currentChannel}
-							/>
-						</div>
-					</LocationContext.Provider>
-
+					<div className="middle-container__filter-bar">
+						<ChannelView
+							channels={spaceData.channels}
+							space={spaceData}
+							handleCreateChannelPopUp={handleCreateChannelPopUp}
+							currentChannel={currentChannel}
+							changeCurrentChannel={changeCurrentChannel}
+						/>
+					</div>
 					<div className="middle-container__thread-section">
 						{!isLoading && <SpaceBanner spaceData={spaceData} />}
 

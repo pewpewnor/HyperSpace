@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import AccountInformation from "./AccountInformation";
 import "./navbar.css";
 
-export default function Navbar({ searchQuery, handleSearch }) {
+export default function Navbar({ searchQuery, handleSearch, currentChannel }) {
 	const [user] = useContext(UserContext);
 	return (
 		<div className="navbar">
@@ -33,8 +33,11 @@ export default function Navbar({ searchQuery, handleSearch }) {
 					</div>
 				</div>
 
-				{user && (
-					<Link to="/create-thread" className="add-post-container">
+				{user && currentChannel && (
+					<Link
+						to={"/create-thread/" + currentChannel._id}
+						className="add-post-container"
+					>
 						<p>+</p>
 					</Link>
 				)}
