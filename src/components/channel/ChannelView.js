@@ -5,13 +5,12 @@ import "./channelview.css";
 
 export default function ChannelView(props) {
 	const [user] = useContext(UserContext);
-	const { changeCurrentChannel } = useContext(LocationContext);
 
 	const channels = props.channels.map((channel) => (
 		<button
 			key={channel._id}
 			onClick={() => {
-				changeCurrentChannel(channel);
+				props.changeCurrentChannel(channel);
 			}}
 			className={
 				props.currentChannel._id === channel._id ? "isActive" : ""
