@@ -4,7 +4,6 @@ import Loading from "components/loading/Loading";
 import MySpace from "components/space/MySpace";
 import SpaceBanner from "components/space/spaceBanner";
 import Thread from "components/thread/Thread";
-import LocationContext from "contexts/LocationContext";
 import UserContext from "contexts/UserContext";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
