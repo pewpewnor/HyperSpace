@@ -73,7 +73,9 @@ export default function Profile() {
 										{user.username}
 									</div>
 									<div className="profilePage__user__subscription">
-										<FaCrown className="profilePage__user_subscription__crown" />
+										{user.subscription === "Captain" && (
+											<FaCrown className="profilePage__user_subscription__crown" />
+										)}
 										<div className="profilePage__user__subscription__data">
 											{user.subscription}
 										</div>

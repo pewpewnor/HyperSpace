@@ -27,7 +27,9 @@ export default function AccountInformation() {
 
 				<div className="user-subscription-container">
 					<p className="user-subscription">{user.subscription}</p>
-					<FaCrown className="icon-membership-yellow" />
+					{user.subscription === "Captain" && (
+						<FaCrown className="icon-membership-yellow" />
+					)}
 				</div>
 			</div>
 
