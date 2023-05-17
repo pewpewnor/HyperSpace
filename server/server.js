@@ -200,6 +200,19 @@ app.get("/api/space", async (req, res) => {
 	}
 });
 
+// Get all available spaces
+app.get("/api/discover", async (req, res) => {
+	try {
+		const space = await Space.find();
+		res.status(200).json(space);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Server / database error!",
+		});
+	}
+});
+
 // Uses userID + key, spaceID
 // Check if this user joins a space
 app.post("/api/checkjoinspace", async (req, res) => {
