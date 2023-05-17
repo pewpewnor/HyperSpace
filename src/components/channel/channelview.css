@@ -5,7 +5,10 @@
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 
-	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	width: 62vw;
+	row-gap: 1rem;
 	z-index: 2;
 }
 
