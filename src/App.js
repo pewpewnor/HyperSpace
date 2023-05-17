@@ -26,6 +26,7 @@ export default function App() {
 			"645bd00f2b7d749510bc10ce",
 		],
 		profilePicture: "/user/profile-pic-1.jpg",
+		joinedDate: Date.now(),
 	});
 
 	return (
@@ -34,7 +35,7 @@ export default function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
-				<Route path="/profile/:username" element={<Profile />} />
+				<Route path="/profile" element={<Profile />} />
 				<Route path="/space/:spaceName" element={<SpacePage />} />
 				<Route path="/discover" element={<Discover />} />
 				<Route
