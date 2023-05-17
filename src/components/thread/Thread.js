@@ -157,10 +157,7 @@ export default function Thread(props) {
 				<div className="popupthread__comment__container">
 					<label>Comment as {user.username}</label>
 					<div className="popupthread__user__comment__container">
-						<img
-							src={user.profilePicture}
-							alt="something for user profile"
-						/>
+						<img src={user.profilePicture} alt="" />
 						<input
 							className="popupthread__user__comment__text"
 							placeholder="What are your thought about this post?"
