@@ -119,7 +119,6 @@ function SpacePage() {
 			}),
 		});
 		const resData = await res.json();
-		console.log(resData);
 		if (resData.status) {
 			await changeCurrentChannel(resData.channel, searchQuery);
 			setSpaceData((prev) => ({
@@ -161,6 +160,7 @@ function SpacePage() {
 								handleCreateChannelPopUp={
 									handleCreateChannelPopUp
 								}
+								currentChannel={currentChannel}
 							/>
 						</div>
 					</LocationContext.Provider>

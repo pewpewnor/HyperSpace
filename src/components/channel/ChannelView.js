@@ -13,6 +13,9 @@ export default function ChannelView(props) {
 			onClick={() => {
 				changeCurrentChannel(channel);
 			}}
+			className={
+				props.currentChannel._id === channel._id ? "isActive" : ""
+			}
 		>
 			{channel.name}
 		</button>
