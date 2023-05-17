@@ -201,6 +201,7 @@
 	> .user-subscription-container {
 	display: flex;
 	justify-content: right;
+	gap: 0.5vw;
 }
 
 .account-information-container
@@ -222,7 +223,6 @@
 	font-weight: 400;
 	font-size: 0.85rem;
 	color: #5766ff;
-	margin-right: 0.5vw;
 }
 
 .account-information-container > .border {
