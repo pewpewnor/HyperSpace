@@ -4,7 +4,7 @@ import shortenNumber from "utils/number";
 import "./spaceBanner.css";
 
 export default function SpaceBanner({ spaceData }) {
-	const [user] = useContext(UserContext);
+	const [user, setUser] = useContext(UserContext);
 	const [hasJoined, setHasJoined] = useState(null);
 
 	useEffect(() => {
@@ -51,7 +51,15 @@ export default function SpaceBanner({ spaceData }) {
 			});
 			console.log(await res.json());
 		} catch (error) {}
-		setHasJoined((prev) => !prev);
+		setHasJoined((prev) => {
+			setUser((prev) => ({
+				...prev,
+				joinedSpaces: prev.joinedSpaces.filter(
+					(space) => space._id !== spaceData._id
+				),
+			}));
+			return !prev;
+		});
 	}
 
 	return (
