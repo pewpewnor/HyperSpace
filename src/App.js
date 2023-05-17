@@ -25,7 +25,7 @@ export default function App() {
 			"645bd00f2b7d749510bc10cd",
 			"645bd00f2b7d749510bc10ce",
 		],
-		profilePicture: "assets/profile-pic-1.jpg",
+		profilePicture: "/user/profile-pic-1.jpg",
 	});
 
 	return (

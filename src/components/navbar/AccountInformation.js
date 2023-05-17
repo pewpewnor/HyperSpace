@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import "./accountinformation.css";
 
 export default function AccountInformation() {
-	const userInfo = useContext(UserContext);
+	const [user] = useContext(UserContext);
 	const [dropdownVisible, setDropdownVisible] = useState(false);
 
-	if (!userInfo.isLoggedIn) {
+	if (!user) {
 		return (
 			<div className="account-information-container">
 				<Link to="/login">
@@ -18,13 +18,11 @@ export default function AccountInformation() {
 		);
 	}
 
-	const user = userInfo.user;
-
 	return (
 		<div className="account-information-container">
 			<div className="user-information-data-container">
 				<div className="user-username-container">
-					<p className="user-username">{user.name}</p>
+					<p className="user-username">{user.username}</p>
 				</div>
 
 				<div className="user-subscription-container">
@@ -41,7 +39,7 @@ export default function AccountInformation() {
 			>
 				<img
 					src={user.profilePicture}
-					alt={user.name}
+					alt=""
 					className="user-profile-picture"
 				></img>
 				{dropdownVisible && (
