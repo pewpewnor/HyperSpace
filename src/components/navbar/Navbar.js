@@ -18,20 +18,22 @@ export default function Navbar({ searchQuery, handleSearch, currentChannel }) {
 					</div>
 				</Link>
 
-				<div className="search-bar-container">
-					<div className="search-bar">
-						<input
-							className="search-input"
-							name="searchQuery"
-							placeholder="Search anything here..."
-							value={searchQuery}
-							onChange={handleSearch}
-						></input>
-						<span>
-							<FaSearch className="search-icon" />
-						</span>
+				{handleSearch && (
+					<div className="search-bar-container">
+						<div className="search-bar">
+							<input
+								className="search-input"
+								name="searchQuery"
+								placeholder="Search anything here..."
+								value={searchQuery}
+								onChange={handleSearch}
+							></input>
+							<span>
+								<FaSearch className="search-icon" />
+							</span>
+						</div>
 					</div>
-				</div>
+				)}
 
 				{user && currentChannel && (
 					<Link
