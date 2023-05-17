@@ -345,7 +345,10 @@ app.post("/api/crud/channel", async (req, res) => {
 		space.channels.push(newChannel._id);
 		space.save();
 
-		res.status(200).json({ status: "Channel has been created!" });
+		res.status(200).json({
+			status: "Channel has been created!",
+			channel: newChannel,
+		});
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({
