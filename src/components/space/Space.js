@@ -10,7 +10,6 @@ export default function Space(props) {
 			className="space__info__container"
 			onClick={() => {
 				navigate("/space/" + props.name);
-				window.location.reload();
 			}}
 		>
 			<div className="space__profile-picture">
