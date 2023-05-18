@@ -14,7 +14,20 @@ export default function Discover() {
 		async function getAllSpaces() {
 			try {
 				const res = await fetch("/api/discover");
-				const resData = await res.json();
+				let resData = await res.json();
+
+				if (searchQuery !== undefined && searchQuery.trim() !== "") {
+					resData = resData.filter((space) => {
+						return (
+							space.name
+								.toLowerCase()
+								.includes(searchQuery.toLowerCase()) ||
+							space.description
+								.toLowerCase()
+								.includes(searchQuery.toLowerCase())
+						);
+					});
+				}
 
 				setSpacesData(resData);
 			} catch (error) {}
@@ -22,7 +35,7 @@ export default function Discover() {
 		}
 
 		getAllSpaces();
-	}, []);
+	}, [searchQuery]);
 
 	const spaces = spacesData.map((space) => {
 		return <DiscoverPageSpaceComponent key={space._id} {...space} />;
