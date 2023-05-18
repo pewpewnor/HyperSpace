@@ -137,14 +137,16 @@ function SpacePage() {
 		setIsCreateChannelPopUpOpen(!isCreateChannelPopUpOpen);
 	}
 
-	const threads = currentChannel.threads.map((thread) => (
-		<Thread
-			key={thread._id}
-			{...thread}
-			space={spaceData}
-			channel={currentChannel}
-		/>
-	));
+	const threads = currentChannel.threads
+		.map((thread) => (
+			<Thread
+				key={thread._id}
+				{...thread}
+				space={spaceData}
+				channel={currentChannel}
+			/>
+		))
+		.reverse();
 
 	return (
 		<div className="all font_size_rule">
