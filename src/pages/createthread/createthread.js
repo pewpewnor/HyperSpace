@@ -9,7 +9,7 @@ import "./createthread.css";
 export default function CreateThread() {
 	const [user] = useContext(UserContext);
 	const navigate = useNavigate();
-	const { channelID } = useParams();
+	const { channelID, spaceName } = useParams();
 	const [newThread, setNewThread] = useState({
 		title: "",
 		text: "",
@@ -17,7 +17,7 @@ export default function CreateThread() {
 	});
 
 	if (!channelID || !user) {
-		navigate("/");
+		navigate("/space/" + spaceName);
 		return;
 	}
 
@@ -49,8 +49,9 @@ export default function CreateThread() {
 				...newThread,
 			}),
 		});
-		if ((await res.json()).status) {
-			navigate(-1);
+		const resData = await res.json();
+		if (resData.status) {
+			navigate("/space/" + spaceName + "/" + channelID);
 			return;
 		}
 		alert("Your title or text is too long!");
