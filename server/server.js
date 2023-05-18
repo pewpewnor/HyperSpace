@@ -766,13 +766,17 @@ app.post("/api/crud/upvote", async (req, res) => {
 			thread.upvotes.push(userID);
 			thread.save();
 			res.status(200).json({
-				status: "Upvote has been add to this thread!",
+				yes: "Upvote has been add to this thread!",
 			});
 			return;
 		}
 
+		thread.upvotes = thread.upvotes.filter(
+			(uID) => uID.toString() !== userID
+		);
+		thread.save();
 		res.status(200).json({
-			status: "User has already upvoted this thread!",
+			no: "User no longer upvotes this thread!",
 		});
 	} catch (error) {
 		console.error(error);
@@ -805,13 +809,13 @@ app.post("/api/crud/downvote", async (req, res) => {
 			thread.downvotes.push(userID);
 			thread.save();
 			res.status(200).json({
-				status: "Downvote has been add to this thread!",
+				good: "Downvote has been add to this thread!",
 			});
 			return;
 		}
 
 		res.status(200).json({
-			status: "User has already downvoted this thread!",
+			bad: "User has already downvoted this thread!",
 		});
 	} catch (error) {
 		console.error(error);

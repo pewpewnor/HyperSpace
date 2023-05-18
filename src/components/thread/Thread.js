@@ -1,6 +1,7 @@
 import ChildComment from "components/comment/ChildComment";
 import Comment from "components/comment/Comment";
-import { useEffect, useState } from "react";
+import UserContext from "contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { FaCrown, FaRegCommentAlt } from "react-icons/fa";
 import { RiRocket2Line } from "react-icons/ri";
@@ -11,8 +12,15 @@ import ThreadText from "./ThreadText";
 import "./thread.css";
 
 export default function Thread(props) {
+	const [user] = useContext(UserContext);
 	const [popup, setPopup] = useState(false);
 	const [comments, setComments] = useState([]);
+
+	const [status, setStatus] = useState({
+		upvotes: props.upvotes,
+		downvotes: props.downvotes,
+		views: props.views,
+	});
 
 	useEffect(() => {
 		async function getComments() {
@@ -45,20 +53,48 @@ export default function Thread(props) {
 		}
 	}, [props._id, popup]);
 
-	const user = props.authorID;
+	const poster = props.authorID;
 	const moment = getMomentFrom(new Date(props.postDate));
-	const views = shortenNumber(props.views.length);
-	const upvotes = shortenNumber(props.upvotes.length);
-	const downvotes = shortenNumber(props.downvotes.length);
+	const views = shortenNumber(status.views.length);
+	const upvotes = shortenNumber(status.upvotes.length);
+	const downvotes = shortenNumber(status.downvotes.length);
 
 	const commentNumbers =
 		props.comments.length > comments.length
 			? shortenNumber(props.comments.length)
 			: shortenNumber(comments.length);
 
-	function handleUpvote() {}
+	async function handleUpvote() {
+		const res = await fetch("/api/crud/upvote", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				...user,
+				userID: user._id,
+				threadID: props._id,
+			}),
+		});
+		const resData = await res.json();
+		if (resData.yes) {
+			setStatus((prev) => ({
+				...prev,
+				upvotes: [...prev.upvotes, user._id],
+			}));
+			return;
+		} else if (resData.no) {
+			setStatus((prev) => ({
+				...prev,
+				upvotes: prev.upvotes.filter((uID) => uID !== user._id),
+			}));
+			return;
+		}
+		alert("You must be logged in to upvote!");
+	}
 
-	function handleDownvote() {}
+	async function handleDownvote() {}
 
 	const handleComment = () => {
 		setPopup((prev) => !prev);
@@ -66,22 +102,27 @@ export default function Thread(props) {
 
 	function handleShare() {}
 
+	console.log(props.upvotes, user._id);
+	console.log(props.upvotes.includes(user._id));
+
 	return (
 		<div className="thread__container">
 			<div className="thread__container__top">
 				<div className="thread__profile__container">
 					<img
-						src={user.profilePicture}
-						alt="something for user profile"
+						src={poster.profilePicture}
+						alt="something for poster profile"
 					/>
 					<div className="thread__profile">
 						<p className="thread__profile__spacename">
 							{props.space.name + " / #" + props.channel.name}
 						</p>
 						<div className="thread__profile__username__container">
-							<FaCrown className="thread__profile__subscription" />
+							{poster.subscription === "Captain" && (
+								<FaCrown className="thread__profile__subscription" />
+							)}
 							<p className="thread__profile__username">
-								{user.username}
+								{poster.username}
 							</p>
 						</div>
 					</div>
@@ -120,33 +161,29 @@ export default function Thread(props) {
 			<div className="thread__buttons__container">
 				<div className="thread__buttons">
 					<button
-						className="thread__buttons__upvote"
+						className={
+							"thread__button" +
+							(user && status.upvotes.includes(user._id)
+								? " thread__button__isactive"
+								: "")
+						}
 						onClick={handleUpvote}
 					>
 						<RiRocket2Line className="thread__buttons__upvote__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">{upvotes}</p>
 					</button>
-					<button
-						className="thread__buttons__downvote"
-						onClick={handleDownvote}
-					>
+					<button className="thread__button" onClick={handleDownvote}>
 						<RiRocket2Line className="thread__buttons__downvote__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">{downvotes}</p>
 					</button>
-					<button
-						className="thread__buttons__comment"
-						onClick={handleComment}
-					>
+					<button className="thread__button" onClick={handleComment}>
 						<FaRegCommentAlt className="thread__buttons__comment__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">
 							{commentNumbers}
 						</p>
 					</button>
 
-					<button
-						className="thread__buttons__share"
-						onClick={handleShare}
-					>
+					<button className="thread__button" onClick={handleShare}>
 						<AiOutlineShareAlt className="thread__buttons__share__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">Share</p>
 					</button>
@@ -155,15 +192,15 @@ export default function Thread(props) {
 
 			{popup && comments && (
 				<div className="popupthread__comment__container">
-					<label>Comment as {user.username}</label>
-					<div className="popupthread__user__comment__container">
-						<img src={user.profilePicture} alt="" />
+					<label>Comment as {poster.postername}</label>
+					<div className="popupthread__poster__comment__container">
+						<img src={poster.profilePicture} alt="" />
 						<input
-							className="popupthread__user__comment__text"
+							className="popupthread__poster__comment__text"
 							placeholder="What are your thought about this post?"
 							type={"text"}
 						/>
-						<button className="popupthread__user__submit__comment">
+						<button className="popupthread__poster__submit__comment">
 							submit
 						</button>
 					</div>
