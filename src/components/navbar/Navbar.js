@@ -37,7 +37,12 @@ export default function Navbar({ searchQuery, handleSearch, currentChannel }) {
 
 				{user && currentChannel && (
 					<Link
-						to={"/create-thread/" + currentChannel._id}
+						to={
+							"/create-thread/" +
+							currentChannel._id +
+							"/" +
+							currentChannel.spaceName
+						}
 						className="add-post-container"
 					>
 						<p>+</p>

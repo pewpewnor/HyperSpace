@@ -13,7 +13,7 @@ import "./spacepage.css";
 function SpacePage() {
 	const navigate = useNavigate();
 	const [user] = useContext(UserContext);
-	const { spaceName } = useParams();
+	const { spaceName, defaultChannelID } = useParams();
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [searchQuery, setSearchQuery] = useState("");
@@ -28,9 +28,10 @@ function SpacePage() {
 		members: [],
 	});
 	const [currentChannel, setCurrentChannel] = useState({
-		_id: "",
-		name: "general",
+		_id: defaultChannelID,
+		name: "",
 		threads: [],
+		spaceName: spaceName,
 	});
 
 	const [isCreateChannelPopUpOpen, setIsCreateChannelPopUpOpen] =
@@ -63,7 +64,7 @@ function SpacePage() {
 						);
 					});
 				}
-				setCurrentChannel(resData);
+				setCurrentChannel((prev) => ({ ...prev, ...resData }));
 			} catch (error) {}
 		},
 		[navigate]
@@ -81,13 +82,21 @@ function SpacePage() {
 				}
 				const resData = await res.json();
 				setSpaceData(resData);
-				await changeCurrentChannel(resData.channels[0]);
+				if (defaultChannelID) {
+					await changeCurrentChannel(
+						resData.channels.find(
+							(channel) => channel._id === defaultChannelID
+						)
+					);
+				} else {
+					await changeCurrentChannel(resData.channels[0]);
+				}
 				setIsLoading(false);
 			} catch (error) {}
 		}
 
 		getSpace();
-	}, [changeCurrentChannel, navigate, spaceName]);
+	}, [changeCurrentChannel, navigate, spaceName, defaultChannelID]);
 
 	function handleSearch(event) {
 		setSearchQuery(event.target.value);
