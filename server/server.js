@@ -595,7 +595,13 @@ app.post("/api/crud/comment", async (req, res) => {
 		thread.comments.push(newComment._id);
 		thread.save();
 
-		res.status(200).json({ status: "Comment has been created!" });
+		res.status(200).json({
+			status: "Comment has been created!",
+			comment: await newComment.populate({
+				path: "authorID",
+				select: "-key",
+			}),
+		});
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({
@@ -636,7 +642,10 @@ app.post("/api/crud/childcomment", async (req, res) => {
 
 		res.status(200).json({
 			status: "Child Comment has been created!",
-			childComment: await newChildComment.populate("authorID"),
+			childComment: await newChildComment.populate({
+				path: "authorID",
+				select: "-key",
+			}),
 		});
 	} catch (error) {
 		console.error(error);

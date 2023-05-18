@@ -22,7 +22,7 @@ function Comment(props) {
 
 	async function handleReplySubmit() {
 		if (replyText.trim().length === 0) {
-			alert("Please enter a reply with atleast one character");
+			alert("Please enter a reply with atleast one character!");
 			return;
 		}
 		try {
