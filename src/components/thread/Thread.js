@@ -20,7 +20,9 @@ export default function Thread(props) {
 		upvotes: props.upvotes,
 		downvotes: props.downvotes,
 		views: props.views,
+		comments: props.comments,
 	});
+	const [commentText, setCommentText] = useState("");
 
 	useEffect(() => {
 		async function getComments() {
@@ -40,7 +42,7 @@ export default function Thread(props) {
 		if (popup) {
 			getComments();
 		}
-	}, [props._id, popup]);
+	}, [props._id, popup, status.comments]);
 
 	const poster = props.authorID;
 	const moment = getMomentFrom(new Date(props.postDate));
@@ -116,6 +118,37 @@ export default function Thread(props) {
 	const handleComment = () => {
 		setPopup((prev) => !prev);
 	};
+
+	async function handleCommentSubmit() {
+		if (commentText.trim().length === 0) {
+			alert("Please enter a comment with atleast one character!");
+			return;
+		}
+		try {
+			const res = await fetch("/api/crud/comment", {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					...user,
+					userID: user._id,
+					text: commentText,
+					threadID: props._id,
+				}),
+			});
+			const resData = await res.json();
+			if (resData.comment) {
+				setStatus((prev) => ({
+					...prev,
+					comments: [...prev.comments, resData.comment],
+				}));
+				return;
+			}
+		} catch (error) {}
+		alert("You must be logged in to comment!");
+	}
 
 	function handleShare() {}
 
@@ -215,14 +248,21 @@ export default function Thread(props) {
 			{popup && comments && (
 				<div className="popupthread__comment__container">
 					<label>Comment as {poster.postername}</label>
-					<div className="popupthread__poster__comment__container">
+					<div className="popupthread__user__comment__container">
 						<img src={poster.profilePicture} alt="" />
 						<input
-							className="popupthread__poster__comment__text"
+							className="popupthread__user__comment__text"
 							placeholder="What are your thought about this post?"
+							name="commentText"
 							type={"text"}
+							onChange={(event) =>
+								setCommentText(event.target.value)
+							}
 						/>
-						<button className="popupthread__poster__submit__comment">
+						<button
+							className="popupthread__user__submit__comment"
+							onClick={handleCommentSubmit}
+						>
 							submit
 						</button>
 					</div>
