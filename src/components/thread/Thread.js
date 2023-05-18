@@ -32,18 +32,7 @@ export default function Thread(props) {
 
 			setComments(
 				resData.comments.map((comment) => (
-					<Comment
-						key={comment._id}
-						{...comment}
-						childComments={comment.childComments.map(
-							(childComment) => (
-								<ChildComment
-									key={childComment._id}
-									{...childComment}
-								/>
-							)
-						)}
-					/>
+					<Comment key={comment._id} {...comment} />
 				))
 			);
 		}
