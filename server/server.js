@@ -634,7 +634,10 @@ app.post("/api/crud/childcomment", async (req, res) => {
 		comment.childComments.push(newChildComment._id);
 		comment.save();
 
-		res.status(200).json({ status: "Child Comment has been created!" });
+		res.status(200).json({
+			status: "Child Comment has been created!",
+			childComment: await newChildComment.populate("authorID"),
+		});
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({
