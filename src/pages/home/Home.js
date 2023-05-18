@@ -71,14 +71,16 @@ function Home() {
 		setSearchQuery(event.target.value);
 	}
 
-	const threads = threadsData.map((data) => (
-		<Thread
-			key={data.id}
-			{...data.thread}
-			space={data.space}
-			channel={data.channel}
-		/>
-	));
+	const threads = threadsData
+		.map((data) => (
+			<Thread
+				key={data.id}
+				{...data.thread}
+				space={data.space}
+				channel={data.channel}
+			/>
+		))
+		.reverse();
 
 	return (
 		<div className="all font_size_rule">
