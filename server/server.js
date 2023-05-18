@@ -809,13 +809,17 @@ app.post("/api/crud/downvote", async (req, res) => {
 			thread.downvotes.push(userID);
 			thread.save();
 			res.status(200).json({
-				good: "Downvote has been add to this thread!",
+				yes: "Upvote has been add to this thread!",
 			});
 			return;
 		}
 
+		thread.downvotes = thread.upvotes.filter(
+			(uID) => uID.toString() !== userID
+		);
+		thread.save();
 		res.status(200).json({
-			bad: "User has already downvoted this thread!",
+			no: "User no longer downvotes this thread!",
 		});
 	} catch (error) {
 		console.error(error);

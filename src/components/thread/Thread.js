@@ -94,16 +94,41 @@ export default function Thread(props) {
 		alert("You must be logged in to upvote!");
 	}
 
-	async function handleDownvote() {}
+	async function handleDownvote() {
+		const res = await fetch("/api/crud/downvote", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				...user,
+				userID: user._id,
+				threadID: props._id,
+			}),
+		});
+		const resData = await res.json();
+		if (resData.yes) {
+			setStatus((prev) => ({
+				...prev,
+				downvotes: [...prev.downvotes, user._id],
+			}));
+			return;
+		} else if (resData.no) {
+			setStatus((prev) => ({
+				...prev,
+				downvotes: prev.downvotes.filter((uID) => uID !== user._id),
+			}));
+			return;
+		}
+		alert("You must be logged in to downvote!");
+	}
 
 	const handleComment = () => {
 		setPopup((prev) => !prev);
 	};
 
 	function handleShare() {}
-
-	console.log(props.upvotes, user._id);
-	console.log(props.upvotes.includes(user._id));
 
 	return (
 		<div className="thread__container">
@@ -172,7 +197,15 @@ export default function Thread(props) {
 						<RiRocket2Line className="thread__buttons__upvote__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">{upvotes}</p>
 					</button>
-					<button className="thread__button" onClick={handleDownvote}>
+					<button
+						className={
+							"thread__button" +
+							(user && status.downvotes.includes(user._id)
+								? " thread__button__isactive"
+								: "")
+						}
+						onClick={handleDownvote}
+					>
 						<RiRocket2Line className="thread__buttons__downvote__icon thread__buttons__icons" />
 						<p className="thread__buttons__value">{downvotes}</p>
 					</button>
