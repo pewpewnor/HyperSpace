@@ -6,6 +6,7 @@ import "./spaceBanner.css";
 export default function SpaceBanner({ spaceData }) {
 	const [user, setUser] = useContext(UserContext);
 	const [hasJoined, setHasJoined] = useState(null);
+	const [membersCount, setMembersCount] = useState(spaceData.members.length);
 
 	useEffect(() => {
 		async function checkJoin() {
@@ -58,6 +59,11 @@ export default function SpaceBanner({ spaceData }) {
 					(space) => space._id !== spaceData._id
 				),
 			}));
+			if (prev) {
+				setMembersCount((prev) => prev - 1);
+			} else {
+				setMembersCount((prev) => prev + 1);
+			}
 			return !prev;
 		});
 	}
@@ -85,8 +91,7 @@ export default function SpaceBanner({ spaceData }) {
 						<div className="space__data">
 							<p className="space__title">{spaceData.name}</p>
 							<p className="space__member">
-								{shortenNumber(spaceData.members.length) +
-									" Members"}
+								{shortenNumber(membersCount) + " Members"}
 							</p>
 						</div>
 					</div>
