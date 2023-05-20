@@ -42,18 +42,20 @@ export default function Profile() {
 	}, [navigate, user]);
 
 	if (!user) {
-		navigate(-1);
+		navigate("/login");
 		return;
 	}
 
-	const threads = profileData.threads.map((data) => (
-		<Thread
-			key={data.id}
-			{...data.thread}
-			space={data.space}
-			channel={data.channel}
-		/>
-	));
+	const threads = profileData.threads
+		.map((data) => (
+			<Thread
+				key={data.id}
+				{...data.thread}
+				space={data.space}
+				channel={data.channel}
+			/>
+		))
+		.reverse();
 
 	return (
 		<div className="profilePage__container font_size_rule">
@@ -107,8 +109,7 @@ export default function Profile() {
 										Income Gained
 									</h1>
 									<h2 className="profilePage__user__detailed__data__container__value">
-										{/* Placeholder */}
-										$101,152
+										${profileData.viewTotal / 1000}
 									</h2>
 								</div>
 								<button className="profilePage__checkout__btn">
