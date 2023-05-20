@@ -56,6 +56,10 @@ export default function Thread(props) {
 			: shortenNumber(comments.length);
 
 	async function handleUpvote() {
+		if (!user) {
+			alert("You must be logged in to upvote!");
+			return;
+		}
 		const res = await fetch("/api/crud/upvote", {
 			method: "POST",
 			headers: {
@@ -68,6 +72,10 @@ export default function Thread(props) {
 				threadID: props._id,
 			}),
 		});
+		if (!res.ok) {
+			alert("You must be logged in to upvote!");
+			return;
+		}
 		const resData = await res.json();
 		if (resData.yes) {
 			setStatus((prev) => ({
@@ -86,6 +94,10 @@ export default function Thread(props) {
 	}
 
 	async function handleDownvote() {
+		if (!user) {
+			alert("You must be logged in to downvote!");
+			return;
+		}
 		const res = await fetch("/api/crud/downvote", {
 			method: "POST",
 			headers: {
@@ -98,6 +110,10 @@ export default function Thread(props) {
 				threadID: props._id,
 			}),
 		});
+		if (!res.ok) {
+			alert("You must be logged in to downvote!");
+			return;
+		}
 		const resData = await res.json();
 		if (resData.yes) {
 			setStatus((prev) => ({
