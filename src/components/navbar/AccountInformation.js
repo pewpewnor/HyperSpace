@@ -12,7 +12,7 @@ export default function AccountInformation() {
 		return (
 			<div className="account-information-container">
 				<Link to="/login">
-					<button className="sign-in-button">Login</button>
+					<button className="sign-in-button">Sign In</button>
 				</Link>
 			</div>
 		);

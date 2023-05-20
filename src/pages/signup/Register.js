@@ -173,7 +173,10 @@ export default function Register() {
 							</div>
 							<div className="submit__box">
 								<div className="submit__box">
-									<input type={"submit"}></input>
+									<input
+										type={"submit"}
+										value="Register"
+									></input>
 								</div>
 							</div>
 							<div className="signuplink__box">
@@ -184,7 +187,7 @@ export default function Register() {
 											to={"/Login"}
 											className="Register"
 										>
-											login here
+											Sign in here...
 										</Link>
 									</span>
 								</div>
