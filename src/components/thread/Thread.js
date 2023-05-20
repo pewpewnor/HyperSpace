@@ -33,9 +33,11 @@ export default function Thread(props) {
 			const resData = await res.json();
 
 			setComments(
-				resData.comments.map((comment) => (
-					<Comment key={comment._id} {...comment} />
-				))
+				resData.comments
+					.map((comment) => (
+						<Comment key={comment._id} {...comment} />
+					))
+					.reverse()
 			);
 		}
 
