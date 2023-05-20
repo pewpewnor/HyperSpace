@@ -38,6 +38,10 @@ export default function Profile() {
 			} catch (err) {}
 		}
 
+		if (!user) {
+			navigate("/login");
+			return;
+		}
 		getProfileData();
 	}, [navigate, user]);
 

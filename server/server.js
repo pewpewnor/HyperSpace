@@ -777,16 +777,13 @@ app.post("/api/profiledata", async (req, res) => {
 	}
 
 	try {
-		const user = await User.findById(userID).populate({
-			path: "joinedSpaces",
+		const spaces = await Space.find().populate({
+			path: "channels",
 			populate: {
-				path: "channels",
+				path: "threads",
 				populate: {
-					path: "threads",
-					populate: {
-						path: "authorID",
-						select: "-key",
-					},
+					path: "authorID",
+					select: "-key",
 				},
 			},
 		});
@@ -794,19 +791,20 @@ app.post("/api/profiledata", async (req, res) => {
 		let viewTotal = 0;
 		let allThreads = [];
 
-		const spaces = user.joinedSpaces;
 		for (const space of spaces) {
 			const channels = space.channels;
 			for (const channel of channels) {
 				const threads = channel.threads;
 				for (const thread of threads) {
-					viewTotal += thread.views.length;
-					allThreads.push({
-						id: "THREADDATAGROUP" + allThreads.length,
-						thread: thread,
-						space: space,
-						channel: channel,
-					});
+					if (thread.authorID._id.equals(userID)) {
+						viewTotal += thread.views.length;
+						allThreads.push({
+							id: "THREADDATAGROUP" + allThreads.length,
+							thread: thread,
+							space: space,
+							channel: channel,
+						});
+					}
 				}
 			}
 		}
