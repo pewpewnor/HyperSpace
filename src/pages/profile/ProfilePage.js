@@ -123,6 +123,13 @@ export default function Profile() {
 						</div>
 					</div>
 
+					<div className="profilePage__buySubscription">
+						<h1>Buy Subscription now to remove ads</h1>
+						<button className="profilePage__checkout__btn">
+							Buy Subscription
+						</button>
+					</div>
+
 					<div className="profilePage__border__bottom" />
 
 					<div className="profilePage__bottomSection__container">
