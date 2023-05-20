@@ -45,3 +45,8 @@
 	> .more__navbar:hover {
 	background-color: #5766ff;
 }
+
+.account-information-container {
+	display: flex;
+	gap: 1rem;
+}

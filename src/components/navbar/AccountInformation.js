@@ -14,6 +14,9 @@ export default function AccountInformation() {
 				<Link to="/login">
 					<button className="sign-in-button">Sign In</button>
 				</Link>
+				<Link to="/register">
+					<button className="sign-in-button">Sign Up</button>
+				</Link>
 			</div>
 		);
 	}
