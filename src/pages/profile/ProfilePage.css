@@ -174,3 +174,21 @@
 	font-weight: 700;
 	font-size: 2rem;
 }
+
+.profilePage__buySubscription {
+	margin-top: 1.5rem;
+	margin-bottom: 2rem;
+	width: 83.333333333333vw;
+}
+
+.profilePage__buySubscription > h1 {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+.profilePage__buySubscription > button {
+	margin-top: 0.5rem;
+	margin-left: -0.25rem;
+}
