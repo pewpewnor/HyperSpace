@@ -77,10 +77,11 @@ export default function CreateThread() {
 							type="inputField__body"
 							handleChange={handleBodyChange}
 						/>
-						<div className="create__thread__inputImage">
+						{/* TODO Uncomment */}
+						{/* <div className="create__thread__inputImage">
 							<h1>Image (optional)</h1>
 							<input type="file" className="input__image"></input>
-						</div>
+						</div> */}
 					</div>
 					<SubmitBtn name={"Create Thread"} onClick={handleSubmit} />
 				</div>

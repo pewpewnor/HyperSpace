@@ -74,14 +74,15 @@ export default function CreateSpace() {
 							type="inputField__body"
 							handleChange={handleBodyChange}
 						/>
-						<div className="create__thread__inputImage">
+						{/* TODO Uncomment */}
+						{/* <div className="create__thread__inputImage">
 							<h1>Space banner</h1>
 							<input type="file" className="input__image"></input>
-						</div>
-						<div className="create__thread__inputImage">
+						</div> */}
+						{/* <div className="create__thread__inputImage">
 							<h1>Space Profile</h1>
 							<input type="file" className="input__image"></input>
-						</div>
+						</div> */}
 
 						<SubmitBtn
 							name={"Create Space"}
