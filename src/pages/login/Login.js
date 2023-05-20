@@ -157,6 +157,7 @@ function Login() {
 								<input
 									className="submit__box"
 									type="submit"
+									value="Login"
 									placeholder="submit"
 									href=""
 								/>
