@@ -13,23 +13,35 @@ export default function MySpace() {
 		async function getSpaces() {
 			let spaces = [];
 
-			try {
-				const resSpaces = await fetch(
-					"http://localhost:3000/api/user/myspace",
-					{
-						method: "POST",
-						headers: {
-							Accept: "application/json",
-							"Content-Type": "application/json",
-						},
-						body: JSON.stringify({ ...user, userID: user._id }),
+			if (user) {
+				try {
+					const resSpaces = await fetch(
+						"http://localhost:3000/api/user/myspace",
+						{
+							method: "POST",
+							headers: {
+								Accept: "application/json",
+								"Content-Type": "application/json",
+							},
+							body: JSON.stringify({ ...user, userID: user._id }),
+						}
+					);
+					if (!resSpaces.ok) {
+						return;
 					}
-				);
-				if (!resSpaces.ok) {
-					return;
-				}
-				spaces = await resSpaces.json();
-			} catch (error) {}
+					spaces = await resSpaces.json();
+				} catch (error) {}
+			} else {
+				try {
+					const resSpaces = await fetch(
+						"http://localhost:3000/api/discover"
+					);
+					if (!resSpaces.ok) {
+						return;
+					}
+					spaces = await resSpaces.json();
+				} catch (error) {}
+			}
 
 			setJoinedSpaces(
 				spaces.map((space) => {
@@ -45,7 +57,9 @@ export default function MySpace() {
 		<div className="myspace">
 			<div className="myspace__top-section">
 				<div className="myspace__top-section__border"></div>
-				<div className="myspace__top-section__title">My Space</div>
+				<div className="myspace__top-section__title">
+					{user ? "My Space" : "Recommended"}
+				</div>
 			</div>
 			<div className="myspace__space-view-section">{joinedSpaces}</div>
 			<div className="myspace__button-section">
