@@ -438,9 +438,6 @@ app.post("/api/recommendedthreads", async (req, res) => {
 
 		let allThreads = [];
 
-		// const threads = user.joinedSpaces.map((space) => space.channels)[0];
-		// .map((channel) => ({ ...channel.threads }))[0];
-
 		const spaces = user.joinedSpaces;
 		for (const space of spaces) {
 			const channels = space.channels;
@@ -459,7 +456,75 @@ app.post("/api/recommendedthreads", async (req, res) => {
 
 		let randomThreads = [];
 
-		const numOfItemsToPick = 10;
+		const numOfItemsToPick = 20;
+
+		if (allThreads.length > numOfItemsToPick) {
+			for (let i = 0; i < numOfItemsToPick; i++) {
+				const randomIndex = Math.floor(
+					Math.random() * allThreads.length
+				);
+				const randomThread = allThreads[randomIndex];
+
+				if (!randomThreads.includes(randomThread)) {
+					randomThreads.push(randomThread);
+				} else {
+					i--;
+				}
+			}
+		} else {
+			randomThreads = allThreads;
+		}
+
+		res.status(200).json(randomThreads);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({
+			error: "Server / database error!",
+		});
+	}
+});
+
+// Uses key & userID
+// Get all recommended threads
+app.get("/api/guestrecommendedthreads", async (req, res) => {
+	try {
+		const users = await User.find().populate({
+			path: "joinedSpaces",
+			populate: {
+				path: "channels",
+				populate: {
+					path: "threads",
+					populate: {
+						path: "authorID",
+						select: "-key",
+					},
+				},
+			},
+		});
+
+		let allThreads = [];
+
+		for (const user of users) {
+			const spaces = user.joinedSpaces;
+			for (const space of spaces) {
+				const channels = space.channels;
+				for (const channel of channels) {
+					const threads = channel.threads;
+					for (const thread of threads) {
+						allThreads.push({
+							id: "THREADDATAGROUP" + allThreads.length,
+							thread: thread,
+							space: space,
+							channel: channel,
+						});
+					}
+				}
+			}
+		}
+
+		let randomThreads = [];
+
+		const numOfItemsToPick = 20;
 
 		if (allThreads.length > numOfItemsToPick) {
 			for (let i = 0; i < numOfItemsToPick; i++) {
