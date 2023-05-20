@@ -19,47 +19,70 @@ function Home() {
 	useEffect(() => {
 		async function getThreads() {
 			if (user === null) {
-				navigate("/login");
-				return;
-			}
-
-			try {
-				const res = await fetch(
-					"http://localhost:3000/api/recommendedthreads",
-					{
-						method: "POST",
-						headers: {
-							Accept: "application/json",
-							"Content-Type": "application/json",
-						},
-						body: JSON.stringify({ ...user, userID: user._id }),
-					}
-				);
-				if (!res.ok) {
-					navigate("/login");
-					return;
-				}
-				const resData = await res.json();
-
-				if (searchQuery.trim() === "") {
-					setThreadsData(resData);
-				} else {
-					setThreadsData(
-						resData.filter((data) => {
-							const thread = data.thread;
-
-							return (
-								thread.title
-									.toLowerCase()
-									.includes(searchQuery.toLowerCase()) ||
-								thread.text
-									.toLowerCase()
-									.includes(searchQuery.toLowerCase())
-							);
-						})
+				try {
+					const res = await fetch(
+						"http://localhost:3000/api/guestrecommendedthreads"
 					);
-				}
-			} catch (error) {}
+					const resData = await res.json();
+
+					if (searchQuery.trim() === "") {
+						setThreadsData(resData);
+					} else {
+						setThreadsData(
+							resData.filter((data) => {
+								const thread = data.thread;
+
+								return (
+									thread.title
+										.toLowerCase()
+										.includes(searchQuery.toLowerCase()) ||
+									thread.text
+										.toLowerCase()
+										.includes(searchQuery.toLowerCase())
+								);
+							})
+						);
+					}
+				} catch (error) {}
+			} else {
+				try {
+					const res = await fetch(
+						"http://localhost:3000/api/recommendedthreads",
+						{
+							method: "POST",
+							headers: {
+								Accept: "application/json",
+								"Content-Type": "application/json",
+							},
+							body: JSON.stringify({ ...user, userID: user._id }),
+						}
+					);
+					if (!res.ok) {
+						navigate("/login");
+						return;
+					}
+					const resData = await res.json();
+
+					if (searchQuery.trim() === "") {
+						setThreadsData(resData);
+					} else {
+						setThreadsData(
+							resData.filter((data) => {
+								const thread = data.thread;
+
+								return (
+									thread.title
+										.toLowerCase()
+										.includes(searchQuery.toLowerCase()) ||
+									thread.text
+										.toLowerCase()
+										.includes(searchQuery.toLowerCase())
+								);
+							})
+						);
+					}
+				} catch (error) {}
+			}
 
 			setIsLoading(false);
 		}
