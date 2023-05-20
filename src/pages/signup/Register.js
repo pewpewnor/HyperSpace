@@ -28,7 +28,7 @@ export default function Register() {
 	}
 
 	async function registerUser() {
-		const res = await fetch("http://localhost:3001/api/register", {
+		const res = await fetch("http://localhost:3000/api/register", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
