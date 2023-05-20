@@ -48,9 +48,11 @@ function Comment(props) {
 		alert("You must be logged in to reply!");
 	}
 
-	const childComments = childCommentsData.map((childComment) => (
-		<ChildComment key={childComment._id} {...childComment} />
-	));
+	const childComments = childCommentsData
+		.map((childComment) => (
+			<ChildComment key={childComment._id} {...childComment} />
+		))
+		.reverse();
 
 	return (
 		<div className="comment__profile__container">
