@@ -1,6 +1,6 @@
 .profilePage__container {
 	background-color: #000000;
-	/* height: 100vh; */
+	min-height: 100vh;
 	padding-bottom: 2rem;
 }
 
