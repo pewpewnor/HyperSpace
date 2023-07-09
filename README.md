@@ -1,9 +1,7 @@
 # HyperSpace
 
-======================================================================
 DatabaseCurrentStatus: `offline`
 To activate database for app use, contact: norbert.oliver@binus.ac.id 
-======================================================================
 
 A website to experience the best online community based forum. HyperSpace implements the power of community platform such as Reddit's forum and Discord's channel into one.
 
