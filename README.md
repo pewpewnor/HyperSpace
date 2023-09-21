@@ -1,14 +1,14 @@
 # HyperSpace
 
 A website to experience the best online community based forum. HyperSpace implements the power of community platform such as Reddit's forum and Discord's channel into one.
-
+<!--
 Step by step how to run Hyperspace application:
 1. Clone / download Hyperspace repository.
 2. Open with Visual Studio Code.
 3. Open up a terminal and type `npm install` to install the required module.
 4. Type `npm run server` to run the database ( you need to contact us so that we can activate the database for use ).
 5. Open up a new terminal and type `npm start` to run the application.
-
+-->
 Home Page (not signed in):
 ![Screenshot from 2023-06-13 12-00-54](https://github.com/pewpewnor/HyperSpace/assets/125549982/69272db5-752b-4f7e-8388-b16700a9aa7f)
 
